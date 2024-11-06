@@ -15,7 +15,18 @@ module.exports = {
         'display': ['Fig Tree', 'system-ui'],
         'body': ['Space Grotesk', 'system-ui'], 
       },
+      colors: {
+        'bg': 'FFFFF2',
+        'pri-head': '#1BA5CB',
+        'sec-head': '#FF5800',
+        'hl-orange': '#F4A33B',
+        'hl-green': '#8BBA41',
+        'hl-red': '#E85629',
+        'hl-blue': '#309FB5',
+        'text': '#000000'
+      }
     },
   },
+  mode: "jit",
   plugins: [],
 }
