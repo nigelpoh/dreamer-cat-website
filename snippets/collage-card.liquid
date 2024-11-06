@@ -9,11 +9,12 @@
       assign ratio = 1
     endif
 
-    assign card_bg_color = "bg-gray-100"
-
     case card_collection.handle
     when "mountains-dreamin"
       assign card_bg_color = "bg-hl-blue"
+    
+    else
+      assign card_bg_color = "bg-gray-100"
 
     endcase
 
