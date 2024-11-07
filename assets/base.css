@@ -191,9 +191,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   list-style: none;
 }
 
-.hidden {
+/* .hidden {
   display: none !important;
-}
+} */
 
 .visually-hidden {
   position: absolute !important;
@@ -468,7 +468,7 @@ table:not([class]) th {
 a:empty,
 ul:empty,
 dl:empty,
-div:empty,
+/* div:empty, */
 section:empty,
 article:empty,
 p:empty,
@@ -897,7 +897,7 @@ summary::-webkit-details-marker {
   margin-bottom: 0;
 }
 
-.grid__item {
+/* .grid__item {
   width: calc(25% - var(--grid-mobile-horizontal-spacing) * 3 / 4);
   max-width: calc(50% - var(--grid-mobile-horizontal-spacing) / 2);
   flex-grow: 1;
@@ -909,7 +909,7 @@ summary::-webkit-details-marker {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
   }
-}
+} */
 
 .grid--gapless.grid {
   column-gap: 0;
