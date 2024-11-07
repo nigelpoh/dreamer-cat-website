@@ -561,9 +561,7 @@ video {
 
   font-weight: 300;
 
-  font-display: swap;
-
-  src: url(/assets/space_grotesk.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -573,9 +571,7 @@ video {
 
   font-weight: 400;
 
-  font-display: swap;
-
-  src: url(/assets/space_grotesk.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -585,9 +581,7 @@ video {
 
   font-weight: 500;
 
-  font-display: swap;
-
-  src: url(/assets/space_grotesk.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -597,9 +591,7 @@ video {
 
   font-weight: 600;
 
-  font-display: swap;
-
-  src: url(/assets/space_grotesk.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -609,9 +601,7 @@ video {
 
   font-weight: 700;
 
-  font-display: swap;
-
-  src: url(/assets/space_grotesk.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -621,9 +611,7 @@ video {
 
   font-weight: 600;
 
-  font-display: swap;
-
-  src: url(/assets/figtree.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -633,9 +621,7 @@ video {
 
   font-weight: 700;
 
-  font-display: swap;
-
-  src: url(/assets/figtree.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -645,9 +631,7 @@ video {
 
   font-weight: 800;
 
-  font-display: swap;
-
-  src: url(/assets/figtree.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 @font-face {
@@ -657,9 +641,7 @@ video {
 
   font-weight: 900;
 
-  font-display: swap;
-
-  src: url(/assets/figtree.ttf) format('ttf');
+  font-optical-sizing: auto;
 }
 
 .container {
@@ -893,6 +875,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.bg-bg {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 242 / var(--tw-bg-opacity));
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -926,11 +913,6 @@ video {
 .bg-neutral-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(163 163 163 / var(--tw-bg-opacity));
-}
-
-.bg-bg {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 242 / var(--tw-bg-opacity));
 }
 
 .object-cover {
