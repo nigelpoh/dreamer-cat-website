@@ -12,14 +12,21 @@
     case card_collection.handle
     when "mountains-dreamin"
       assign card_bg_color = "bg-hl-blue"
+      assign card_title = "Discover Nature Like No Other"
+    when "land-of-the-rising-sun"
+        assign card_bg_color = "bg-hl-red"
+        assign card_title = "Immerse Yourself in Japanese Beauty"
+    when "a-trek-through-africa"
+        assign card_bg_color = "bg-hl-orange"
+        assign card_title = "Experience the Energy of the Desert"
     
     else
-      assign card_bg_color = "bg-gray-100"
+      assign card_bg_color = "bg-hl-green"
+      assign card_title = "Explore Our Samsung Phones"
 
     endcase
 
   -%}
-  
   <div class="flex flex-col items-center p-6 {{ card_bg_color }} rounded-xl shadow-lg transition hover:shadow-xl">
     {%- if card_collection.featured_image -%}
       <div class="relative w-full pb-[75%] bg-gray-100 rounded-xl overflow-hidden">
@@ -36,8 +43,8 @@
     {%- endif -%}
   
     <div class="mt-4 w-full">
-      <h3 class="text-5xl font-bold text-white font-display ">
-          {{ card_collection.title | escape }}
+      <h3 class="text-5xl font-black text-white font-display ">
+          {{card_title}}
       </h3>
     </div>
   
