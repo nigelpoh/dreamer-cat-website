@@ -15,6 +15,9 @@ module.exports = {
         'display': ['Fig Tree', 'system-ui'],
         'body': ['Space Grotesk', 'system-ui'], 
       },
+      maxHeight: {
+        'prod-img': '36rem',
+      },
       colors: {
         'bg': 'FFFFF2',
         'pri-head': '#1BA5CB',
