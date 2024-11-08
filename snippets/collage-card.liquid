@@ -27,28 +27,34 @@
     endcase
 
   -%}
-  <div class="flex flex-col items-center p-6 {{ card_bg_color }} rounded-xl shadow-lg transition hover:shadow-xl">
+  <div class="flex flex-col items-center p-8 {{ card_bg_color }} rounded-3xl shadow-lg transition hover:shadow-xl h-full">
     {%- if card_collection.featured_image -%}
-      <div class="relative w-full pb-[75%] bg-gray-100 rounded-xl overflow-hidden">
+      <div class="relative w-full pb-[75%] h-2/3 rounded-3xl overflow-hidden">
         <img
           src="{{ card_collection.featured_image | image_url: width: 400 }}"
           alt="{{ card_collection.featured_image.alt | escape }}"
           width="{{ card_collection.featured_image.width }}"
           height="{{ card_collection.featured_image.height }}"
-          class="absolute inset-0 h-full w-full object-cover transition-transform transform hover:scale-105"
+          class="absolute inset-0 h-full object-cover transition-transform transform hover:scale-105"
         >
       </div>
     {%- else -%}
       <div class="w-full h-48 bg-gray-200 rounded-lg"></div>
     {%- endif -%}
   
-    <div class="mt-4 w-full">
-      <h3 class="text-4xl font-black text-white font-display ">
+    <div class="mt-4 w-full py-6">
+      <h3 class="text-6xl font-black text-white font-dislay">
           {{card_title}}
       </h3>
     </div>
-  
-    <a href="{{ card_collection.url }}" class="mt-6 inline-block self-start px-4 py-2 border-2 border-white {{card_bg_color}} text-white rounded-2xl hover:bg-white hover:text-black font-bold font-display">
-      Shop Now
-    </a>
+    
+    <div class="flex justify-start w-full pb-2">
+        <a href="{{ card_collection.url }}" 
+            class="mt-6 inline-flex items-center justify-center px-6 py-5 border-2 border-white {{card_bg_color}} text-white rounded-3xl hover:bg-white hover:text-black font-black font-body text-4xl space-x-2">
+            <span>Shop Now</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="6" stroke="currentColor" class="w-6 h-6">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+        </a>
+      </div>
   </div> 
