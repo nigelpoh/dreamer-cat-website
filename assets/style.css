@@ -716,6 +716,11 @@ video {
   margin-bottom: 2rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -742,6 +747,10 @@ video {
 
 .mt-6 {
   margin-top: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .block {
@@ -833,6 +842,10 @@ video {
   max-width: 60rem;
 }
 
+.max-w-screen-lg {
+  max-width: 990px;
+}
+
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
@@ -850,6 +863,10 @@ video {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .flex-row {
@@ -878,6 +895,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
 }
 
 .self-start {
@@ -991,6 +1012,11 @@ video {
   background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
 }
@@ -1010,6 +1036,10 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-3 {
@@ -1042,12 +1072,21 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
 
 .pb-\[75\%\] {
   padding-bottom: 75%;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {
@@ -1097,6 +1136,16 @@ video {
   line-height: 1.75rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -1107,6 +1156,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .uppercase {
@@ -1159,6 +1212,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-hl-blue {
+  --tw-text-opacity: 1;
+  color: rgb(48 159 181 / var(--tw-text-opacity));
 }
 
 .opacity-30 {
@@ -1248,6 +1306,13 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+@media (min-width: 320px) {
+  .sm\:py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
 @media (min-width: 750px) {
   .md\:m-8 {
     margin: 2rem;
@@ -1259,6 +1324,10 @@ video {
 
   .md\:hidden {
     display: none;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .md\:flex-row {

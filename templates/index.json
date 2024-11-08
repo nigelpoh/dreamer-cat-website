@@ -1,4 +1,13 @@
-{
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
   "sections": {
     "image_banner": {
       "type": "image-banner",
@@ -31,9 +40,9 @@
         "image_height": "large",
         "desktop_content_position": "bottom-center",
         "show_text_box": false,
-        "image_behavior": "none",
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-3",
+        "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -50,12 +59,11 @@
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -63,13 +71,53 @@
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
         "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "collage_YrqUB9": {
+      "type": "collage",
+      "blocks": {
+        "collection_tAgAaY": {
+          "type": "collection",
+          "settings": {
+            "collection": "a-trek-through-africa"
+          }
+        },
+        "collection_6qzLic": {
+          "type": "collection",
+          "settings": {
+            "collection": "land-of-the-rising-sun"
+          }
+        },
+        "collection_3FCrWh": {
+          "type": "collection",
+          "settings": {
+            "collection": "mountains-dreamin"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tAgAaY",
+        "collection_6qzLic",
+        "collection_3FCrWh"
+      ],
+      "settings": {
+        "heading": "THE GRAND TOUR",
+        "heading_size": "h0",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "collage_YrqUB9"
   ]
 }
