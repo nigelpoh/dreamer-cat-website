@@ -21,7 +21,7 @@
   
   assign media_width = 0.65
 
-  assign possible_colours = "hl-orange,hl-green,hl-red,hl-blue"
+  assign possible_colours = "hl-red,hl-green,hl-red,hl-blue"
   assign possible_colours = possible_colours | split: ","
 -%}
 
@@ -64,8 +64,8 @@
   </div>
 
   {% comment %} Desktop {% endcomment %}
-   <div class = "flex flex-col md:block hidden w-full">
-    <div class = "w-full pb-8 aspect-square max-h-[60rem]">
+   <div class = "flex flex-col md:block hidden w-full max-w-[60rem]">
+    <div class = "w-full pb-8 aspect-square">
       {% render 'product-thumbnail',
         media: product.media[0],
         media_count: media_count,

@@ -19,11 +19,14 @@ module.exports = {
         'bg': '#FFFFF2',
         'pri-head': '#1BA5CB',
         'sec-head': '#FF5800',
-        'hl-orange': '#F4A33B',
+        'hl-yellow': '#FFB000',
         'hl-green': '#8BBA41',
         'hl-red': '#E85629',
         'hl-blue': '#309FB5',
         'text': '#000000'
+      },
+      animation: {
+        'ping-slower':"ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
       }
     },
   },
