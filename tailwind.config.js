@@ -1,14 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./**/*.liquid"],
+  content: [
+    "./**/*.{liquid, js}"
+  ],
+  safelist: [
+    "transition-all", "ease-in-out", "duration-500", "w-14", "rounded-md", "ml-3", "bg-neutral-400",
+    {
+        pattern: /bg-hl-.+/,
+    }
+  ],
   theme: {
     screens: {
       sm: '320px',
+      reg: '440px',
       md: '750px',
       lg: '990px',
-      xlg: '1440px',
-      x2lg: '1920px',
-      pageMaxWidth: '1440px',
+      xl: '1440px',
+      xxl: '1920px',
     },
     extend: {
       fontFamily: {
@@ -23,6 +31,10 @@ module.exports = {
         'hl-green': '#8BBA41',
         'hl-red': '#E85629',
         'hl-blue': '#309FB5',
+        'hl-lighter-yellow': '#FFF7CB',
+        'hl-lighter-green': '#E7FFC1',
+        'hl-lighter-red': '#FFDABF',
+        'hl-lighter-blue': '#DDEEFF',
         'text': '#000000'
       },
       animation: {

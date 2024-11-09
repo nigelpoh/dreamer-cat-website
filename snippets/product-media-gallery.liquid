@@ -11,8 +11,6 @@
   {% render 'product-media-gallery' %}
 {% endcomment %}
 
-<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
-
 {%- liquid
   assign media_count = product.media.size
   if section.settings.hide_variants and media_count > 1 and variant_images.size > 0
@@ -21,11 +19,12 @@
   
   assign media_width = 0.65
 
-  assign possible_colours = "hl-red,hl-green,hl-red,hl-blue"
+  assign possible_colours = "hl-red,hl-green,hl-yellow,hl-blue"
   assign possible_colours = possible_colours | split: ","
 -%}
 
-<input id = "slider-controller" class = "hidden" value = "0" />
+{% comment %} Check Sliders {% endcomment %}
+<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
 
 <div
   id="MediaGallery-{{ section.id }}"
@@ -33,11 +32,12 @@
   class = "h-fit"
 >
   {% comment %} Mobile {% endcomment %}
-  <div class = "flex flex-col mb-12 md:hidden block">
-    <div id = "ScrollableGallery-{{ section.id }}" class = "overflow-x-scroll whitespace-nowrap w-screen text-center no-scrollbar">
+  <scrollable-row id = "ScrollableGallery-{{ section.id }}" class = "flex flex-col mb-12 md:hidden block">
+    <input id = "SliderController-{{ section.id }}" class = "slider-controller hidden" value = "" />
+    <div id = "Scrollable-{{ section.id }}" class = "scrollable overflow-x-scroll whitespace-nowrap text-center no-scrollbar">
       {%- for media in product.media -%}
-        <div class = "inline-block w-screen">
-          <div class = "flex justify-center max-h-[36rem]">
+        <div class = "inline-block w-full">
+          <div class = "flex max-h-[36rem]">
             {% render 'product-thumbnail',
               media: media,
               media_count: media_count,
@@ -56,15 +56,11 @@
       </div>
       {%- endfor -%}
     </div>
-    <div class = "flex flex-row w-full justify-center mt-4">
-      {%- for media in product.media -%}
-        <div id = "SliderIndicator-{{ section.id }}-{{ forloop.index0 }}" data-colour = "{{'bg-' | append: possible_colours[forloop.index0]}}" class = "transition-all ease-in-out duration-500 {% if forloop.index0 != 0%}bg-neutral-400{% else %}{{"bg-" | append: possible_colours[forloop.index0]}}{% endif %} {% if forloop.index0 == 0%} w-14 {% else %} w-4 {% endif %} h-4 rounded-md {% if forloop.index0 != 0 %}ml-3{% endif %}"></div>
-      {%- endfor -%}
-    </div>
-  </div>
+    <div id = "SliderIndicators-{{ section.id }}" class = "slider-indicators flex flex-row w-full justify-center mt-4"></div>
+  </scrollable-row>
 
   {% comment %} Desktop {% endcomment %}
-   <div class = "flex flex-col md:block hidden w-full max-w-[60rem]">
+   <div class = "flex flex-col md:block hidden w-full">
     <div class = "w-full pb-8 aspect-square">
       {% render 'product-thumbnail',
         media: product.media[0],

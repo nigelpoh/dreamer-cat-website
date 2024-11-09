@@ -1,0 +1,393 @@
+{% comment %}
+  Renders reviews section, including click to add review.
+
+  Accepts:
+  - product: {Object} Product object
+  - shop: {Object} Shop object
+  
+  Usage:
+  {% render 'reviews', product: product, shop: shop %}
+{% endcomment %}
+
+{% style %}
+  .score-container {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  .main_score_container, .sub_main_score {
+    margin: 0;
+  }
+  .main_score_container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 1em;
+  }
+  .main_score {
+    margin: 0;
+  }
+  .scores {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 2em;
+  }
+  @media only screen and (max-width: 920px) {
+    .scores {
+      margin-right: 0;
+    }
+  }
+  @media only screen and (max-width: 855px) and (min-width: 750px) {
+    .scores {
+      flex-direction: column;
+    }
+    .main_score_container {
+      margin-bottom: 1em;
+      align-items: center;
+      margin-right: 0em;
+    }
+    .review-btn-container {
+      display:flex;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+  .score_breakdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .indiv_score {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 0.2em;
+  }
+  .rating_label {
+    text-align: right;
+    width: 2em;
+    margin: 0;
+    margin-right: 0.5em;
+  }
+  .rating_box {
+    width: 10em;
+    border: 2px solid rgba(var(--color-foreground), 1);
+    height:1.5em;
+    border-radius: 0.5em;
+  }
+  .rating_amount {
+    display: inline !important;
+    position: absolute;
+    background-color: rgba(var(--color-foreground), 1);
+    width: 9em;
+    height:calc(1.5em - 2px);
+    border-top-left-radius: 0.35em;
+    border-bottom-left-radius: 0.35em;
+  }
+  .review_count {
+    margin: 0;
+    margin-left: 0.5em;
+    opacity: 0.5;
+  }
+  .review_btn {
+    background-color: rgba(var(--color-button), 1);
+    color: rgba(var(--color-background), 1);
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    border: none;
+    margin-top: 0.8em;
+  }
+  hr {
+    margin: 1em;
+  }
+  .page-toggle {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .page-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    background-color: rgba(var(--color-foreground), 0.3);
+    color: rgba(var(--color-background), 0.6);
+    width: 2em;
+    height: 2em;
+    border-radius: 100px;
+  }
+  .page-focus {
+    background-color: rgba(var(--color-foreground), 1);
+    color: rgba(var(--color-background), 1);
+  }
+  .page-hidden {
+    visibility:hidden !important;
+  }
+  .review-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    border-radius: 0.5em;
+  }
+  .review-container.review-hidden {
+    display:none !important;
+  }
+  .btn-cursor {
+    cursor: pointer;
+  }
+  .stars-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgba(var(--color-foreground), 1);
+    margin-bottom: 0.5em;
+  }
+  .no-margin {
+    margin: 0;
+  }
+  .request-review {
+    display: none;
+    transition: all 0.25s;
+    opacity: 0;
+  }
+  .request-review.review-shown {
+    display: block;
+    opacity: 1;
+    transition: all 0.5s;
+  }
+  .star-opt {
+    display: inline !important;
+    background-image: url("{{ star_img_hollow | image_url: width: 20, height: 20 }}");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    margin-right: 1em;
+  }
+  .star-opt-selected {
+    background-image: url("{{ star_img_filled | image_url: width: 20, height: 20 }}") !important;
+  }
+  .text-input {
+    height: 2em;
+    width: 100%;
+    margin-bottom: 1em;
+    font-family: var(--font-body-family);
+    font-size: 1em;
+    box-shadow: none;
+    border: 2px solid rgba(var(--color-foreground), 1);
+    padding: 1em 0.5em;
+    border-radius: 0.5em;
+  }
+  textarea {
+    width: 100%;
+    margin-bottom: 1em;
+    font-family: var(--font-body-family);
+    font-size: 1em;
+    box-shadow: none;
+    border: 2px solid rgba(var(--color-foreground), 1);
+    padding: 1em 0.5em;
+    border-radius: 0.5em;
+  }
+  .cancel-form {
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    height: 2em;
+    border-bottom: 2px solid rgba(var(--color-foreground), 1);
+    font-family: var(--font-body-family);
+    font-size: 1em;
+  }
+  .action-btns-review {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: end;
+  }
+  h3 {
+    margin: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .error-msg {
+    margin: 0;
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+    display: none;
+    color: red;
+    font-family: var(--font-body-family);
+    font-size: 1em;
+  }
+  #thank-you {
+    display: none;
+  }
+{% endstyle %}
+
+<script src="{{ 'reviews.js' | asset_url }}" defer="defer"></script>
+
+{% assign no_reviews_per_page = 3 %}
+<input id = "review-page" value = "1" hidden />
+<input id = "review-page-end" value = "{{ product.metafields.ba_rev.review_data.reviews.size | times: 1.0 | divided_by: no_reviews_per_page | ceil }}" hidden />
+<div class = "score-container">
+  <div class = "scores">
+    <div class = "main_score_container">
+      <h1 class = "main_score">{{ product.metafields.ba_rev.review_data.stars }}</h1>
+      <h4 class = "sub_main_score">Out of 5</h4>
+      <h5 class = "sub_main_score">({{ product.metafields.ba_rev.review_data.reviews_count }} reviews)</h5>
+    </div>
+    <div class = "score_breakdown">
+      {% assign base_scores = "" | split: "" %}
+      {% assign total_admin = 10 %}
+      {% for i in (1..5) %}
+        {% assign i_s = 6 | minus: i | append: "" %}
+        {% if product.metafields.ba_rev.review_data.review_breakdown[i_s] != 0 %}
+          {% assign point_5 = 0.5 | sort %}
+          {% assign base_scores = base_scores | concat: point_5 %}
+          {% assign total_admin = total_admin | minus: 0.5 %}
+        {% else %}
+          {% assign zro = 0 | sort %}
+          {% assign base_scores = base_scores | concat: zro %}
+        {% endif %}
+      {% endfor %}
+      {% for score in base_scores %}
+        <div class = "indiv_score">
+          {% assign i_s = 6 | minus: forloop.index | append: "" %}
+          <h4 class = "rating_label">{{ i_s }}  <img
+              src="{{ star_img_filled | image_url: width: 15, height: 15 }}"
+              alt="{{ star_img_filled.alt }}"
+              width="15"
+              height="15"
+            ></h4>
+          <div class = "rating_box">
+            <div class = "rating_amount" style = "width:{{ product.metafields.ba_rev.review_data.review_breakdown[i_s] | times: 1.0 | divided_by: product.metafields.ba_rev.review_data.reviews_count | times: total_admin | round | plus: score }}em"></div>
+          </div>
+          <h4 class = "review_count">{{ product.metafields.ba_rev.review_data.review_breakdown[i_s] }}</h4>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class = "review-btn-container">
+    <button id = "initiate-review-btn" class = "review_btn button button--primary" onclick="reviewAppear(event);">Write a Review</button>
+  </div>
+  <h3 id = "thank-you">Thank You For Your Review!</h3>
+  <form class = "request-review" method="post" onsubmit = 'sendAReview(event,"{{ shop.id }}","{{ shop.domain }}","{{ product.id }}","{{ product.title }}","{{ product.handle }}");' action="javascript:void(0);" name = "review-form">
+    <h3>Write a Review</h3>
+    <h5 class = "error-msg">Ensure that you keyed in a valid email and filled all fields.</h5>
+    <input type="text" class = "text-input" name="name" placeholder = "Name" required><br>
+    <input type="email" class="text-input" name="email" placeholder = "Email" required><br>
+    <div class="stars-container">
+        <span style = "margin-right:1em;">Rate:</span>
+        <div id = "star-1" class = "star-opt" onclick="star_rating_handler(event);"></div>
+        <div id = "star-2" class = "star-opt" onclick="star_rating_handler(event);"></div>
+        <div id = "star-3" class = "star-opt" onclick="star_rating_handler(event);"></div>
+        <div id = "star-4" class = "star-opt" onclick="star_rating_handler(event);"></div>
+        <div id = "star-5" class = "star-opt" onclick="star_rating_handler(event);"></div>
+    </div>
+    <input name = "star-rating" id = "star-rating-record" value = "0" hidden />
+    <input type="text" class = "text-input" name="title" placeholder = "Title" required><br>
+    <textarea name="review" cols="40" rows="5" placeholder = "Review" required></textarea>
+    <div class = "action-btns-review">
+      <button id = "submit-review" class = "review_btn button button--primary" type = "submit">
+        <span>Submit</span>
+        {%- render 'loading-spinner' -%}
+      </button>
+      <button class = "cancel-form" onclick = "reviewDisappear();">Cancel</button>
+    </div>
+  </form>
+  <hr />
+  {% for review in product.metafields.ba_rev.review_data.reviews %}
+    <div class = "review-container {% if forloop.index < 1 or forloop.index > no_reviews_per_page %} review-hidden {% endif %}" id = "review-{{ forloop.index }}">
+      <h2 class = "no-margin">{{ review.title }}</h2>
+      <h4 style = "margin: 0;text-transform: uppercase;opacity:0.6;font-size: 0.8em;margin-bottom:0.4em;">{{ review.author }}</h4>
+      <div class = "stars-container">
+        {% assign stars = review.stars | round %}
+        {% for i in (1..5) %}
+          {% if i <= stars %}
+            <img
+              src="{{ star_img_filled | image_url: width: 15, height: 15 }}"
+              alt="{{ star_img_filled.alt }}"
+              width="15"
+              height="15"
+            >
+          {% else %}
+            <img
+              src="{{ star_img_hollow | image_url: width: 15, height: 15 }}"
+              alt="{{ star_img_hollow.alt }}"
+              width="15"
+              height="15"
+            >
+          {% endif %}
+        {% endfor %}
+      </div>
+      <p style = "margin: 0;line-height:1.1em;">{{ review.body }}</p>
+      <hr/>
+    </div>
+  {% endfor %}
+  <div class = "page-toggle">
+    <span id = "page-back" class = "page-hidden btn-cursor" onclick = "page_toggle_handler(event,1,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});" data-act = "<">&lt;</span>
+    <span id = "start-page-toggle"  class = "page-btn page-hidden btn-cursor" onclick = "page_toggle_handler(event,0,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});"></span>
+    <span id = "middle-page-toggle" class = "page-btn page-focus btn-cursor" onclick = "page_toggle_handler(event,0,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});">1</span>
+    <span id = "end-page-toggle"  class = "page-btn btn-cursor" onclick = "page_toggle_handler(event,0,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});">2</span>
+    <span id = "page-forward" class = "btn-cursor" onclick = "page_toggle_handler(event,1,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});" data-act = ">">&gt;</span>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Reviews",
+  "tag": "section",
+  "class": "section",
+  "settings": [ 
+      {
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+      },
+      {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
+      }
+  ],
+  "presets": [
+      {
+          "name": "Reviews",
+          "category": "custom"
+      }
+  ],
+  "enabled_on": {
+      "templates": ["product"]
+  }
+}
+{% endschema %}
+
+
+
+
+
+
+
+
+
+
+

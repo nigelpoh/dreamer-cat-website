@@ -5,6 +5,7 @@
   - product: {Object} product object.
   - block: {Object} passing the block information.
   - product_form_id: {String} Id of the product form to which the variant picker is associated.
+  - label: {String} Label for this picker
   Usage:
   {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
 {% endcomment %}
@@ -29,8 +30,8 @@
       -%}
       {%- if picker_type == 'swatch' -%}
         <fieldset class="js product-form__input product-form__input--swatch">
-          <legend class="form__label">
-            {{ option.name }}:
+          <legend class="font-body text-lg font-semibold text-neutral-400">
+            {{ label }}:
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>
@@ -44,7 +45,7 @@
         </fieldset>
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="font-body text-lg font-semibold text-neutral-400">{{ label }}</legend>
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -54,10 +55,10 @@
         </fieldset>
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
+          <label class="font-body text-lg font-semibold text-neutral-400" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+            {{ label }}
           </label>
-          <div class="select">
+          <div class="flex relative w-full">
             {%- if picker_type == 'swatch_dropdown' -%}
               <span
                 data-selected-value
@@ -68,7 +69,7 @@
             {%- endif -%}
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
-              class="select__select"
+              class="appearance-none w-full focus:outline-0 focus:shadow-none py-4 px-4 border-2 border-neutral-800 rounded-2xl font-body text-xl font-semibold"
               name="options[{{ option.name | escape }}]"
               form="{{ product_form_id }}"
             >
@@ -79,8 +80,10 @@
                 picker_type: picker_type
               %}
             </select>
-            <span class="svg-wrapper">
-              {{- 'icon-caret.svg' | inline_asset_content -}}
+            <span class="h-2.5 w-4 pointer-events-none absolute top-8 right-6">
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 10 6" class = "stroke-2 stroke-neutral-800">
+                <polyline class="fill-none" stroke-linecap="round" stroke-linejoin="round" points=".53 .73 5 4.95 9.47 .73"/>
+              </svg>
             </span>
           </div>
         </div>

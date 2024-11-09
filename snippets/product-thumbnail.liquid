@@ -40,7 +40,7 @@
     assign mobile_columns = 2
   endif
 
-  assign overall_class = "w-full h-fit"
+  assign overall_class = "object-contain"
 
   if media.media_type == 'image'
     assign overall_class = overall_class | append: ' image-magnify-' | append: section.settings.image_zoom
