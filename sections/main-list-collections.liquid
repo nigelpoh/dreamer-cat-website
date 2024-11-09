@@ -1,11 +1,17 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
-  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    {{ section.settings.title }}
-  </h1>
-  {%- liquid
+<div class="bg-bg gradient isolate">
+  <div class="max-w-screen-lg mx-auto md:px-4 md:py-4 sm:px-12 sm:py-12">
+    <div class = "py-4">
+      <h2 class = "text-6xl text-hl-blue font-black font-display inline-block animate--fade-in">
+        {{ section.settings.title | upcase}}
+      </h2>
+      <h3 class="text-4xl font-bold font-body text-hl-red mt-2 mb-10">
+        {{ section.settings.subheader | upcase}}
+      </h3>
+  
+{%- liquid
     case section.settings.sort
       when 'products_high', 'products_low'
         assign collections = collections | sort: 'all_products_count'
@@ -25,18 +31,18 @@
   -%}
   {%- paginate collections by paginate_by -%}
     <ul
-      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-      role="list"
+  
+      class="grid sm:grid-cols-1 md:grid-cols-2 md:gap-20 sm:gap-y-16"
     >
       {%- for collection in collections -%}
         <li
-          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="rounded-3xl shadow-xl transition-transform transform hover:scale-105{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
             style="--animation-order: {{ forloop.index }};"
           {% endif %}
         >
-          {% render 'card-collection',
+          {% render 'card-collection-edit',
             card_collection: collection,
             media_aspect_ratio: section.settings.image_ratio,
             columns: 3
@@ -46,7 +52,10 @@
     </ul>
     {% render 'pagination', paginate: paginate %}
   {%- endpaginate -%}
+    </div>
+  </div>
 </div>
+
 {% schema %}
 {
   "name": "t:sections.main-list-collections.name",
@@ -57,6 +66,12 @@
       "id": "title",
       "label": "t:sections.main-list-collections.settings.title.label",
       "default": "t:sections.main-list-collections.settings.title.default"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheader",
+      "label": "Sub Header",
+      "default": "Phone Covers"
     },
     {
       "type": "select",
