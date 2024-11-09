@@ -82,7 +82,7 @@
         "collection_tAgAaY": {
           "type": "collection",
           "settings": {
-            "collection": "a-trek-through-africa"
+            "collection": "a-journey-to-yumea"
           }
         },
         "collection_6qzLic": {
@@ -94,6 +94,12 @@
         "collection_3FCrWh": {
           "type": "collection",
           "settings": {
+            "collection": "a-trek-through-africa"
+          }
+        },
+        "collection_Pj8VWW": {
+          "type": "collection",
+          "settings": {
             "collection": "mountains-dreamin"
           }
         }
@@ -101,7 +107,8 @@
       "block_order": [
         "collection_tAgAaY",
         "collection_6qzLic",
-        "collection_3FCrWh"
+        "collection_3FCrWh",
+        "collection_Pj8VWW"
       ],
       "settings": {
         "heading": "THE GRAND TOUR",

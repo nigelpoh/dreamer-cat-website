@@ -20,25 +20,32 @@
 
 
 <div class="bg-bg gradient isolate">
-  <div class="max-w-screen-lg mx-auto px-4 py-10 sm:py-8 ">
+  <div class="max-w-screen-lg mx-auto md:px-12 md:py-12 sm:px-12 sm:py-12">
     {%- if section.settings.heading != blank -%}
       <div class = "pb-8 pt-4">
       <h2 class = "text-7xl text-hl-blue font-black font-display inline-block">
         {{ section.settings.heading }}
       </h2>
-      <h3 class="text-3xl font-medium font-body text-hl-red mt-2">
+      <h3 class="text-4xl font-bold font-body text-hl-red mt-2">
         OF OUR FEATURED COLLECTIONS
       </h3>
       </div>
     {%- endif -%}
 
-    <div class="max-w-screen-lg mx-auto px-4">
+    <div class="max-w-screen-lg mx-auto">
       {% assign skip_card_product_styles = false %}
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid sm:grid-cols-1 md:grid-cols-5 md:gap-16 sm:gap-y-16">
+
       {%- for block in section.blocks -%}
         <div
-          class="relative p-4 bg-white rounded-lg shadow-lg {% if settings.animations_reveal_on_scroll %} animate-slide-in scroll-trigger{% endif %}" 
-          {% comment %} class="collage__item collage__item--{{ block.type }} collage__item--{{ section.settings.desktop_layout }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" {% endcomment %}
+          class="relative shadow-lg
+          {% if forloop.index == 2 or forloop.index == 3 %}
+            col-span-3
+          {% else%}
+            col-span-2
+          {% endif %}
+          flex-col justify-center rounded-3xl h-full" 
+
           {{ block.shopify_attributes }}
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
