@@ -4,7 +4,14 @@ module.exports = {
     "./**/*.{liquid, js}"
   ],
   safelist: [
-    "transition-all", "ease-in-out", "duration-500", "w-14", "rounded-md", "ml-3", "bg-neutral-400",
+    "transition-all", 
+    "ease-in-out", 
+    "duration-500",
+    "w-14", 
+    "rounded-md", 
+    "ml-3", 
+    "bg-neutral-400",
+    "bg-orange-400",
     {
         pattern: /bg-hl-.+/,
     }
@@ -20,7 +27,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'display': ['Fig Tree', 'system-ui'],
+        'display': ['Fig Tree', 'serif'],
         'body': ['Space Grotesk', 'system-ui'], 
       },
       colors: {

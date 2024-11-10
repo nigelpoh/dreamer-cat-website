@@ -8,140 +8,194 @@
  * ------------------------------------------------------------
  */
  {
-    "sections": {
-      "main": {
-        "type": "main-product",
-        "blocks": {
-          "title": {
-            "type": "title",
-            "settings": {
-              "padding_top": 0,
-              "padding_bottom": 0
-            }
-          },
-          "price": {
-            "type": "price",
-            "settings": {
-              "info": "",
-              "badge": "Free Shipping",
-              "padding_top": 20,
-              "padding_bottom": 0
-            }
-          },
-          "discounts_bK9njT": {
-            "type": "discounts",
-            "settings": {
-              "discount_buy_1": "1",
-              "discount_get_1": "30% Off",
-              "discount_buy_2": "2",
-              "discount_get_2": "40% Off",
-              "discount_buy_3": "3",
-              "discount_get_3": "50% Off",
-              "apply": "",
-              "padding_top": 10,
-              "padding_bottom": 0
-            }
-          },
-          "description_caajTh": {
-            "type": "description",
-            "settings": {
-              "padding_top": 20,
-              "padding_bottom": 8
-            }
-          },
-          "metafield_selector_jUkTAU": {
-            "type": "metafield_selector",
-            "settings": {
-              "metafield": "variation",
-              "label": "Brand",
-              "padding_top": 20,
-              "padding_bottom": 0
-            }
-          },
-          "variant_picker": {
-            "type": "variant_picker",
-            "settings": {
-              "label": "Model",
-              "picker_type": "dropdown",
-              "swatch_shape": "circle",
-              "padding_top": 20,
-              "padding_bottom": 0
-            }
-          },
-          "buy_buttons": {
-            "type": "buy_buttons",
-            "settings": {
-              "show_dynamic_checkout": false,
-              "show_gift_card_recipient": true,
-              "padding_top": 25,
-              "padding_bottom": 0
-            }
-          },
-          "policy_TnTn9f": {
-            "type": "policy",
-            "settings": {
-              "padding_top": 40,
-              "padding_bottom": 0
-            }
-          },
-          "payment_methods_Jate3M": {
-            "type": "payment_methods",
-            "settings": {
-              "padding_top": 20,
-              "padding_bottom": 0
-            }
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         },
-        "block_order": [
-          "title",
-          "price",
-          "discounts_bK9njT",
-          "description_caajTh",
-          "metafield_selector_jUkTAU",
-          "variant_picker",
-          "buy_buttons",
-          "policy_TnTn9f",
-          "payment_methods_Jate3M"
-        ],
-        "settings": {
-          "enable_sticky_info": true,
-          "color_scheme": "scheme-1",
-          "media_size": "large",
-          "constrain_to_viewport": true,
-          "media_fit": "contain",
-          "gallery_layout": "stacked",
-          "media_position": "left",
-          "image_zoom": "lightbox",
-          "mobile_thumbnails": "hide",
-          "hide_variants": true,
-          "enable_video_looping": false,
-          "padding_top": 0,
-          "padding_bottom": 60
+        "price": {
+          "type": "price",
+          "settings": {
+            "info": "",
+            "badge": "Free Shipping",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "discounts_bK9njT": {
+          "type": "discounts",
+          "settings": {
+            "discount_buy_1": "1",
+            "discount_get_1": "30% Off",
+            "discount_buy_2": "2",
+            "discount_get_2": "40% Off",
+            "discount_buy_3": "3",
+            "discount_get_3": "50% Off",
+            "apply": "",
+            "padding_top": 10,
+            "padding_bottom": 0
+          }
+        },
+        "description_caajTh": {
+          "type": "description",
+          "settings": {
+            "padding_top": 20,
+            "padding_bottom": 8
+          }
+        },
+        "metafield_selector_jUkTAU": {
+          "type": "metafield_selector",
+          "settings": {
+            "metafield": "variation",
+            "label": "Brand",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "label": "Model",
+            "picker_type": "dropdown",
+            "swatch_shape": "circle",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "padding_top": 25,
+            "padding_bottom": 0
+          }
+        },
+        "policy_TnTn9f": {
+          "type": "policy",
+          "settings": {
+            "padding_top": 40,
+            "padding_bottom": 0
+          }
+        },
+        "payment_methods_Jate3M": {
+          "type": "payment_methods",
+          "settings": {
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
         }
       },
-      "related-products": {
-        "type": "related-products",
-        "disabled": true,
-        "settings": {
-          "heading": "You may also like",
-          "heading_size": "h2",
-          "products_to_show": 4,
-          "columns_desktop": 4,
-          "color_scheme": "scheme-1",
-          "image_ratio": "square",
-          "image_shape": "default",
-          "show_secondary_image": true,
-          "show_vendor": false,
-          "show_rating": false,
-          "columns_mobile": "2",
-          "padding_top": 40,
-          "padding_bottom": 28
-        }
+      "block_order": [
+        "title",
+        "price",
+        "discounts_bK9njT",
+        "description_caajTh",
+        "metafield_selector_jUkTAU",
+        "variant_picker",
+        "buy_buttons",
+        "policy_TnTn9f",
+        "payment_methods_Jate3M"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 60
       }
     },
-    "order": [
-      "main",
-      "related-products"
-    ]
-  }
-  
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 28
+      }
+    },
+    "product_list_3XPf9r": {
+      "type": "product-list",
+      "settings": {
+        "heading": "You May Also Like",
+        "heading_size": "text-5xl",
+        "subheading": "",
+        "subheading_size": "text-2xl",
+        "collection": "{{ product.metafields.custom.collection.value }}",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "spotlight_image_text_RJ9c7B": {
+      "type": "spotlight-image-text",
+      "blocks": {
+        "heading_DFF6Dm": {
+          "type": "heading",
+          "settings": {
+            "heading": "MEET THE MOONBLINK.",
+            "colour": "bg"
+          }
+        },
+        "body_jyt8CF": {
+          "type": "body",
+          "settings": {
+            "body": "<p>Durable and reliable, this waterproof case protects like moonlight over the night. Made from recyclable materials, it keeps your phone safe while caring for the planet.</p>",
+            "colour": "bg"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DFF6Dm",
+        "body_jyt8CF"
+      ],
+      "settings": {
+        "colour": "black",
+        "video": "shopify://files/videos/moonblink_anim.mp4",
+        "rate": 0.7,
+        "desktop_position": "right",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "reviews_MbDrbP": {
+      "type": "reviews",
+      "settings": {
+        "header": "Reviews",
+        "product": "review-aggregator-dreamer-cats-phone-covers",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "product_list_3XPf9r",
+    "spotlight_image_text_RJ9c7B",
+    "reviews_MbDrbP"
+  ]
+}

@@ -1,0 +1,247 @@
+{%- liquid
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    document.querySelector("#video-{{ section.id }} > video").playbackRate = {{ section.settings.rate }};
+    document.querySelector("#video-{{ section.id }} > video").play();
+  });
+  document.addEventListener("shopify:section:load", function(event) { 
+    document.querySelector("#video-{{ section.id }} > video").playbackRate = {{ section.settings.rate }};
+    document.querySelector("#video-{{ section.id }} > video").play();
+  });
+  function pause_clicked() {
+    {% assign stroke_colour = "stroke-" | append:section.settings.colour %}
+    {% assign fill_colour = "fill-" | append:section.settings.colour %}
+    if (document.querySelector("#video-{{ section.id }} > video").paused) {
+      document.querySelector("#video-{{ section.id }} > video").play();
+      document.querySelector("#pause-{{ section.id }}").innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "{{ stroke_colour }} w-12 h-12 stroke-1">
+          <circle class="fill-none" cx="10" cy="10.29" r="6.71" stroke-miterlimit = "10"/>
+          <line class="fill-none" x1="8.11" y1="8.29" x2="8.11" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+          <line class="fill-none" x1="11.89" y1="8.29" x2="11.89" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+        </svg>
+      `
+    } else {
+      document.querySelector("#video-{{ section.id }} > video").pause();
+      document.querySelector("#pause-{{ section.id }}").innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "w-12 h-12">
+          <circle class="fill-none {{ stroke_colour }} stroke-1" cx="10" cy="10.29" r="6.71" stroke-miterlimit=10></circle>
+          <path class = "{{ fill_colour }}" d="M7.87,8.13v4.32c0,.69.78,1.1,1.35.7l3.09-2.16c.49-.34.49-1.06,0-1.4l-3.09-2.16c-.57-.4-1.35,0-1.35.7Z"/>
+        </svg>
+      `
+    }
+  }
+</script>
+
+<div 
+  class="flex {% if section.settings.desktop_position == "right" %}flex-col-reverse md:flex-row{% else %}flex-col md:flex-row-reverse{% endif %} bg-black rounded-3xl overflow-hidden"
+  style = "margin-top:{{ section.settings.padding_top }}px;margin-bottom:{{ section.settings.padding_bottom }}px"
+>
+  <div class = "flex flex-col p-4 reg:p-12 md:py-16 md:px-24 md:w-2/5 justify-center mr-[10%]">
+    {%- for block in section.blocks -%}
+      {% case block.type %}
+        {%- when 'heading' -%}
+          {% assign text_colour = "text-" | append:block.settings.colour %}
+          <h1 class = "font-display {{ text_colour }} font-black text-7xl mb-8 break-words sm:break-normal">{{ block.settings.heading }}</h1>
+        {%- when 'body' -%}
+          {% assign text_colour = "text-" | append:block.settings.colour %}
+          <span class = "font-body {{ text_colour }} font-base text-3xl mb-8">{{ block.settings.body }}</span>
+        {%- when 'button' -%}
+          {% assign text_colour = "text-" | append:block.settings.colour %}
+          {% assign border_colour = "border-" | append:block.settings.colour %}
+          {% assign stroke_colour = "stroke-" | append:block.settings.colour %}
+          <a class = "group flex flex-row font-body border-2 w-fit {{ text_colour }} {{ border_colour }} font-base text-2xl py-2 px-4 rounded-xl mb-8" href = "{{ block.settings.button_link }}">
+            {{ block.settings.button_label }}
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "w-3 ml-3 group-hover:translate-x-2 transition-transform duration-300">
+              <polyline class="fill-none {{ stroke_colour }} stroke-2" stroke-linejoin = "round" stroke-linecap = "round"  points="1.68 10.02 5.9 5.55 1.68 1.08"/>
+            </svg>
+          </a>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+  <div id = "video-{{ section.id }}" class = "relative md:w-1/2">
+    {% if section.settings.video != blank %}
+      {% assign stroke_colour = "stroke-" | append:section.settings.colour %}
+      {{ section.settings.video | media_tag: image_size: '2048x', autoplay: true, loop: true, controls: false, preload: 'none' }}
+      <button id = "pause-{{ section.id }}" class = "absolute z-2 right-12 bottom-12 invert" onclick = "pause_clicked();">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "{{ stroke_colour }} w-12 h-12 stroke-1">
+          <circle class="fill-none" cx="10" cy="10.29" r="6.71" stroke-miterlimit = "10"/>
+          <line class="fill-none" x1="8.11" y1="8.29" x2="8.11" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+          <line class="fill-none" x1="11.89" y1="8.29" x2="11.89" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+        </svg>
+      </button>
+    {%- elsif section.settings.image != blank -%}
+        {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+        {%- capture sizes -%}
+          (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+          (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+        {%- endcapture -%}
+        {{
+          section.settings.image
+          | image_url: width: 1500
+          | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+        }}
+      {%- else -%}
+        {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Spotlight Image/Text",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (Will be used if video is not set)"
+    },
+    {
+      "type": "text",
+      "id": "colour",
+      "default": "black",
+      "label": "Tailwind Colour"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video (Takes precedence)"
+    },
+    {
+      "type": "range",
+      "id": "rate",
+      "label": "Video Playback Rate",
+      "min": 0,
+      "max": 2,
+      "step": 0.1,
+      "default": 1
+    },
+    {
+      "type": "select",
+      "id": "desktop_position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right",
+      "label": "Image Position (Desktop)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Header",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "t:sections.image-with-text.blocks.heading.settings.heading.default",
+          "label": "t:sections.image-with-text.blocks.heading.settings.heading.label"
+        },
+        {
+          "type": "text",
+          "id": "colour",
+          "default": "bg",
+          "label": "Tailwind Colour"
+        }
+      ]
+    },
+    {
+      "type": "body",
+      "name": "Body Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "body",
+          "default": "t:sections.image-with-text.blocks.caption.settings.text.default",
+          "label": "t:sections.image-with-text.blocks.caption.settings.text.label"
+        },
+        {
+          "type": "text",
+          "id": "colour",
+          "default": "bg",
+          "label": "Tailwind Colour"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:sections.image-with-text.blocks.button.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "t:sections.image-with-text.blocks.button.settings.button_label.default",
+          "label": "t:sections.image-with-text.blocks.button.settings.button_label.label",
+          "info": "t:sections.image-with-text.blocks.button.settings.button_label.info"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "t:sections.image-with-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "text",
+          "id": "colour",
+          "default": "bg",
+          "label": "Tailwind Colour"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Spotlight Image/Text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "body"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
