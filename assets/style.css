@@ -557,91 +557,13 @@ video {
 @font-face {
   font-family: 'Space Grotesk';
 
-  font-style: normal;
-
-  font-weight: 300;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-
-  font-style: normal;
-
-  font-weight: 400;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-
-  font-style: normal;
-
-  font-weight: 500;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-
-  font-style: normal;
-
-  font-weight: 600;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-
-  font-style: normal;
-
-  font-weight: 700;
-
-  font-optical-sizing: auto;
+  src: url("./assets/spacegrotesk.ttf");
 }
 
 @font-face {
   font-family: 'Fig Tree';
 
-  font-style: normal;
-
-  font-weight: 600;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Fig Tree';
-
-  font-style: normal;
-
-  font-weight: 700;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Fig Tree';
-
-  font-style: normal;
-
-  font-weight: 800;
-
-  font-optical-sizing: auto;
-}
-
-@font-face {
-  font-family: 'Fig Tree';
-
-  font-style: normal;
-
-  font-weight: 900;
-
-  font-optical-sizing: auto;
+  src: url("./assets/figtree.ttf");
 }
 
 .container {
@@ -716,6 +638,10 @@ video {
   bottom: 3rem;
 }
 
+.bottom-4 {
+  bottom: 1rem;
+}
+
 .left-20 {
   left: 5rem;
 }
@@ -769,6 +695,10 @@ video {
 
 .mb-12 {
   margin-bottom: 3rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .mb-4 {
@@ -980,10 +910,6 @@ video {
   width: 1.25rem;
 }
 
-.w-6 {
-  width: 1.5rem;
-}
-
 .w-8 {
   width: 2rem;
 }
@@ -1094,12 +1020,6 @@ video {
   gap: 2rem;
 }
 
-.space-x-2 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.5rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1172,6 +1092,11 @@ video {
   border-width: 2px;
 }
 
+.border-bg {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 242 / var(--tw-border-opacity));
+}
+
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1180,11 +1105,6 @@ video {
 .border-neutral-800 {
   --tw-border-opacity: 1;
   border-color: rgb(38 38 38 / var(--tw-border-opacity));
-}
-
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .bg-bg {
@@ -2017,14 +1937,14 @@ video {
   padding-right: 1rem;
 }
 
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
 }
 
 .py-1 {
@@ -2101,7 +2021,7 @@ video {
 }
 
 .font-display {
-  font-family: Fig Tree, system-ui;
+  font-family: Fig Tree, serif;
 }
 
 .text-2xl {
@@ -2368,16 +2288,6 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:bg-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.hover\:text-black:hover {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-
 .hover\:shadow-xl:hover {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -2403,6 +2313,11 @@ video {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.group:hover .group-hover\:-translate-x-2 {
+  --tw-translate-x: -0.5rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group:hover .group-hover\:translate-x-2 {
@@ -2642,5 +2557,10 @@ video {
 
   .xl\:w-\[70\%\] {
     width: 70%;
+  }
+
+  .xl\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
