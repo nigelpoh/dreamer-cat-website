@@ -20,7 +20,7 @@
 
 
 <div class="bg-bg gradient isolate">
-  <div class="max-w-screen-lg mx-auto md:px-12 md:py-12 sm:px-12 sm:py-12">
+  <div class="mx-auto md:px-12 md:py-12 sm:px-12 sm:py-12">
     {%- if section.settings.heading != blank -%}
       <div class = "pb-8 pt-4">
       <h2 class = "text-7xl text-hl-blue font-black font-display inline-block">
@@ -32,13 +32,13 @@
       </div>
     {%- endif -%}
 
-    <div class="max-w-screen-lg mx-auto">
+    <div class="mx-auto">
       {% assign skip_card_product_styles = false %}
       <div class="grid sm:grid-cols-1 md:grid-cols-5 md:gap-16 sm:gap-y-16">
 
       {%- for block in section.blocks -%}
         <div
-          class="relative shadow-lg
+          class="relative
           {% if forloop.index == 2 or forloop.index == 3 %}
             col-span-3
           {% else%}
@@ -119,14 +119,12 @@
               %}
               {% assign skip_card_product_styles = true %}
             {%- when 'collection' -%}
-              {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
               {% render 'collage-card',
                 card_collection: block.settings.collection,
-                media_aspect_ratio: 'adapt',
-                columns: 2,
-                extend_height: true,
-                wrapper_class: section.settings.card_styles,
-                placeholder_image: placeholder_image
+                bg_colour: block.settings.bg_colour,
+                badge_colour: block.settings.badge_colour,
+                title: block.settings.header,
+                number: forloop.index
               %}
             {%- when 'video' -%}
               <div class="collage-card {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}{{ section.settings.card_styles }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
@@ -393,6 +391,59 @@
           "type": "collection",
           "id": "collection",
           "label": "t:sections.collage.blocks.collection.settings.collection.label"
+        },
+        {
+          "type": "text",
+          "id": "header",
+          "label": "Header"
+        },
+        {
+          "type": "select",
+          "id": "bg_colour",
+          "label": "Background Colour",
+          "options": [
+            {
+              "value": "bg-hl-green",
+              "label": "Green"
+            },
+            {
+              "value": "bg-hl-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "bg-hl-red",
+              "label": "Red"
+            },
+            {
+              "value": "bg-hl-blue",
+              "label": "Blue"
+            }
+          ],
+          "default": "bg-hl-blue"
+        },
+        {
+          "type": "select",
+          "id": "badge_colour",
+          "label": "Badge Colour",
+          "options": [
+            {
+              "value": "bg-hl-green",
+              "label": "Green"
+            },
+            {
+              "value": "bg-hl-yellow",
+              "label": "Yellow"
+            },
+            {
+              "value": "bg-hl-red",
+              "label": "Red"
+            },
+            {
+              "value": "bg-hl-blue",
+              "label": "Blue"
+            }
+          ],
+          "default": "bg-hl-blue"
         }
       ]
     },
