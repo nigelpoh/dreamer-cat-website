@@ -2,11 +2,9 @@
 {%- liquid
     assign filtered_products = "" | split: ""
     assign short_names_taken = "" | split: ""
-    if product != blank
-        assign current_short_name = product.metafields.custom.short_name.value | sort
-        assign short_names_taken = short_names_taken | concat: current_short_name
-    endif
-    assign prods_all = section.settings.collection.products | sort: 'metafields.custom.short_name.value'
+    assign current_short_name = product.metafields.custom.short_name.value | sort
+    assign short_names_taken = short_names_taken | concat: current_short_name
+    assign prods_all = product.metafields.custom.collection.value.products | sort: 'metafields.custom.short_name.value'
 
     for prod in prods_all
         assign taken = false
@@ -28,16 +26,9 @@
     class="product-list"
     style = "padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px"
   >
-    {% if section.settings.heading != blank %}
-        <h2 class = "font-display {{ section.settings.heading_size }} text-pri-head uppercase font-black {% if section.settings.subheading == blank %}mb-12{% else %}mb-2{% endif %}">
-            {{ section.settings.heading }}
-        </h2>
-    {% endif %}
-    {% if section.settings.subheading != blank %}
-        <h4 class = "font-body {{ section.settings.subheading_size }} text-sec-head uppercase font-bold mb-12">
-            {{ section.settings.subheading }}
-        </h4>
-    {% endif %}
+    <h2 class = "font-display text-5xl text-pri-head uppercase font-black mb-12">
+        {{ section.settings.heading }}
+    </h2>
 
 
     {% render 'scrolling-products',
@@ -60,70 +51,6 @@
             "type": "text",
             "id": "heading",
             "label": "t:sections.related-products.settings.heading.label"
-        },
-        {
-            "type": "select",
-            "id": "heading_size",
-            "label": "Heading Size",
-            "options": [
-              {
-                "value": "text-7xl",
-                "label": "2 XL"
-              },
-              {
-                "value": "text-6xl",
-                "label": "Extra Large"
-              },
-              {
-                "value": "text-5xl",
-                "label": "Large"
-              },
-              {
-                "value": "text-4xl",
-                "label": "Medium"
-              },{
-                "value": "text-3xl",
-                "label": "Small"
-              }
-            ],
-            "default": "text-5xl"
-        },
-        {
-            "type": "text",
-            "id": "subheading",
-            "label": "Subheader"
-        },
-        {
-            "type": "select",
-            "id": "subheading_size",
-            "label": "Heading Size",
-            "options": [
-              {
-                "value": "text-4xl",
-                "label": "2 XL"
-              },
-              {
-                "value": "text-3xl",
-                "label": "Extra Large"
-              },
-              {
-                "value": "text-2xl",
-                "label": "Large"
-              },
-              {
-                "value": "text-xl",
-                "label": "Medium"
-              },{
-                "value": "text-lg",
-                "label": "Small"
-              }
-            ],
-            "default": "text-2xl"
-        },
-        {
-            "type": "collection",
-            "id": "collection",
-            "label": "Collection to use"
         },
         {
             "type": "header",
@@ -156,6 +83,9 @@
             "category": "custom"
         }
     ],
+    "enabled_on": {
+        "templates": ["product"]
+    }
   }
   {% endschema %}
   

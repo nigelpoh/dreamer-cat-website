@@ -23,6 +23,9 @@
   assign possible_colours = possible_colours | split: ","
 -%}
 
+{% comment %} Check Sliders {% endcomment %}
+<script src="{{ 'slider.js' | asset_url }}" defer="defer"></script>
+
 <div
   id="MediaGallery-{{ section.id }}"
   role="region"

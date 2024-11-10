@@ -5,11 +5,57 @@
 @layer base {
     @font-face {
       font-family: 'Space Grotesk';
-      src: url("./assets/spacegrotesk.ttf");
+      font-style: normal;
+      font-weight: 300;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 400;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 500;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 600;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      font-optical-sizing: auto;
     }
     @font-face {
       font-family: 'Fig Tree';
-      src: url("./assets/figtree.ttf");
+      font-style: normal;
+      font-weight: 600;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Fig Tree';
+      font-style: normal;
+      font-weight: 700;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Fig Tree';
+      font-style: normal;
+      font-weight: 800;
+      font-optical-sizing: auto;
+    }
+    @font-face {
+      font-family: 'Fig Tree';
+      font-style: normal;
+      font-weight: 900;
+      font-optical-sizing: auto;
     }
   }
   

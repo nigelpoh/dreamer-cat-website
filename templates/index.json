@@ -48,43 +48,59 @@
         "show_text_below": false
       }
     },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured products",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
     "collage_YrqUB9": {
       "type": "collage",
       "blocks": {
         "collection_tAgAaY": {
           "type": "collection",
           "settings": {
-            "collection": "a-journey-to-yumea",
-            "header": "Explore Our Samsung Phones",
-            "bg_colour": "bg-hl-green",
-            "badge_colour": "bg-hl-yellow"
+            "collection": "a-journey-to-yumea"
           }
         },
         "collection_6qzLic": {
           "type": "collection",
           "settings": {
-            "collection": "land-of-the-rising-sun",
-            "header": "Immerse Yourself In Japanese Beauty",
-            "bg_colour": "bg-hl-red",
-            "badge_colour": "bg-hl-blue"
+            "collection": "land-of-the-rising-sun"
           }
         },
         "collection_3FCrWh": {
           "type": "collection",
           "settings": {
-            "collection": "a-trek-through-africa",
-            "header": "Experience the Energy of Desert",
-            "bg_colour": "bg-hl-yellow",
-            "badge_colour": "bg-hl-red"
+            "collection": "a-trek-through-africa"
           }
         },
-        "collection_8t7Agd": {
+        "collection_Pj8VWW": {
           "type": "collection",
           "settings": {
-            "collection": "mountains-dreamin",
-            "header": "Discover Nature Like No Other",
-            "bg_colour": "bg-hl-blue",
-            "badge_colour": "bg-hl-green"
+            "collection": "mountains-dreamin"
           }
         }
       },
@@ -92,7 +108,7 @@
         "collection_tAgAaY",
         "collection_6qzLic",
         "collection_3FCrWh",
-        "collection_8t7Agd"
+        "collection_Pj8VWW"
       ],
       "settings": {
         "heading": "THE GRAND TOUR",
@@ -104,64 +120,11 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "product_list_HghxCA": {
-      "type": "product-list",
-      "settings": {
-        "heading": "Trending Designs",
-        "heading_size": "text-7xl",
-        "subheading": "From Dreamer Cat's Adventures",
-        "subheading_size": "text-3xl",
-        "collection": "mountains-dreamin",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "spotlight_image_text_BRLVhz": {
-      "type": "spotlight-image-text",
-      "blocks": {
-        "heading_ED6YA8": {
-          "type": "heading",
-          "settings": {
-            "heading": "MEET THE MOONBLINK.",
-            "colour": "bg"
-          }
-        },
-        "body_9zM366": {
-          "type": "body",
-          "settings": {
-            "body": "<p>Durable and reliable, this waterproof case protects like moonlight over the night. Made from recyclable materials, it keeps your phone safe while caring for the planet.</p>",
-            "colour": "bg"
-          }
-        },
-        "button_cDKamR": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "",
-            "colour": "bg"
-          }
-        }
-      },
-      "block_order": [
-        "heading_ED6YA8",
-        "body_9zM366",
-        "button_cDKamR"
-      ],
-      "settings": {
-        "colour": "black",
-        "video": "shopify://files/videos/moonblink_anim.mp4",
-        "rate": 1,
-        "desktop_position": "right",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "image_banner",
-    "collage_YrqUB9",
-    "product_list_HghxCA",
-    "spotlight_image_text_BRLVhz"
+    "featured_collection",
+    "collage_YrqUB9"
   ]
 }

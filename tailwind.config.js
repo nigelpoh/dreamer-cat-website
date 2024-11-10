@@ -27,7 +27,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'display': ['Fig Tree', 'serif'],
+        'display': ['Fig Tree', 'system-ui'],
         'body': ['Space Grotesk', 'system-ui'], 
       },
       colors: {
