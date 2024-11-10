@@ -9,332 +9,139 @@
   {% render 'reviews', product: product, shop: shop %}
 {% endcomment %}
 
-{% style %}
-  .score-container {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  .main_score_container, .sub_main_score {
-    margin: 0;
-  }
-  .main_score_container {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    margin-right: 1em;
-  }
-  .main_score {
-    margin: 0;
-  }
-  .scores {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 2em;
-  }
-  @media only screen and (max-width: 920px) {
-    .scores {
-      margin-right: 0;
-    }
-  }
-  @media only screen and (max-width: 855px) and (min-width: 750px) {
-    .scores {
-      flex-direction: column;
-    }
-    .main_score_container {
-      margin-bottom: 1em;
-      align-items: center;
-      margin-right: 0em;
-    }
-    .review-btn-container {
-      display:flex;
-      justify-content: center;
-      width: 100%;
-    }
-  }
-  .score_breakdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .indiv_score {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    margin-bottom: 0.2em;
-  }
-  .rating_label {
-    text-align: right;
-    width: 2em;
-    margin: 0;
-    margin-right: 0.5em;
-  }
-  .rating_box {
-    width: 10em;
-    border: 2px solid rgba(var(--color-foreground), 1);
-    height:1.5em;
-    border-radius: 0.5em;
-  }
-  .rating_amount {
-    display: inline !important;
-    position: absolute;
-    background-color: rgba(var(--color-foreground), 1);
-    width: 9em;
-    height:calc(1.5em - 2px);
-    border-top-left-radius: 0.35em;
-    border-bottom-left-radius: 0.35em;
-  }
-  .review_count {
-    margin: 0;
-    margin-left: 0.5em;
-    opacity: 0.5;
-  }
-  .review_btn {
-    background-color: rgba(var(--color-button), 1);
-    color: rgba(var(--color-background), 1);
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    border: none;
-    margin-top: 0.8em;
-  }
-  hr {
-    margin: 1em;
-  }
-  .page-toggle {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  .page-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5em;
-    margin-left: 0.5em;
-    background-color: rgba(var(--color-foreground), 0.3);
-    color: rgba(var(--color-background), 0.6);
-    width: 2em;
-    height: 2em;
-    border-radius: 100px;
-  }
-  .page-focus {
-    background-color: rgba(var(--color-foreground), 1);
-    color: rgba(var(--color-background), 1);
-  }
-  .page-hidden {
-    visibility:hidden !important;
-  }
-  .review-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
-    border-radius: 0.5em;
-  }
-  .review-container.review-hidden {
-    display:none !important;
-  }
-  .btn-cursor {
-    cursor: pointer;
-  }
-  .stars-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: rgba(var(--color-foreground), 1);
-    margin-bottom: 0.5em;
-  }
-  .no-margin {
-    margin: 0;
-  }
-  .request-review {
-    display: none;
-    transition: all 0.25s;
-    opacity: 0;
-  }
-  .request-review.review-shown {
-    display: block;
-    opacity: 1;
-    transition: all 0.5s;
-  }
-  .star-opt {
-    display: inline !important;
-    background-image: url("{{ star_img_hollow | image_url: width: 20, height: 20 }}");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 20px;
-    height: 20px;
-    margin-right: 1em;
-  }
-  .star-opt-selected {
-    background-image: url("{{ star_img_filled | image_url: width: 20, height: 20 }}") !important;
-  }
-  .text-input {
-    height: 2em;
-    width: 100%;
-    margin-bottom: 1em;
-    font-family: var(--font-body-family);
-    font-size: 1em;
-    box-shadow: none;
-    border: 2px solid rgba(var(--color-foreground), 1);
-    padding: 1em 0.5em;
-    border-radius: 0.5em;
-  }
-  textarea {
-    width: 100%;
-    margin-bottom: 1em;
-    font-family: var(--font-body-family);
-    font-size: 1em;
-    box-shadow: none;
-    border: 2px solid rgba(var(--color-foreground), 1);
-    padding: 1em 0.5em;
-    border-radius: 0.5em;
-  }
-  .cancel-form {
-    box-shadow: none;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    height: 2em;
-    border-bottom: 2px solid rgba(var(--color-foreground), 1);
-    font-family: var(--font-body-family);
-    font-size: 1em;
-  }
-  .action-btns-review {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: end;
-  }
-  h3 {
-    margin: 0;
-    margin-top: 1em;
-    margin-bottom: 1em;
-  }
-  .error-msg {
-    margin: 0;
-    margin-top: -0.5em;
-    margin-bottom: 1em;
-    display: none;
-    color: red;
-    font-family: var(--font-body-family);
-    font-size: 1em;
-  }
-  #thank-you {
-    display: none;
-  }
-{% endstyle %}
+{%- liquid
+    assign review_prod = product
+    unless section.settings.product == null
+        assign review_prod = section.settings.product
+    endunless
+-%}
 
 <script src="{{ 'reviews.js' | asset_url }}" defer="defer"></script>
 
 {% assign no_reviews_per_page = 3 %}
 <input id = "review-page" value = "1" hidden />
-<input id = "review-page-end" value = "{{ product.metafields.ba_rev.review_data.reviews.size | times: 1.0 | divided_by: no_reviews_per_page | ceil }}" hidden />
-<div class = "score-container">
-  <div class = "scores">
-    <div class = "main_score_container">
-      <h1 class = "main_score">{{ product.metafields.ba_rev.review_data.stars }}</h1>
-      <h4 class = "sub_main_score">Out of 5</h4>
-      <h5 class = "sub_main_score">({{ product.metafields.ba_rev.review_data.reviews_count }} reviews)</h5>
-    </div>
-    <div class = "score_breakdown">
-      {% assign base_scores = "" | split: "" %}
-      {% assign total_admin = 10 %}
-      {% for i in (1..5) %}
-        {% assign i_s = 6 | minus: i | append: "" %}
-        {% if product.metafields.ba_rev.review_data.review_breakdown[i_s] != 0 %}
-          {% assign point_5 = 0.5 | sort %}
-          {% assign base_scores = base_scores | concat: point_5 %}
-          {% assign total_admin = total_admin | minus: 0.5 %}
-        {% else %}
-          {% assign zro = 0 | sort %}
-          {% assign base_scores = base_scores | concat: zro %}
-        {% endif %}
-      {% endfor %}
-      {% for score in base_scores %}
-        <div class = "indiv_score">
-          {% assign i_s = 6 | minus: forloop.index | append: "" %}
-          <h4 class = "rating_label">{{ i_s }}  <img
-              src="{{ star_img_filled | image_url: width: 15, height: 15 }}"
-              alt="{{ star_img_filled.alt }}"
-              width="15"
-              height="15"
-            ></h4>
-          <div class = "rating_box">
-            <div class = "rating_amount" style = "width:{{ product.metafields.ba_rev.review_data.review_breakdown[i_s] | times: 1.0 | divided_by: product.metafields.ba_rev.review_data.reviews_count | times: total_admin | round | plus: score }}em"></div>
-          </div>
-          <h4 class = "review_count">{{ product.metafields.ba_rev.review_data.review_breakdown[i_s] }}</h4>
+<input id = "review-page-end" value = "{{ review_prod.metafields.ba_rev.review_data.reviews.size | times: 1.0 | divided_by: no_reviews_per_page | ceil }}" hidden />
+<h1 class = "font-display uppercase text-pri-head text-5xl font-black">{{  section.settings.header }}</h1>
+<div class = "flex flex-col md:flex-row py-8">
+    <div class = "flex flex-col mb-12 md:mb-0 md:mr-[10%] md:w-[30%] xl:w-[20%]">
+        <div class = "flex flex-row items-center mr-8 lg:mr-0 mb-4">
+            <div class = "flex flex-col items-end mr-4">
+                <h1 class = "font-display text-5xl font-black text-hl-red">{{ review_prod.metafields.ba_rev.review_data.stars }}</h1>
+                <h4 class = "font-body font-bold text-2xl">Out of 5</h4>
+                <h5 class = "font-body font-medium text-xl">({{ review_prod.metafields.ba_rev.review_data.reviews_count }} reviews)</h5>
+            </div>
+            <div class = "flex flex-col">
+                {% assign base_scores = "" | split: "" %}
+                {% assign total_admin = 10 %}
+                {% for i in (1..5) %}
+                {% assign i_s = 6 | minus: i | append: "" %}
+                {% if review_prod.metafields.ba_rev.review_data.review_breakdown[i_s] != 0 %}
+                    {% assign point_5 = 0.5 | sort %}
+                    {% assign base_scores = base_scores | concat: point_5 %}
+                    {% assign total_admin = total_admin | minus: 0.5 %}
+                {% else %}
+                    {% assign zro = 0 | sort %}
+                    {% assign base_scores = base_scores | concat: zro %}
+                {% endif %}
+                {% endfor %}
+                {% for score in base_scores %}
+                {% assign colours = "bg-hl-green,bg-hl-blue,bg-hl-yellow,bg-orange-400,bg-hl-red" | split: "," %}
+                <div class = "flex flex-row items-center">
+                    {% assign i_s = 6 | minus: forloop.index | append: "" %}
+                    <h4 class = "flex flex-row items-center font-body font-medium text-lg w-12">
+                        {{ i_s }}  
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1200 1200" class = "h-8 w-8">
+                            <path class="fill-hl-yellow" d="M647.56,306.73l36.03,110.87c10.71,32.96,41.43,55.28,76.08,55.28h116.58c48.44,0,68.57,61.98,29.39,90.45l-94.32,68.52c-28.04,20.37-39.77,56.48-29.06,89.44l36.03,110.87c14.97,46.07-37.76,84.37-76.94,55.9l-94.32-68.52c-28.04-20.37-66.01-20.37-94.05,0l-94.32,68.52c-39.19,28.47-91.91-9.84-76.94-55.9l36.03-110.87c10.71-32.96-1.02-69.07-29.06-89.44l-94.32-68.52c-39.19-28.47-19.05-90.45,29.39-90.45h116.58c34.66,0,65.37-22.32,76.08-55.28l36.03-110.87c14.97-46.07,80.14-46.07,95.11,0h0Z"/>
+                        </svg>
+                    </h4>
+                    {% assign width = review_prod.metafields.ba_rev.review_data.review_breakdown[i_s] | times: 1.0 | divided_by: review_prod.metafields.ba_rev.review_data.reviews_count | times: total_admin | round | plus: score | plus: 0.7 %}
+                    <div class = "{{ colours[forloop.index0] }} h-6 mr-3 rounded-lg" style = "width:{{ width }}em"></div>
+                    <h4 class = "font-body font-medium text-base">{{ review_prod.metafields.ba_rev.review_data.review_breakdown[i_s] }}</h4>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-      {% endfor %}
+        <button id = "initiate-review-btn" class = "transition duration-300 bg-black text-bg font-body text-xl font-semibold py-2 px-4 rounded-xl w-fit" onclick="reviewAppear(event);">Write a Review</button>
+        <h3 id = "thank-you" class = "transition duration-300 hidden opacity-0 font-body text-xl font-bold text-black">Thank You For Your Review!</h3>
+        <form id = "request-review" class = "transition-all duration-300 hidden opacity-0" method="post" onsubmit = 'sendAReview(event,"{{ shop.id }}","{{ shop.domain }}","{{ review_prod.id }}","{{ review_prod.title }}","{{ review_prod.handle }}");' action="javascript:void(0);" name = "review-form">
+            <h3 class = "font-body font-bold text-2xl text-sec-head uppercase mb-8">Write a Review</h3>
+            <h5 class = "font-body font-bold text-xl text-hl-red error-msg hidden h-0 mb-4">Ensure that you keyed in a valid email and filled all fields.</h5>
+            <input type="text" class = "rounded-xl bg-bg py-4 px-4 border-2 border-black w-full font-body placeholder:font-body text-xl placeholder:text-xl focus:ring-0 focus:outline-none" name="name" placeholder = "Name" required><br>
+            <input type="email" class="rounded-xl bg-bg py-4 px-4 border-2 border-black w-full font-body placeholder:font-body text-xl placeholder:text-xl focus:ring-0 focus:outline-none mt-4" name="email" placeholder = "Email" required><br>
+            <div class="flex flex-row items-center mt-4">
+                <span class = "font-body text-xl font-bold">Rate:</span>
+                {% for i in (1..5) %}
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1200 1200" id = "star-{{ forloop.index }}" class = "h-12 w-12 stroke-hl-yellow stroke-[40px] fill-none" onclick="star_rating_handler(event);">
+                        <path class = "pointer-events-none" stroke-miterlimit = 10 d="M647.56,306.73l36.03,110.87c10.71,32.96,41.43,55.28,76.08,55.28h116.58c48.44,0,68.57,61.98,29.39,90.45l-94.32,68.52c-28.04,20.37-39.77,56.48-29.06,89.44l36.03,110.87c14.97,46.07-37.76,84.37-76.94,55.9l-94.32-68.52c-28.04-20.37-66.01-20.37-94.05,0l-94.32,68.52c-39.19,28.47-91.91-9.84-76.94-55.9l36.03-110.87c10.71-32.96-1.02-69.07-29.06-89.44l-94.32-68.52c-39.19-28.47-19.05-90.45,29.39-90.45h116.58c34.66,0,65.37-22.32,76.08-55.28l36.03-110.87c14.97-46.07,80.14-46.07,95.11,0h0Z"/>
+                    </svg>
+                {% endfor %}
+            </div>
+            <input name = "star-rating" id = "star-rating-record" value = "0" hidden />
+            <input type="text" class = "rounded-xl bg-bg py-4 px-4 border-2 border-black w-full font-body placeholder:font-body text-xl placeholder:text-xl focus:ring-0 focus:outline-none mt-4" name="title" placeholder = "Title" required><br>
+            <textarea name="review" class = "rounded-xl bg-bg py-4 px-4 border-2 border-black w-full font-body placeholder:font-body text-xl placeholder:text-xl focus:ring-0 focus:outline-none mt-4" cols="40" rows="5" placeholder = "Review" required></textarea>
+            <div class = "flex flex-row w-full justify-between">
+                <button id = "submit-review" type = "submit" class = "transition-all duration-300 bg-black text-bg font-body text-xl font-semibold py-2 px-4 rounded-xl w-fit min-w-8 min-h-8">
+                    <span class = "submit-span">Submit</span>
+                    <span class = "loading-span hidden">Loading...</span>
+                </button>
+                <button class = "cancel-form font-body text-xl font-semibold text-hl-red underline decoration-wavy underline-offset-4" onclick = "reviewDisappear();">Cancel</button>
+            </div>
+        </form>
     </div>
-  </div>
-  <div class = "review-btn-container">
-    <button id = "initiate-review-btn" class = "review_btn button button--primary" onclick="reviewAppear(event);">Write a Review</button>
-  </div>
-  <h3 id = "thank-you">Thank You For Your Review!</h3>
-  <form class = "request-review" method="post" onsubmit = 'sendAReview(event,"{{ shop.id }}","{{ shop.domain }}","{{ product.id }}","{{ product.title }}","{{ product.handle }}");' action="javascript:void(0);" name = "review-form">
-    <h3>Write a Review</h3>
-    <h5 class = "error-msg">Ensure that you keyed in a valid email and filled all fields.</h5>
-    <input type="text" class = "text-input" name="name" placeholder = "Name" required><br>
-    <input type="email" class="text-input" name="email" placeholder = "Email" required><br>
-    <div class="stars-container">
-        <span style = "margin-right:1em;">Rate:</span>
-        <div id = "star-1" class = "star-opt" onclick="star_rating_handler(event);"></div>
-        <div id = "star-2" class = "star-opt" onclick="star_rating_handler(event);"></div>
-        <div id = "star-3" class = "star-opt" onclick="star_rating_handler(event);"></div>
-        <div id = "star-4" class = "star-opt" onclick="star_rating_handler(event);"></div>
-        <div id = "star-5" class = "star-opt" onclick="star_rating_handler(event);"></div>
+    <div class = "flex flex-col w-full md:w-[60%] xl:w-[70%]">
+        {% assign colours = "bg-hl-lighter-green,bg-hl-lighter-blue,bg-hl-lighter-yellow,bg-hl-lighter-red" | split: "," %}
+        <scrollable-row id = "ScrollableProducts-{{ section.id }}" class = "relative">      
+            <input id = "SliderController-{{ section.id }}" class = "slider-controller hidden" value = "" />
+            <div id = "Scrollable-{{ section.id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth">
+                {% for review in review_prod.metafields.ba_rev.review_data.reviews %}
+                    {% assign check_0 = forloop.index0 | modulo: no_reviews_per_page %}
+                    {% if check_0 == 0 %}
+                        <div class = "flex flex-col {% if forloop.index0 != 0 %}ml-12{% endif %}">
+                    {% endif %}
+                    {% assign colour_index = forloop.index0 | modulo: 4 %}
+                    <div class = "{{ colours[colour_index] }} py-10 px-12 rounded-2xl {% if check_0 != 0 %}mt-8{% endif %} w-[30rem] reg:w-[40rem] md:w-[45rem] xl:w-[50rem]" id = "review-{{ forloop.index }}">
+                    <h2 class = "font-body font-bold text-neutral-800 text-3xl">{{ review.title }}</h2>
+                    <div class = "flex flex-row mt-2">
+                        {% assign stars = review.stars | round %}
+                        {% for i in (1..5) %}
+                            {% if i <= stars %}
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 728.73 696.28" class = "h-5 w-5 fill-hl-yellow {% if forloop.index != forloop.length %}mr-1{% endif %}">
+                                    <path stroke-miterlimit = 10 d="M411.1,82.56l36.03,110.87c10.71,32.96,41.43,55.28,76.08,55.28h116.58c48.44,0,68.57,61.98,29.39,90.45l-94.32,68.52c-28.04,20.37-39.77,56.48-29.06,89.44l36.03,110.87c14.97,46.07-37.76,84.37-76.94,55.9l-94.32-68.52c-28.04-20.37-66.01-20.37-94.05,0l-94.32,68.52c-39.19,28.47-91.91-9.84-76.94-55.9l36.03-110.87c10.71-32.96-1.02-69.07-29.06-89.44l-94.32-68.52c-39.19-28.47-19.05-90.45,29.39-90.45h116.58c34.66,0,65.37-22.32,76.08-55.28l36.03-110.87c14.97-46.07,80.14-46.07,95.11,0h0Z"/>
+                                </svg>
+                            {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 728.73 696.28" class = "h-5 w-5 stroke-hl-yellow stroke-[40px] fill-none {% if forloop.index != forloop.length %}mr-1{% endif %}">
+                                    <path stroke-miterlimit = 10 d="M411.1,82.56l36.03,110.87c10.71,32.96,41.43,55.28,76.08,55.28h116.58c48.44,0,68.57,61.98,29.39,90.45l-94.32,68.52c-28.04,20.37-39.77,56.48-29.06,89.44l36.03,110.87c14.97,46.07-37.76,84.37-76.94,55.9l-94.32-68.52c-28.04-20.37-66.01-20.37-94.05,0l-94.32,68.52c-39.19,28.47-91.91-9.84-76.94-55.9l36.03-110.87c10.71-32.96-1.02-69.07-29.06-89.44l-94.32-68.52c-39.19-28.47-19.05-90.45,29.39-90.45h116.58c34.66,0,65.37-22.32,76.08-55.28l36.03-110.87c14.97-46.07,80.14-46.07,95.11,0h0Z"/>
+                                </svg>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <p>{{ review.body }}</p>
+        
+                    <h4 class = "font-body text-lg font-bold w-full text-right text-neutral-800">{{ review.author }}</h4>
+                    <p class = "font-body text-base font-medium w-full text-right text-neutral-400">{{ review.rated_at | date: "%d %b %Y" }}</p>
+                    <hr/>
+                    </div>
+                    {% assign one_off = no_reviews_per_page | minus: 1 %}
+                    {% if check_0 ==  one_off or forloop.index == forloop.length %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div id = "SliderIndicators-{{ section.id }}" class = "slider-indicators flex flex-row w-full justify-center mt-8"></div>
+            <div id = "SliderButtons-{{ section.id }}" class = "absolute right-0 -bottom-2 hidden md:block">
+                <button class = "text-bg px-8 py-3 rounded-full mr-4 transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "h-4">
+                        <polyline class="fill-none stroke-bg stroke-2" stroke-linecap="round" stroke-linejoin="round" points="5.9 10.02 1.68 5.55 5.9 1.08"/>
+                    </svg>
+                </button>
+                <button class = "text-bg px-8 py-3 rounded-full transition duration-300 ease-in-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "h-4">
+                        <polyline class="fill-none stroke-bg stroke-2" stroke-linecap="round" stroke-linejoin="round" points="1.68 10.02 5.9 5.55 1.68 1.08"/>
+                    </svg>
+                </button>
+            </div>
+        </scrollable-row>
     </div>
-    <input name = "star-rating" id = "star-rating-record" value = "0" hidden />
-    <input type="text" class = "text-input" name="title" placeholder = "Title" required><br>
-    <textarea name="review" cols="40" rows="5" placeholder = "Review" required></textarea>
-    <div class = "action-btns-review">
-      <button id = "submit-review" class = "review_btn button button--primary" type = "submit">
-        <span>Submit</span>
-        {%- render 'loading-spinner' -%}
-      </button>
-      <button class = "cancel-form" onclick = "reviewDisappear();">Cancel</button>
-    </div>
-  </form>
-  <hr />
-  {% for review in product.metafields.ba_rev.review_data.reviews %}
-    <div class = "review-container {% if forloop.index < 1 or forloop.index > no_reviews_per_page %} review-hidden {% endif %}" id = "review-{{ forloop.index }}">
-      <h2 class = "no-margin">{{ review.title }}</h2>
-      <h4 style = "margin: 0;text-transform: uppercase;opacity:0.6;font-size: 0.8em;margin-bottom:0.4em;">{{ review.author }}</h4>
-      <div class = "stars-container">
-        {% assign stars = review.stars | round %}
-        {% for i in (1..5) %}
-          {% if i <= stars %}
-            <img
-              src="{{ star_img_filled | image_url: width: 15, height: 15 }}"
-              alt="{{ star_img_filled.alt }}"
-              width="15"
-              height="15"
-            >
-          {% else %}
-            <img
-              src="{{ star_img_hollow | image_url: width: 15, height: 15 }}"
-              alt="{{ star_img_hollow.alt }}"
-              width="15"
-              height="15"
-            >
-          {% endif %}
-        {% endfor %}
-      </div>
-      <p style = "margin: 0;line-height:1.1em;">{{ review.body }}</p>
-      <hr/>
-    </div>
-  {% endfor %}
-  <div class = "page-toggle">
-    <span id = "page-back" class = "page-hidden btn-cursor" onclick = "page_toggle_handler(event,1,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});" data-act = "<">&lt;</span>
-    <span id = "start-page-toggle"  class = "page-btn page-hidden btn-cursor" onclick = "page_toggle_handler(event,0,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});"></span>
-    <span id = "middle-page-toggle" class = "page-btn page-focus btn-cursor" onclick = "page_toggle_handler(event,0,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});">1</span>
-    <span id = "end-page-toggle"  class = "page-btn btn-cursor" onclick = "page_toggle_handler(event,0,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});">2</span>
-    <span id = "page-forward" class = "btn-cursor" onclick = "page_toggle_handler(event,1,{{ no_reviews_per_page }},{{ product.metafields.ba_rev.review_data.reviews.size }});" data-act = ">">&gt;</span>
-  </div>
 </div>
 
 
@@ -344,30 +151,45 @@
   "tag": "section",
   "class": "section",
   "settings": [ 
-      {
-          "type": "header",
-          "content": "t:sections.all.padding.section_padding_heading"
-      },
-      {
-          "type": "range",
-          "id": "padding_top",
-          "min": 0,
-          "max": 100,
-          "step": 4,
-          "unit": "px",
-          "label": "t:sections.all.padding.padding_top",
-          "default": 36
-      },
-      {
-          "type": "range",
-          "id": "padding_bottom",
-          "min": 0,
-          "max": 100,
-          "step": 4,
-          "unit": "px",
-          "label": "t:sections.all.padding.padding_bottom",
-          "default": 36
-      }
+    {
+        "type": "header",
+        "content": "Review Information"
+    },
+    {
+        "type": "text",
+        "label": "Header",
+        "default": "Reviews",
+        "id": "header"
+    },
+    {
+        "type": "product",
+        "label": "Product to Retrieve Reviews From",
+        "id": "product"
+    },
+    {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+    }
   ],
   "presets": [
       {

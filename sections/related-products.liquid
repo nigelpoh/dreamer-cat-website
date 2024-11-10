@@ -4,7 +4,7 @@
   data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related"
 >
   {%- if recommendations.performed? and recommendations.products_count > 0 -%}
-    <h2 class = "font-display text-5xl text-hl-blue uppercase font-black mb-12">
+    <h2 class = "font-display text-5xl text-pri-head uppercase font-black mb-12">
       {% if recommendations.intent == 'related' %}
         You may also like
       {% elsif recommendations.intent == 'complementary' %}

@@ -180,6 +180,8 @@
     "reviews_MbDrbP": {
       "type": "reviews",
       "settings": {
+        "header": "Reviews",
+        "product": "review-aggregator-dreamer-cats-phone-covers",
         "padding_top": 36,
         "padding_bottom": 36
       }
