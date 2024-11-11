@@ -21,15 +21,15 @@
           {% assign heading_size_class = '' %}
           {%- case block.settings.heading_size -%}
             {%- when 'h1' -%}
-              {% assign heading_size_class = 'text-lg md:text-xl lg:text-2xl' %}
+              {% assign heading_size_class = 'md:text-xl lg:text-2xl' %}
             {%- when 'h2' -%}
-              {% assign heading_size_class = 'text-xl md:text-2xl lg:text-3xl' %}
+              {% assign heading_size_class = 'md:text-2xl lg:text-3xl' %}
             {%- when 'h0' -%}
-              {% assign heading_size_class = 'text-2xl md:text-3xl lg:text-4xl' %}
+              {% assign heading_size_class = 'md:text-3xl lg:text-4xl' %}
             {%- when 'hxl' -%}
-              {% assign heading_size_class = 'text-3xl md:text-4xl lg:text-5xl' %}
+              {% assign heading_size_class = 'md:text-4xl lg:text-5xl' %}
             {%- when 'hxxl' -%}
-              {% assign heading_size_class = 'text-4xl md:text-5xl lg:text-6xl' %}
+              {% assign heading_size_class = 'md:text-5xl lg:text-6xl' %}
           {%- endcase -%}
           {%- case block.type -%}
             {%- when 'heading' -%}

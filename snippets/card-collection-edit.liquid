@@ -1,30 +1,20 @@
-{%- liquid
-    assign ratio = 1
-    if card_collection.featured_image and media_aspect_ratio == 'portrait'
-      assign ratio = 0.8
-    elsif card_collection.featured_image and media_aspect_ratio == 'adapt'
-      assign ratio = card_collection.featured_image.aspect_ratio
-    endif
-    if ratio == 0 or ratio == null
-      assign ratio = 1
-    endif
+{% comment %}
+  Renders a card in the collage
+  Accepts:
+  - title: Title of this card
+  - bg_colour: Tailwind colour string for this card's background
+  - card_collection: Collection to link to for this card
+  Usage:
+  {% render 'collage-card', card_collection: block.settings.collection %}
+{% endcomment %}
 
-    case card_collection.handle
-    when "mountains-dreamin"
-      assign card_bg_color = "bg-hl-blue"
-    when "land-of-the-rising-sun"
-        assign card_bg_color = "bg-hl-red"
-    when "a-trek-through-africa"
-        assign card_bg_color = "bg-hl-yellow"
-    when "a-journey-to-yumea"
-        assign card_bg_color = "bg-hl-green"
-    
 
-    endcase
 
   -%}
   <a href="{{ card_collection.url }}" class="flex flex-col items-center p-8 {{ card_bg_color }} rounded-3xl shadow-lg transition hover:shadow-xl h-full">
+    <div class = "flex flex-col w-full">
     {%- if card_collection.featured_image -%}
+
       <div class="relative w-full pb-[75%] h-3/4 rounded-3xl overflow-hidden">
         <img
           src="{{ card_collection.featured_image | image_url: width: 400 }}"
@@ -38,12 +28,13 @@
       <div class="w-full h-48 bg-gray-200 rounded-lg"></div>
     {%- endif -%}
   
-    <div class="mt-4 w-full py-6">
-        <h3 class="text-5xl font-bold text-white font-body flex items-center space-x-8">
-          <span>{{ card_collection.title | upcase }}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-10 h-12">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-          </svg>
-        </h3>
-      </div>
+      <h3 class="mt-4 w-full py-6 text-4xl xl:text-5xl font-bold text-bg font-body flex items-center space-x-8">
+        <span>{{ title | upcase }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-10 h-12">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+        </svg>
+      </h3>
+    </div>
+
     </a>
+
