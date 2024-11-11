@@ -1,17 +1,4 @@
-{% comment %}
-  Renders a card in the collage
-  Accepts:
-  - title: Title of this card
-  - bg_colour: Tailwind colour string for this card's background
-  - card_collection: Collection to link to for this card
-  Usage:
-  {% render 'collage-card', card_collection: block.settings.collection %}
-{% endcomment %}
-
-
-
-  -%}
-  <a href="{{ card_collection.url }}" class="flex flex-col items-center p-8 {{ card_bg_color }} rounded-3xl shadow-lg transition hover:shadow-xl h-full">
+  <a href="{{ card_collection.url }}" class="flex flex-col items-center p-8 {{card_collection.metafields.custom.background_color.value}} rounded-3xl transition h-full">
     <div class = "flex flex-col w-full">
     {%- if card_collection.featured_image -%}
 
@@ -25,16 +12,15 @@
         >
       </div>
     {%- else -%}
-      <div class="w-full h-48 bg-gray-200 rounded-lg"></div>
+      {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {%- endif -%}
-  
-      <h3 class="mt-4 w-full py-6 text-4xl xl:text-5xl font-bold text-bg font-body flex items-center space-x-8">
-        <span>{{ title | upcase }}</span>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="4" stroke="currentColor" class="w-10 h-12">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-        </svg>
-      </h3>
-    </div>
 
+        <h3 class=" mt-4 w-full py-6 text-3xl font-bold text-bg font-body flex items-center space-x-8">
+          <span>{{ card_collection.title | upcase }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+          </svg>
+        </h3>
+    </div>
     </a>
 
