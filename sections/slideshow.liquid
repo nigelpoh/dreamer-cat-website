@@ -1,261 +1,142 @@
-{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign delays = ""
+  for block in section.blocks
+    case block.type
+      when 'image_slide'
+        assign delays = delays | append: "5000"
+      when 'video_slide'
+        assign duration = block.settings.video.duration  | append: ""
+        assign delays = delays | append: duration
+    endcase
+    if forloop.index != forloop.length
+      assign delays = delays | append: ","
+    endif
+  endfor
+-%}
 
-{%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
-  {%- style -%}
-    @media screen and (max-width: 749px) {
-      #Slider-{{ section.id }}::before,
-      #Slider-{{ section.id }} .media::before,
-      #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
-        padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
-        content: '';
-        display: block;
-      }
-    }
-
-    @media screen and (min-width: 750px) {
-      #Slider-{{ section.id }}::before,
-      #Slider-{{ section.id }} .media::before {
-        padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
-        content: '';
-        display: block;
-      }
-    }
-  {%- endstyle -%}
-{%- endif -%}
-
-<slideshow-component
-  class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
-  role="region"
-  aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
-  aria-label="{{ section.settings.accessibility_info | escape }}"
->
-  {%- if section.settings.auto_rotate and section.blocks.size > 1 -%}
-    <div class="slideshow__controls slideshow__controls--top slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
-        {%- if section.settings.slider_visual == 'counter' -%}
-          <span class="slider-counter--current">1</span>
-          <span aria-hidden="true"> / </span>
-          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-          <span class="slider-counter--total">{{ section.blocks.size }}</span>
-        {%- else -%}
-          <div class="slideshow__control-wrapper">
-            {%- for block in section.blocks -%}
-              <button
-                class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
-                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-                aria-controls="Slider-{{ section.id }}"
-              >
-                {%- if section.settings.slider_visual == 'numbers' -%}
-                  {{ forloop.index -}}
-                {%- else -%}
-                  <span class="dot"></span>
-                {%- endif -%}
-              </button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-      </div>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
-
-      {%- if section.settings.auto_rotate -%}
-        <button
-          type="button"
-          class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
-          aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-pause.svg' | inline_asset_content -}}
-          </span>
-          <span class="svg-wrapper">
-            {{- 'icon-play.svg' | inline_asset_content -}}
-          </span>
-        </button>
-      {%- endif -%}
-    </div>
-  {%- endif -%}
-
-  <div
-    class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-    id="Slider-{{ section.id }}"
-    aria-live="polite"
-    aria-atomic="true"
-    data-autoplay="{{ section.settings.auto_rotate }}"
-    data-speed="{{ section.settings.change_slides_speed }}"
-  >
-    {%- for block in section.blocks -%}
-      <style>
-        #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
-          opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
+<script>
+  function updateTime(scrollable) {
+    const currentIndex = parseInt(document.querySelector("#in-focus-{{ section.id }}").value)
+    const delays = document.querySelector("#all-delays-{{ section.id }}").value.split(",")
+    function restartProcess(){
+      if(currentIndex == delays.length - 1) {
+        scrollable.scrollLeft = 0
+        var videoSelected = document.querySelector("#Slide-{{ section.id }}-0" + " video")
+        if (videoSelected != null) {
+          videoSelected.pause();
+          videoSelected.currentTime = 0;
+          videoSelected.load();
         }
-      </style>
-      <div
-        class="slideshow__slide grid__item grid--1-col slider__slide"
-        id="Slide-{{ section.id }}-{{ forloop.index }}"
-        {{ block.shopify_attributes }}
-        role="group"
-        aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
-        aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-        tabindex="-1"
-      >
-        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-          {%- if block.settings.image -%}
-            {%- liquid
-              assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
-              if section.settings.image_behavior == 'ambient'
-                assign sizes = '120vw'
-                assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
-              else
-                assign sizes = '100vw'
-                assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-              endif
-              assign fetch_priority = 'auto'
-              if section.index == 1
-                assign fetch_priority = 'high'
-              endif
-            -%}
-            {%- if forloop.first %}
-              {{
-                block.settings.image
-                | image_url: width: 3840
-                | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority
-              }}
+        document.querySelector("#in-focus-{{ section.id }}").value = 0
+      } else {
+        var consideredLength = delays.length - 1
+        scrollable.scrollLeft = ((scrollable.scrollWidth - scrollable.clientWidth) / consideredLength) * (currentIndex + 1)
+        var videoSelected = document.querySelector("#Slide-{{ section.id }}-" + (currentIndex + 1).toString() + " video")
+        if (videoSelected != null) {
+          videoSelected.pause();
+          videoSelected.currentTime = 0;
+          videoSelected.load();
+        }
+        document.querySelector("#in-focus-{{ section.id }}").value = currentIndex + 1
+      }
+      updateTime(scrollable)
+    }
+    setTimeout(restartProcess, delays[currentIndex])
+  }
+  window.addEventListener('DOMContentLoaded',function () {
+    const scrollable = document.querySelector("#Scrollable-{{ section.id }}")
+    updateTime(scrollable)
+  });
+</script>
+
+<input id = "all-delays-{{ section.id }}" class = "hidden" value = "{{ delays }}" />
+<input id = "in-focus-{{ section.id }}" class = "hidden" value = 0 />
+
+<div class = "h-[50rem] xl:h-[70rem] -mx-[3%] reg:-mx-[6%] md:-mx-[3%] lg:-mx-[6%] xl:-mx-[13%]">
+  <scrollable-row id = "ScrollableSlideshow-{{ section.id }}"
+    class="relative"
+    id="Slider-{{ section.id }}"
+  >
+    <input id = "SliderController-{{ section.id }}" class = "slider-controller hidden" value = "" />
+    <div id = "Scrollable-{{ section.id }}" 
+      class = "scrollable flex flex-col overflow-x-scroll no-scrollbar scroll-smooth h-full flex-wrap"
+    >
+      {%- for block in section.blocks -%}
+        <div id = "Slide-{{ section.id }}-{{ forloop.index0 }}" class = "w-full h-full relative">
+          {% case block.type %}
+          {% when 'image_slide' %}
+            {%- if block.settings.image -%}
+              {%- liquid
+                assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
+                if section.settings.image_behavior == 'ambient'
+                  assign sizes = '120vw'
+                  assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
+                else
+                  assign sizes = '100vw'
+                  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+                endif
+                assign fetch_priority = 'auto'
+                if section.index == 1
+                  assign fetch_priority = 'high'
+                endif
+              -%}
+              {%- if forloop.first %}
+                {{
+                  block.settings.image
+                  | image_url: width: 3840
+                  | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                }}
+              {%- else -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 3840
+                  | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
+                }}
+              {%- endif -%}
             {%- else -%}
-              {{
-                block.settings.image
-                | image_url: width: 3840
-                | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
-              }}
+              {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
+              {%- if placeholder_slide == 1 -%}
+                {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
             {%- endif -%}
-          {%- else -%}
-            {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
-            {%- if placeholder_slide == 1 -%}
-              {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- else -%}
-              {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% when 'video_slide' %}
+            {% if block.settings.video %}
+              {% render 'video',
+                section_id: section.id,
+                video: block.settings.video,
+                control_colour: block.settings.control_colour,
+                class: "object-cover z-0",
+                position_control: "bottom-4 right-4"
+              %}
+            {% else %}
+              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}
-          {%- endif -%}
-        </div>
-        <div class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}">
-          <div class="slideshow__text banner__box content-container content-container--full-width-mobile color-{{ block.settings.color_scheme }} gradient slideshow__text--{{ block.settings.text_alignment }} slideshow__text-mobile--{{ block.settings.text_alignment_mobile }}">
-            {%- if block.settings.heading != blank -%}
-              <h2 class="banner__heading inline-richtext {{ block.settings.heading_size }}">
+          {% endcase %}
+          <div class = "z-20 flex flex-col absolute left-8 md:left-16 bottom-16 w-[80vw]">
+            {% assign content_tag = "before:content-['" | append: block.settings.heading | append: "']"%}
+            {% assign text_colour = "text-" | append: block.settings.theme_colour %}
+            {% assign bg_colour = "bg-" | append: block.settings.theme_colour %}
+            <div class = "relative w-4/5 text-wrap">
+              <h1 class="absolute font-display font-black {{ text_colour }} text-7xl uppercase {{ content_tag }} bottom-0 left-1.5 w-[90vw]">
                 {{ block.settings.heading }}
-              </h2>
-            {%- endif -%}
-            {%- if block.settings.subheading != blank -%}
-              <div class="banner__text rte" {{ block.shopify_attributes }}>
-                <p>{{ block.settings.subheading }}</p>
-              </div>
-            {%- endif -%}
-            {%- if block.settings.button_label != blank -%}
-              <div class="banner__buttons">
-                <a
-                  {% if block.settings.link %}
-                    href="{{ block.settings.link }}"
-                  {% else %}
-                    role="link" aria-disabled="true"
-                  {% endif %}
-                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
-                >
-                  {{- block.settings.button_label | escape -}}
-                </a>
-              </div>
-            {%- endif -%}
+              </h1>
+              <h1 class="absolute font-display font-black text-bg text-7xl uppercase {{ content_tag }} bottom-1.5 left-0 w-[90vw]">
+                {{ block.settings.heading }}
+              </h1>
+            </div>
+            <div class = "{{ bg_colour }} py-1 px-4 text-bg font-body font-bold rounded-xl w-fit">
+              {{ block.settings.subheading }}
+            </div>
           </div>
         </div>
-      </div>
-    {%- endfor -%}
-  </div>
-
-  {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
-    <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
-      <button
-        type="button"
-        class="slider-button slider-button--prev"
-        name="previous"
-        aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
-      <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
-        {%- if section.settings.slider_visual == 'counter' -%}
-          <span class="slider-counter--current">1</span>
-          <span aria-hidden="true"> / </span>
-          <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-          <span class="slider-counter--total">{{ section.blocks.size }}</span>
-        {%- else -%}
-          <div class="slideshow__control-wrapper">
-            {%- for block in section.blocks -%}
-              <button
-                class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
-                aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-                aria-controls="Slider-{{ section.id }}"
-              >
-                {%- if section.settings.slider_visual == 'numbers' -%}
-                  {{ forloop.index -}}
-                {%- else -%}
-                  <span class="dot"></span>
-                {%- endif -%}
-              </button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
-      </div>
-      <button
-        type="button"
-        class="slider-button slider-button--next"
-        name="next"
-        aria-label="{{ 'sections.slideshow.next_slideshow' | t }}"
-        aria-controls="Slider-{{ section.id }}"
-      >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
-        </span>
-      </button>
-
-      {%- if section.settings.auto_rotate -%}
-        <button
-          type="button"
-          class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
-          aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
-        >
-          <span class="svg-wrapper">
-            {{- 'icon-pause.svg' | inline_asset_content -}}
-          </span>
-          <span class="svg-wrapper">
-            {{- 'icon-play.svg' | inline_asset_content -}}
-          </span>
-        </button>
-      {%- endif -%}
+        {%- endfor -%}
     </div>
-  {%- endif -%}
-</slideshow-component>
+    <div id = "SliderIndicators-{{ section.id }}" class = "z-20 absolute bottom-8 right-[45vw] md:bottom-12 md:right-20 slider-indicators flex flex-row w-full justify-end mt-8 drop-shadow-2xl"></div>
+  </scrollable-row>
+</div>
+
 
 {%- if request.design_mode -%}
   <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
@@ -269,6 +150,7 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
+  "max_blocks": 5,
   "settings": [
     {
       "type": "select",
@@ -390,9 +272,8 @@
   ],
   "blocks": [
     {
-      "type": "slide",
-      "name": "t:sections.slideshow.blocks.slide.name",
-      "limit": 5,
+      "type": "image_slide",
+      "name": "Image Slide",
       "settings": [
         {
           "type": "image_picker",
@@ -407,31 +288,26 @@
         },
         {
           "type": "select",
-          "id": "heading_size",
+          "id": "theme_colour",
+          "label": "Theme Colour (Tailwind)",
           "options": [
             {
-              "value": "h2",
-              "label": "t:sections.all.heading_size.options__1.label"
+              "label": "Red",
+              "value": "hl-red"
             },
             {
-              "value": "h1",
-              "label": "t:sections.all.heading_size.options__2.label"
+              "label": "Blue",
+              "value": "hl-blue"
             },
             {
-              "value": "h0",
-              "label": "t:sections.all.heading_size.options__3.label"
+              "label": "Green",
+              "value": "hl-green"
             },
             {
-              "value": "hxl",
-              "label": "t:sections.all.heading_size.options__4.label"
+              "label": "Yellow",
+              "value": "hl-yellow"
             },
-            {
-              "value": "hxxl",
-              "label": "t:sections.all.heading_size.options__5.label"
-            }
-          ],
-          "default": "h1",
-          "label": "t:sections.all.heading_size.label"
+          ]
         },
         {
           "type": "inline_richtext",
@@ -569,17 +445,120 @@
           "label": "t:sections.slideshow.blocks.slide.settings.text_alignment_mobile.label"
         }
       ]
+    },
+    {
+      "type": "video_slide",
+      "name": "Video Slide",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "select",
+          "id": "control_colour",
+          "label": "Control Colour (Tailwind)",
+          "options": [
+            {
+              "label": "Red",
+              "value": "hl-red"
+            },
+            {
+              "label": "Blue",
+              "value": "hl-blue"
+            },
+            {
+              "label": "Green",
+              "value": "hl-green"
+            },
+            {
+              "label": "Yellow",
+              "value": "hl-yellow"
+            },
+            {
+              "label": "White",
+              "value": "bg"
+            },
+            {
+              "label": "Black",
+              "value": "black"
+            }
+          ],
+          "default": "bg"
+        },
+        {
+          "type": "select",
+          "id": "theme_colour",
+          "label": "Theme Colour (Tailwind)",
+          "options": [
+            {
+              "label": "Red",
+              "value": "hl-red"
+            },
+            {
+              "label": "Blue",
+              "value": "hl-blue"
+            },
+            {
+              "label": "Green",
+              "value": "hl-green"
+            },
+            {
+              "label": "Yellow",
+              "value": "hl-yellow"
+            },
+          ]
+        },
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Video Position",
+          "options": [
+            {
+              "value": "object-bottom",
+              "label": "Bottom"
+            },
+            {
+              "value": "object-center",
+              "label": "Center"
+            },
+            {
+              "value": "object-top",
+              "label": "Top"
+            }
+          ],
+          "default": "object-center"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Video Slide",
+          "label": "t:sections.slideshow.blocks.slide.settings.heading.label"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "subheading",
+          "default": "t:sections.slideshow.blocks.slide.settings.subheading.default",
+          "label": "t:sections.slideshow.blocks.slide.settings.subheading.label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+        },
+      ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.slideshow.presets.name",
+      "name": "Slideshow",
       "blocks": [
         {
-          "type": "slide"
+          "type": "image_slide"
         },
         {
-          "type": "slide"
+          "type": "video_slide"
         }
       ]
     }

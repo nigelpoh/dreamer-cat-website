@@ -1,49 +1,52 @@
 function tagSlidersWrapper(e) {
-    tagSliders(e.currentTarget, this.id)
+    const id = this.id.split("-")
+    tagSliders(e.currentTarget, id.slice(1, id.length).join("-"))
 }
 
 function tagSliders(ele, sec_id) {
     var current = ele.scrollLeft / (ele.scrollWidth - ele.clientWidth)
-    var sectionSplit = sec_id.split("-")
-    var sectionID = sectionSplit.slice(1, sectionSplit.length).join("-")
-    var sliderButtons = document.querySelector("#SliderButtons-" + sectionID)
+    var sliderButtons = document.querySelector("#SliderButtons-" + sec_id)
     if (sliderButtons != null) {
         var sliderBtnL = sliderButtons.getElementsByTagName('button')[0]
         var sliderBtnR = sliderButtons.getElementsByTagName('button')[1]
     }
-    var total = parseInt(document.querySelector("#SliderController-" + sectionID).value) - 1 
-    sectionID += "-"
-    var index = Math.round(total * current)
-    if (index == NaN) {
+    if (document.querySelector("#SliderController-" + sec_id) == null) {
         return
     }
-    var colourEle = document.querySelector('#SliderIndicator-' + sectionID + index.toString())
+    var total = parseInt(document.querySelector("#SliderController-" + sec_id).value) - 1 
+    var index = Math.round(total * current)
+    if (index == NaN || document.querySelector('#SliderIndicator-' + sec_id + "-" + index.toString()) == null) {
+        return
+    }
+    var colourEle = document.querySelector('#SliderIndicator-' + sec_id + "-" + index.toString())
     if (colourEle != null) {
         var colour = colourEle.getAttribute('data-colour')
-        sliderBtnL.className = sliderBtnL.className.replace(/\bbg-.*?\b/g, ''); 
-        sliderBtnL.classList.add(colour + "/50")
-        sliderBtnR.className = sliderBtnR.className.replace(/\bbg-.*?\b/g, ''); 
-        sliderBtnR.classList.add(colour + "/50")
+        if (sliderButtons != null) {
+            sliderBtnL.className = sliderBtnL.className.replace(/\bbg-.*?\b/g, ''); 
+            sliderBtnL.classList.add(colour + "/50")
+            sliderBtnR.className = sliderBtnR.className.replace(/\bbg-.*?\b/g, ''); 
+            sliderBtnR.classList.add(colour + "/50")
+        }
         if (index != 0) {
-            var colour_b = document.querySelector('#SliderIndicator-' + sectionID + (index - 1).toString()).getAttribute('data-colour')
-            document.querySelector('#SliderIndicator-' + sectionID + (index - 1).toString()).classList.add("w-4", "bg-neutral-400")
-            document.querySelector('#SliderIndicator-' + sectionID + (index - 1).toString()).classList.remove("w-14", colour_b)
+            var colour_b = document.querySelector('#SliderIndicator-' + sec_id + "-" + (index - 1).toString()).getAttribute('data-colour')
+            document.querySelector('#SliderIndicator-' + sec_id + "-" + (index - 1).toString()).classList.add("w-4", "bg-neutral-400")
+            document.querySelector('#SliderIndicator-' + sec_id + "-" + (index - 1).toString()).classList.remove("w-14", colour_b)
             if (sliderButtons != null) {
                 sliderBtnL.className = sliderBtnR.className.replace(/\bbg-.*?\b/g, ''); 
                 sliderBtnL.classList.add(colour)
             }
         }
         if (index != total) {
-            var colour_f = document.querySelector('#SliderIndicator-' + sectionID + (index + 1).toString()).getAttribute('data-colour')
-            document.querySelector('#SliderIndicator-' + sectionID + (index + 1).toString()).classList.add("w-4", "bg-neutral-400")
-            document.querySelector('#SliderIndicator-' + sectionID + (index + 1).toString()).classList.remove("w-14", colour_f)
+            var colour_f = document.querySelector('#SliderIndicator-' + sec_id + "-" + (index + 1).toString()).getAttribute('data-colour')
+            document.querySelector('#SliderIndicator-' + sec_id + "-" + (index + 1).toString()).classList.add("w-4", "bg-neutral-400")
+            document.querySelector('#SliderIndicator-' + sec_id + "-" + (index + 1).toString()).classList.remove("w-14", colour_f)
             if (sliderButtons != null) {
                 sliderBtnR.className = sliderBtnL.className.replace(/\bbg-.*?\b/g, ''); 
                 sliderBtnR.classList.add(colour)
             }
         }
-        document.querySelector('#SliderIndicator-' + sectionID + index.toString()).classList.remove("w-4", "bg-neutral-400")
-        document.querySelector('#SliderIndicator-' + sectionID + index.toString()).classList.add("w-14", colour)
+        document.querySelector('#SliderIndicator-' + sec_id + "-" + index.toString()).classList.remove("w-4", "bg-neutral-400")
+        document.querySelector('#SliderIndicator-' + sec_id + "-" + index.toString()).classList.add("w-14", colour)
     }
     }
 
@@ -51,6 +54,7 @@ class Scrollable extends HTMLElement {
     constructor() {
       super();
       this.onResize = this.onResize.bind(this);
+      
     }
 
     connectedCallback() {
@@ -92,9 +96,13 @@ class Scrollable extends HTMLElement {
                         element.classList.add("bg-" + scrollableColours[colour_index], "w-14")
                     }
                     document.querySelector('#SliderIndicators-' + indicativeID).appendChild(element)
+                    document.querySelector('#SliderIndicator-' + indicativeID + '-' + index.toString()).addEventListener("click", function() {
+                        scrollable.scrollLeft = ((scrollable.scrollWidth - scrollable.clientWidth) / (count - 1)) * index
+                    })
                 }
                 scrollable.addEventListener("scroll", tagSlidersWrapper); 
-                tagSliders(scrollable, this.id)
+                const id = this.id.split("-")
+                tagSliders(scrollable, id.slice(1, id.length).join("-"))
                 var sliderButtons = document.querySelector("#SliderButtons-" + indicativeID)
                 if (sliderButtons != null) {
                     sliderButtons.classList.add("md:block")
@@ -106,8 +114,9 @@ class Scrollable extends HTMLElement {
                         var index = Math.round(total * current)
                         if (index != 0) {
                             scrollable.scrollLeft = (scrollable.scrollWidth - scrollable.clientWidth) / total * (index - 1)
+                            const id = this.id.split("-")
+                            tagSliders(scrollable, id.slice(1, id.length).join("-"))
                         }
-                        tagSliders(scrollable, this.id)
                     })
                     sliderBtnR.addEventListener("click", () => {
                         var current = scrollable.scrollLeft / (scrollable.scrollWidth - scrollable.clientWidth)
@@ -115,8 +124,9 @@ class Scrollable extends HTMLElement {
                         var index = Math.round(total * current)
                         if (index != total) {
                             scrollable.scrollLeft = (scrollable.scrollWidth - scrollable.clientWidth) / total * (index + 1)
+                            const id = this.id.split("-")
+                            tagSliders(scrollable, id.slice(1, id.length).join("-"))
                         }
-                        tagSliders(scrollable, this.id)
                     })
                 }
                 return
