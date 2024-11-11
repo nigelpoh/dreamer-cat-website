@@ -12,30 +12,32 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .prose ul > li::marker {
+    color: #000000;
+  }
 {%- endstyle -%}
 
-
-<div class="bg-bg isolate">
-    <div class="flex flex-col {% case section.settings.desktop_content_position %}{% when 'left' %}items-start{% when 'center' %}items-center{% when 'right' %}items-end{% endcase %} py-8">
+    <div class="mx-auto bg-bg flex flex-col {% case section.settings.desktop_content_position %}{% when 'left' %}items-start{% when 'center' %}items-center{% when 'right' %}items-end{% endcase %} py-8 px-[4rem]">
         {%- for block in section.blocks -%}
           {% assign heading_size_class = '' %}
           {%- case block.settings.heading_size -%}
             {%- when 'h1' -%}
-              {% assign heading_size_class = 'md:text-xl lg:text-2xl' %}
-            {%- when 'h2' -%}
               {% assign heading_size_class = 'md:text-2xl lg:text-3xl' %}
-            {%- when 'h0' -%}
+            {%- when 'h2' -%}
               {% assign heading_size_class = 'md:text-3xl lg:text-4xl' %}
-            {%- when 'hxl' -%}
+            {%- when 'h0' -%}
               {% assign heading_size_class = 'md:text-4xl lg:text-5xl' %}
-            {%- when 'hxxl' -%}
+            {%- when 'hxl' -%}
               {% assign heading_size_class = 'md:text-5xl lg:text-6xl' %}
+            {%- when 'hxxl' -%}
+              {% assign heading_size_class = 'md:text-6xl lg:text-7xl' %}
           {%- endcase -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
               
               <h1
-                class="prose font-display {{ heading_size_class }} text-center font-bold max-w-screen-lg pb-10 text-hl-red"
+                class="prose font-display {{ heading_size_class }} text-center font-bold max-w-screen-lg pb-10"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -57,7 +59,7 @@
               </p>
             {%- when 'text' -%}
               <div
-                class="prose font-body text-2xl py-4 text-{{ section.settings.content_alignment }} max-w-screen-lg"
+                class="prose font-body text-2xl py-4 text-{{ section.settings.content_alignment }} max-w-screen-md"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -103,7 +105,6 @@
           {%- endcase -%}
         {%- endfor -%}
       </div>
-    </div>
 
 {% schema %}
 {
