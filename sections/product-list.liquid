@@ -6,7 +6,11 @@
         assign current_short_name = product.metafields.custom.short_name.value | sort
         assign short_names_taken = short_names_taken | concat: current_short_name
     endif
+
     assign prods_all = section.settings.collection.products | sort: 'metafields.custom.short_name.value'
+    if product != blank and section.settings.collection.products == blank 
+        assign prods_all = product.metafields.custom.collection.value.products | sort: 'metafields.custom.short_name.value'
+    endif
 
     for prod in prods_all
         assign taken = false

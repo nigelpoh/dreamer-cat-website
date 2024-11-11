@@ -8,5 +8,8 @@
     "dev": "concurrently  -c \"auto\" \"npm:dev:*\"",
     "dev:tailwind": "npx tailwindcss -i ./style.css -o ./assets/style.css --watch",
     "dev:shopify": "shopify theme dev"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15"
   }
 }

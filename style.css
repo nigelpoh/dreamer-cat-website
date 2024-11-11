@@ -5,10 +5,10 @@
 @layer base {
     @font-face {
       font-family: 'Space Grotesk';
-      src: url("./assets/spacegrotesk.ttf");
+      src: url("./assets/spacegrotesk.ttf")
     }
     @font-face {
-      font-family: 'Figtree';
+      font-family: 'Kufam';
       src: url("./assets/kufam.ttf");
     }
   }
