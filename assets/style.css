@@ -561,9 +561,9 @@ video {
 }
 
 @font-face {
-  font-family: 'Fig Tree';
+  font-family: 'Figtree';
 
-  src: url("./assets/figtree.ttf");
+  src: url("./assets/kufam.ttf");
 }
 
 .container {
@@ -2021,7 +2021,7 @@ video {
 }
 
 .font-display {
-  font-family: Fig Tree, serif;
+  font-family: Kufam, serif;
 }
 
 .text-2xl {
