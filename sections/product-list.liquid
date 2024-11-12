@@ -38,10 +38,15 @@
         </h2>
     {% endif %}
     {% if section.settings.subheading != blank %}
-        <h4 class = "font-body {{ section.settings.subheading_size }} text-sec-head uppercase font-bold mb-12">
+        <h4 class = "font-body {{ section.settings.subheading_size }} text-sec-head uppercase font-bold {% if section.settings.ornament == "none" %}mb-12{% else %}mb-8{% endif %}">
             {{ section.settings.subheading }}
         </h4>
     {% endif %}
+    {%- if section.settings.ornament != "none" -%}
+        <div class = "mb-12">
+            {% render 'retro-futuristic-element', element: section.settings.ornament, position: section.settings.ornament_position %}
+        </div>
+    {%- endif -%}
 
 
     {% render 'scrolling-products',
@@ -129,6 +134,55 @@
             "id": "collection",
             "label": "Collection to use"
         },
+
+    {
+        "type": "header",
+        "content": "Retrofuturistic Styling"
+      },
+      {
+        "type": "select",
+        "id": "ornament",
+        "label": "Element",
+        "options": [
+          {
+            "label": "Twin Comets Style 1",
+            "value": "twin-comets-1"
+          },
+          {
+            "label": "Twin Comets Style 2",
+            "value": "twin-comets-2"
+          },
+          {
+            "label": "Triple Colour Comet",
+            "value": "triple-comet"
+          },
+          {
+            "label": "Duo Colour Comet",
+            "value": "duo-comet"
+          },
+          {
+            "label": "None",
+            "value": "none"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "select",
+        "id": "ornament_position",
+        "label": "Style Position",
+        "options": [
+          {
+            "label": "Left",
+            "value": "left"
+          },
+          {
+            "label": "Right",
+            "value": "right"
+          },
+        ],
+        "default": "left"
+      },
         {
             "type": "header",
             "content": "t:sections.all.padding.section_padding_heading"

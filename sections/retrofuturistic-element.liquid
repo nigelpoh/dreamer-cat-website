@@ -1,0 +1,92 @@
+<div
+    style = "padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px"
+>
+    <div class = "mb-12">
+        {% render 'retro-futuristic-element', element: section.settings.ornament, position: section.settings.ornament_position %}
+    </div>
+ </div>    
+  
+  {% schema %}
+  {
+    "name": "Retrofuturistic Element",
+    "tag": "section",
+    "class": "section",
+    "settings": [ 
+        {
+            "type": "header",
+            "content": "Retrofuturistic Element Information"
+        },
+        {
+            "type": "select",
+            "id": "ornament",
+            "label": "Element",
+            "options": [
+                {
+                    "label": "Twin Comets Style 1",
+                    "value": "twin-comets-1"
+                },
+                {
+                    "label": "Twin Comets Style 2",
+                    "value": "twin-comets-2"
+                },
+                {
+                    "label": "Triple Colour Comet",
+                    "value": "triple-comet"
+                },
+                {
+                    "label": "Duo Colour Comet",
+                    "value": "duo-comet"
+                }
+            ],
+            "default": "twin-comets-1"
+        },
+        {
+            "type": "select",
+            "id": "ornament_position",
+            "label": "Style Position",
+            "options": [
+            {
+                "label": "Left",
+                "value": "left"
+            },
+            {
+                "label": "Right",
+                "value": "right"
+            },
+            ],
+            "default": "left"
+        },
+        {
+            "type": "header",
+            "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 36
+        }
+    ],
+    "presets": [
+        {
+            "name": "Retrofuturistic Element",
+            "category": "custom"
+        }
+    ],
+  }
+  {% endschema %}
+  

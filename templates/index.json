@@ -16,6 +16,8 @@
           "type": "video_slide",
           "settings": {
             "video": "shopify://files/videos/test.mp4",
+            "control_colour": "bg",
+            "theme_colour": "hl-red",
             "position": "object-bottom",
             "heading": "A Journey to Yumeá",
             "subheading": "Tell your brand's story through images",
@@ -26,7 +28,7 @@
           "type": "image_slide",
           "settings": {
             "heading": "Image slide",
-            "heading_size": "h1",
+            "theme_colour": "hl-red",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
@@ -43,7 +45,7 @@
           "type": "image_slide",
           "settings": {
             "heading": "Image slide",
-            "heading_size": "h1",
+            "theme_colour": "hl-red",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
@@ -127,6 +129,8 @@
         "mobile_layout": "column",
         "card_styles": "product-card-wrapper",
         "color_scheme": "",
+        "ornament": "twin-comets-1",
+        "ornament_position": "left",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -139,8 +143,19 @@
         "subheading": "From Dreamer Cat's Adventures",
         "subheading_size": "text-3xl",
         "collection": "mountains-dreamin",
+        "ornament": "triple-comet",
+        "ornament_position": "left",
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "retrofuturistic_element_AQB9Fq": {
+      "type": "retrofuturistic-element",
+      "settings": {
+        "ornament": "twin-comets-2",
+        "ornament_position": "right",
+        "padding_top": 16,
+        "padding_bottom": 0
       }
     },
     "spotlight_image_text_BRLVhz": {
@@ -188,6 +203,7 @@
     "slideshow_rywF7G",
     "collage_YrqUB9",
     "product_list_HghxCA",
+    "retrofuturistic_element_AQB9Fq",
     "spotlight_image_text_BRLVhz"
   ]
 }

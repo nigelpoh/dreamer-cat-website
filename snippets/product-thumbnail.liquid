@@ -40,26 +40,52 @@
     assign mobile_columns = 2
   endif
 
-  assign overall_class = "object-contain"
+  assign overall_class = "product-image object-contain h-0"
 
   if media.media_type == 'image'
     assign overall_class = overall_class | append: ' image-magnify-' | append: section.settings.image_zoom
   endif
 -%}
 
+
 {%- capture sizes -%}
   (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | divided_by: desktop_columns | round }}px, (min-width: 990px) calc({{ media_width | times: 100 | divided_by: desktop_columns }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw / {{ mobile_columns }} - 4rem)
 {%- endcapture -%}
 
-{%- render 'loading-spinner' -%}
+{% liquid
+  assign min = 1 
+  assign max = 100000000
+  assign diff = max | minus: min
+  assign random_id = "now" | date: "%N" | modulo: diff | plus: min
+  assign random_id = random_id | append: ""
+%}
+
+<script>
+  function imageLoad(id) {
+    document.querySelector("#preloader-" + id).classList.add("hidden")
+    document.querySelector("#product-image-" + id).classList.remove("h-0")
+  }
+</script>
+
+<div id = "preloader-{{ random_id }}" class = "flex flex-col justify-center items-center w-[calc(100%-6rem)] h-[calc(100%-6rem)] bg-amber-100 m-12 rounded-3xl animate-pulse">
+  <div class = "w-28 h-28 motion-safe:animate-wiggle">
+    {{ "loading.svg" | inline_asset_content }}
+  </div>
+  <div class = "font-body text-hl-yellow font-bold text-2xl mt-4">Loading...</div>
+</div>
+
+{% assign onload_str = 'imageLoad("'| append: random_id | append: '");' %}
+{% assign id_str = 'product-image-'| append: random_id %}
 {{
   media.preview_image
   | image_url: width: 1946
   | image_tag:
     class: overall_class,
+    id: id_str,
     loading: lazy,
     sizes: sizes,
-    widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946'
+    widths: '246, 493, 600, 713, 823, 990, 1100, 1206, 1346, 1426, 1646, 1946',
+    onload: onload_str
 }}
 
 {%- if media.media_type != 'image' -%}

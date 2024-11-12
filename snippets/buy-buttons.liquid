@@ -74,7 +74,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="product-form__submit bg-neutral-800 w-full text-center font-body text-bg capitalize text-xl font-bold py-5 rounded-xl"
+            class="transition duration-300 product-form__submit bg-neutral-800 w-full text-center font-body text-bg capitalize text-xl font-bold py-5 rounded-xl"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -82,7 +82,7 @@
               disabled
             {% endif %}
           >
-            <span>
+            <span class = "cart_ready">
               {%- if product.selected_or_first_available_variant == null -%}
                 {{ 'products.product.unavailable' | t }}
               {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
@@ -91,7 +91,7 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
-            {%- render 'loading-spinner' -%}
+            <div class = "cart_loading font-body font-bold text-xl hidden">Adding...</div>
           </button>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}

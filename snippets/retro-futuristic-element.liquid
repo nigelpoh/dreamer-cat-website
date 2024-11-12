@@ -1,0 +1,18 @@
+{% comment %}
+  Renders a retro-futuristic element.
+  Accepts:
+  - element: {String} Element string identifier
+  - position: {String} Position of element on screen (left or right)
+
+  Usage:
+  {% render 'retro-futuristic-element',
+    element: element
+  %}
+{% endcomment %}
+  
+<div class = "flex flex-row w-screen {% if position == "right" %} justify-end -mx-[2%] reg:-mx-[5%] md:-mx-[2%] lg:-mx-[5%] xl:-mx-[10%] {% else %} -mx-[3%] reg:-mx-[6%] md:-mx-[3%] lg:-mx-[6%] xl:-mx-[13%] {% endif %} ">
+    <div class = "h-8 w-fit {% if position == "right" %}-scale-x-100{% endif %}">
+        {% assign file_name = 'retro-futuristic-' | append: element | append: ".svg" %}
+        {{ file_name | inline_asset_content }}
+    </div>
+</div>

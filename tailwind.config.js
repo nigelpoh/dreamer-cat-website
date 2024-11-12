@@ -46,7 +46,14 @@ module.exports = {
       },
       animation: {
         'ping-slower':"ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
+        'wiggle': 'wiggle 1s ease-in-out infinite',
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      }
     },
   },
   mode: "jit",

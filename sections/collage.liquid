@@ -7,14 +7,17 @@
 
 <div class="bg-bg" style = "padding-top:{{ section.settings.padding_top }}px;margin-bottom:{{ section.settings.padding_bottom }}px;">
   
-  {%- if section.settings.heading != blank -%}
+  {%- if section.settings.heading != blank or section.settings.subheader != blank -%}
     <div class = "pb-8 pt-4">
-    <h2 class = "text-7xl text-hl-blue font-black font-display inline-block">
-      {{ section.settings.heading }}
-    </h2>
-    <h3 class="text-4xl font-bold font-body text-hl-red mt-2">
-      {{ section.settings.subheader | upcase}}
-    </h3>
+      <h2 class = "text-7xl text-hl-blue font-black font-display inline-block">
+        {{ section.settings.heading }}
+      </h2>
+      <h3 class="text-4xl font-bold font-body text-hl-red mt-2 {% if section.settings.ornament != 'none' %}mb-8{% endif %}">
+        {{ section.settings.subheader | upcase}}
+      </h3>
+      {%- if section.settings.ornament != "none" -%}
+        {% render 'retro-futuristic-element', element: section.settings.ornament, position: section.settings.ornament_position %}
+      {%- endif -%}
     </div>
   {%- endif -%}
   {% assign skip_card_product_styles = false %}
@@ -317,6 +320,54 @@
       "label": "t:sections.all.colors.label",
       "info": "t:sections.all.colors.has_cards_info",
       "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Retrofuturistic Styling"
+    },
+    {
+      "type": "select",
+      "id": "ornament",
+      "label": "Element",
+      "options": [
+        {
+          "label": "Twin Comets Style 1",
+          "value": "twin-comets-1"
+        },
+        {
+          "label": "Twin Comets Style 2",
+          "value": "twin-comets-2"
+        },
+        {
+          "label": "Triple Colour Comet",
+          "value": "triple-comet"
+        },
+        {
+          "label": "Duo Colour Comet",
+          "value": "duo-comet"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "ornament_position",
+      "label": "Style Position",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        },
+      ],
+      "default": "left"
     },
     {
       "type": "header",
