@@ -56,7 +56,7 @@
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
 
-      {% for scheme in settings.color_schemes -%}
+      /* {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
         {% if forloop.index == 1 -%}
           :root,
@@ -99,7 +99,7 @@
       {{ scheme_classes | prepend: 'body' }} {
         color: rgba(var(--color-foreground), 0.75);
         background-color: rgb(var(--color-background));
-      }
+      } */
 
       :root {
         --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
@@ -231,12 +231,12 @@
       }
 
       html {
-        box-sizing: border-box;
+        /* box-sizing: border-box; */
         font-size: calc(var(--font-body-scale) * 62.5%);
-        height: 100%;
+        /* height: 100%; */
       }
 
-      body {
+      /* body {
         display: grid;
         grid-template-rows: auto auto 1fr auto;
         grid-template-columns: 100%;
@@ -248,7 +248,7 @@
         font-family: var(--font-body-family);
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
-      }
+      } */
 
       @media screen and (min-width: 750px) {
         body {
@@ -301,7 +301,7 @@
     </script>
   </head>
 
-  <body class="bg-bg gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+  <body class="bg-bg">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -312,7 +312,7 @@
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="content-for-layout focus-none mx-[2%] reg:mx-[5%] md:mx-[2%] lg:mx-[5%] xl:mx-[10%]" role="main" tabindex="-1">
+    <main id="MainContent" class="min-h-[40vh] content-for-layout focus-none mx-[2%] reg:mx-[5%] md:mx-[2%] lg:mx-[5%] xl:mx-[10%]" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 

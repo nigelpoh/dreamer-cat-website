@@ -1445,6 +1445,14 @@ video {
   min-height: 2rem;
 }
 
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.min-h-\[40vh\] {
+  min-height: 40vh;
+}
+
 .w-1 {
   width: 0.25rem;
 }
