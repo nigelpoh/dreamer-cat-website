@@ -17,11 +17,11 @@
   }
 </style>
 
-<cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
+<cart-drawer class="bg-bg/50 drawer{% if cart == empty %} is-empty{% endif %}">
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
-      class="drawer__inner gradient color-{{ settings.cart_color_scheme }}"
+      class="drawer__inner bg-bg font-body"
       role="dialog"
       aria-modal="true"
       aria-label="{{ 'sections.cart.title' | t }}"
@@ -29,9 +29,9 @@
     >
       {%- if cart == empty -%}
         <div class="drawer__inner-empty">
+          <h2 class="drawer__heading font-display font-black uppercase text-pri-head text-4xl mt-8">{{ 'sections.cart.title' | t }}</h2>
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
             <div class="cart-drawer__empty-content">
-              <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
               <button
                 class="drawer__close"
                 type="button"
@@ -42,7 +42,7 @@
                   {{- 'icon-close.svg' | inline_asset_content -}}
                 </span>
               </button>
-              <a href="{{ routes.all_products_collection_url }}" class="button">
+              <a href="{{ routes.all_products_collection_url }}" class="button transition duration-300 bg-neutral-800 w-4/5 text-center font-body text-bg capitalize text-xl font-bold py-5 px-12 rounded-xl hover:bg-hl-green">
                 {{ 'general.continue_shopping' | t }}
               </a>
 
@@ -59,10 +59,32 @@
               {% render 'card-collection', card_collection: settings.cart_drawer_collection, columns: 1 %}
             </div>
           {%- endif -%}
+          <div class = "grid grid-cols-2 gap-4">
+            <div class = "flex flex-col items-center">
+              <img src = "../assets/shipping.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4"/>
+              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
+              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">Worldwide</div>
+            </div>
+            <div class = "flex flex-col items-center">
+              <img src = "../assets/returns.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4" />
+              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">14 Days Return</div>
+              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">From Day of Delivery</div>
+            </div>
+          </div>
+          <div class = "flex flex-col items-center w-full bg-hl-lighter-blue py-8 px-12 rounded-xl mb-8">
+            <div class = "flex flex-row justify-around w-full mb-4 flex-wrap">
+              {%- for type in shop.enabled_payment_types -%}
+                <div class="list-payment__item">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </div>
+              {%- endfor -%}
+            </div>
+            <div class = "font-body text-base text-neutral-800 font-medium">Accepted Payments</div>
+          </div>
         </div>
       {%- endif -%}
-      <div class="drawer__header">
-        <h2 class="drawer__heading">{{ 'sections.cart.title' | t }}</h2>
+      <div class="drawer__header mt-8">
+        <h2 class="drawer__heading font-display font-black uppercase text-pri-head text-4xl mb-8">{{ 'sections.cart.title' | t }}</h2>
         <button
           class="drawer__close"
           type="button"
@@ -138,23 +160,64 @@
                           {%- if settings.show_vendor -%}
                             <p class="caption-with-letter-spacing light">{{ item.product.vendor }}</p>
                           {%- endif -%}
-
-                          <a href="{{ item.url }}" class="cart-item__name h4 break">
-                            {{- item.product.title | escape -}}
+                          {% assign actual_title = item.product.title %}
+                          {%- if actual_title contains "]" -%}
+                            {% assign actual_title = actual_title | split: "]" | last %}
+                          {% endif %}
+                          <a href="{{ item.url }}" class="cart-item__name font-bold text-3xl">
+                            {{- actual_title | escape -}}
                           </a>
+                          {%- if item.product.has_only_default_variant == false
+                            or item.properties.size != 0
+                            or item.selling_plan_allocation != null
+                          -%}
+                          <dl class = "flex flex-row">
+                            {%- if item.product.title contains "]" -%}
+                              {% assign variant = item.product.title | split: "]" | first | split: "[" | last %}
+                              <span class = "font-medium text-xl">{{ variant | escape }} (</span>
+                            {% endif %}
+                            {%- if item.product.has_only_default_variant == false -%}
+                              {%- for option in item.options_with_values -%}
+                                <div class="font-medium text-xl">
+                                  {% comment %} <dt>{{ option.name }}:</dt> {% endcomment %}
+                                  <dd>{{ option.value }})</dd>
+                                </div>
+                              {%- endfor -%}
+                            {%- endif -%}
+  
+                            {%- for property in item.properties -%}
+                              {%- assign property_first_char = property.first | slice: 0 -%}
+                              {%- if property.last != blank and property_first_char != '_' -%}
+                                <div class="product-option">
+                                  <dt>{{ property.first }}:</dt>
+                                  <dd>
+                                    {%- if property.last contains '/uploads/' -%}
+                                      <a href="{{ property.last }}" class="link" target="_blank">
+                                        {{ property.last | split: '/' | last }}
+                                      </a>
+                                    {%- else -%}
+                                      {{ property.last }}
+                                    {%- endif -%}
+                                  </dd>
+                                </div>
+                              {%- endif -%}
+                            {%- endfor -%}
+                          </dl>
 
+                            <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                          {%- endif -%}
                           {%- if item.original_price != item.final_price -%}
                             <div class="cart-item__discounted-prices">
                               <span class="visually-hidden">
                                 {{ 'products.product.price.regular_price' | t }}
                               </span>
-                              <s class="cart-item__old-price product-option">
+                              <s class="cart-item__old-price product-option text-2xl">
                                 {{- item.original_price | money -}}
                               </s>
                               <span class="visually-hidden">
                                 {{ 'products.product.price.sale_price' | t }}
                               </span>
-                              <strong class="cart-item__final-price product-option">
+                              <strong class="cart-item__final-price product-option text-2xl">
                                 {{ item.final_price | money }}
                               </strong>
                             </div>
@@ -163,51 +226,6 @@
                               {{ item.original_price | money }}
                             </div>
                           {%- endif -%}
-
-                          {%- if item.product.has_only_default_variant == false
-                            or item.properties.size != 0
-                            or item.selling_plan_allocation != null
-                          -%}
-                            <dl>
-                              {%- if item.product.has_only_default_variant == false -%}
-                                {%- for option in item.options_with_values -%}
-                                  <div class="product-option">
-                                    <dt>{{ option.name }}:</dt>
-                                    <dd>
-                                      {{ option.value -}}
-                                      {%- unless forloop.last %}, {% endunless %}
-                                    </dd>
-                                  </div>
-                                {%- endfor -%}
-                              {%- endif -%}
-
-                              {%- for property in item.properties -%}
-                                {%- assign property_first_char = property.first | slice: 0 -%}
-                                {%- if property.last != blank and property_first_char != '_' -%}
-                                  <div class="product-option">
-                                    <dt>{{ property.first }}:</dt>
-                                    <dd>
-                                      {%- if property.last contains '/uploads/' -%}
-                                        <a
-                                          href="{{ property.last }}"
-                                          class="link"
-                                          target="_blank"
-                                          aria-describedby="a11y-new-window-message"
-                                        >
-                                          {{ property.last | split: '/' | last }}
-                                        </a>
-                                      {%- else -%}
-                                        {{ property.last }}
-                                      {%- endif -%}
-                                    </dd>
-                                  </div>
-                                {%- endif -%}
-                              {%- endfor -%}
-                            </dl>
-
-                            <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
-                          {%- endif -%}
-
                           <ul
                             class="discounts list-unstyled"
                             role="list"
@@ -492,13 +510,36 @@
               </ul>
             {%- endif -%}
           </div>
-
-          <div class="totals" role="status">
+          <div class="totals font-bold" role="status">
             <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
-          <small class="tax-note caption-large rte">
+          <div class = "grid grid-cols-2 gap-4 mt-12">
+            <div class = "flex flex-col items-center">
+              <img src = "../assets/shipping.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4"/>
+              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
+              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">Worldwide</div>
+            </div>
+            <div class = "flex flex-col items-center">
+              <img src = "../assets/returns.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4" />
+              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">14 Days Return</div>
+              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">From Day of Delivery</div>
+            </div>
+          </div>
+
+          <div class = "flex flex-col items-center w-full bg-hl-lighter-blue py-8 px-12 rounded-xl mb-8">
+            <div class = "flex flex-row justify-around w-full mb-4 flex-wrap">
+              {%- for type in shop.enabled_payment_types -%}
+                <div class="list-payment__item">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </div>
+              {%- endfor -%}
+            </div>
+            <div class = "font-body text-base text-neutral-800 font-medium">Accepted Payments</div>
+          </div>
+
+          {% comment %} <small class="tax-note caption-large rte">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
                 {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
@@ -536,7 +577,7 @@
                 }}
               {%- endif -%}
             {%- endif -%}
-          </small>
+          </small> {% endcomment %}
         </div>
 
         <!-- CTAs -->
@@ -545,7 +586,7 @@
           <button
             type="submit"
             id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
+            class="cart__checkout-button button bg-black text-bg font-bold text-xl rounded-xl"
             name="checkout"
             form="CartDrawer-Form"
             {% if cart == empty %}
