@@ -1324,14 +1324,6 @@ video {
   margin-top: 2rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
-}
-
-.mt-0 {
-  margin-top: 0px;
-}
-
 .block {
   display: block;
 }
@@ -1650,6 +1642,10 @@ video {
   justify-content: space-evenly;
 }
 
+.gap-12 {
+  gap: 3rem;
+}
+
 .gap-4 {
   gap: 1rem;
 }
@@ -1662,6 +1658,12 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
   margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden {
@@ -1743,6 +1745,11 @@ video {
 .border-neutral-800 {
   --tw-border-opacity: 1;
   border-color: rgb(38 38 38 / var(--tw-border-opacity));
+}
+
+.\!bg-neutral-800 {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity)) !important;
 }
 
 .bg-amber-100 {
@@ -2770,6 +2777,11 @@ video {
   letter-spacing: 0.08em;
 }
 
+.\!text-bg {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 242 / var(--tw-text-opacity)) !important;
+}
+
 .text-bg {
   --tw-text-opacity: 1;
   color: rgb(255 255 242 / var(--tw-text-opacity));
@@ -2820,17 +2832,13 @@ video {
   color: rgb(255 88 0 / var(--tw-text-opacity));
 }
 
+.text-sec-head\/70 {
+  color: rgb(255 88 0 / 0.7);
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-sec-head\/50 {
-  color: rgb(255 88 0 / 0.5);
-}
-
-.text-sec-head\/70 {
-  color: rgb(255 88 0 / 0.7);
 }
 
 .underline {
@@ -2843,14 +2851,6 @@ video {
 
 .underline-offset-4 {
   text-underline-offset: 4px;
-}
-
-.underline-offset-2 {
-  text-underline-offset: 2px;
-}
-
-.underline-offset-8 {
-  text-underline-offset: 8px;
 }
 
 .opacity-0 {
@@ -2961,6 +2961,10 @@ video {
 .hover\:bg-hl-green:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(139 186 65 / var(--tw-bg-opacity));
+}
+
+.hover\:underline:hover {
+  text-decoration-line: underline;
 }
 
 .focus\:shadow-none:focus {
