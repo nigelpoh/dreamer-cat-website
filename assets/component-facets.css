@@ -271,7 +271,7 @@
   border-radius: var(--popup-corner-radius);
   box-shadow: var(--popup-shadow-horizontal-offset) var(--popup-shadow-vertical-offset) var(--popup-shadow-blur-radius)
     rgba(var(--color-shadow), var(--popup-shadow-opacity));
-  background-color: rgb(var(--color-background));
+  /* background-color: rgb(var(--color-background)); */
   position: absolute;
   top: calc(100% + 0.5rem);
   left: -1.2rem;
@@ -766,7 +766,7 @@ a.active-facets__button.focused .active-facets__button-inner {
 }
 
 .mobile-facets__inner {
-  background-color: rgb(var(--color-background));
+  /* background-color: rgb(var(--color-background)); */
   width: calc(100% - 5rem);
   margin-left: auto;
   height: 100%;

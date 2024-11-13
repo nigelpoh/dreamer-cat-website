@@ -22,6 +22,35 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+{%- liquid
+  assign possible_colours_lighter = 'hl-lighter-red,hl-lighter-green,hl-lighter-yellow,hl-lighter-blue'
+  assign possible_colours_lighter = possible_colours_lighter | split: ','
+  assign possible_colours = 'hl-red,hl-green,hl-yellow,hl-blue'
+  assign possible_colours = possible_colours| split: ','
+-%}
+
+{%- liquid
+  assign filtered_products = "" | split: ""
+  assign short_names_taken = "" | split: ""
+
+  assign prods_all = collection.products | sort: 'metafields.custom.short_name.value'
+
+  for prod in prods_all
+      assign taken = false
+      for sn in short_names_taken
+          if sn == prod.metafields.custom.short_name.value
+              assign taken = true
+          endif
+      endfor
+      if taken == false
+          assign prod_arr = prod | sort
+          assign filtered_products = filtered_products | concat: prod_arr
+          assign current_short_name = prod.metafields.custom.short_name.value | sort
+          assign short_names_taken = short_names_taken | concat: current_short_name
+      endif
+  endfor
+-%}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -40,7 +69,7 @@
   {%- paginate collection.products by section.settings.products_per_page -%}
     {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
     {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
-      <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
+      <facet-filters-form class="facets facets-vertical-sort small-hide">
         <form class="facets-vertical-form" id="FacetSortForm">
           <div class="facet-filters sorting caption">
             <div class="facet-filters__field">
@@ -51,7 +80,7 @@
                 {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
                 <select
                   name="sort_by"
-                  class="facet-filters__sort select__select caption-large"
+                  class="facet-filters__sort select__select caption-large font-body"
                   id="SortBy"
                   aria-describedby="a11y-refresh-page-message"
                 >
@@ -103,7 +132,7 @@
       {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
         <aside
           aria-labelledby="verticalTitle"
-          class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+          class="font-body font-bold text-xl mb-4 facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
           id="main-collection-filters"
           data-id="{{ section.id }}"
         >
@@ -112,7 +141,8 @@
             enable_filtering: section.settings.enable_filtering,
             enable_sorting: section.settings.enable_sorting,
             filter_type: section.settings.filter_type,
-            paginate: paginate
+            paginate: paginate,
+            count: filtered_products.size
           %}
         </aside>
       {%- endif -%}
@@ -147,17 +177,12 @@
               id="product-grid"
               data-id="{{ section.id }}"
               class="
-                grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
-                grid--{{ section.settings.columns_desktop }}-col-desktop
+                grid grid-rows-cover-all grid-cols-1 min-[580px]:grid-cols-2 min-[900px]:grid-cols-3 min-[1200px]:grid-cols-4 gap-8
                 {% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %}
               "
             >
-              {% assign skip_card_product_styles = false %}
-              {%- for product in collection.products -%}
-                {% assign lazy_load = false %}
-                {%- if forloop.index > 2 -%}
-                  {%- assign lazy_load = true -%}
-                {%- endif -%}
+              {%- for product in filtered_products -%}
+               {% assign colour_index = forloop.index | modulo: 4 %}
                 <li
                   class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                   {% if settings.animations_reveal_on_scroll %}
@@ -165,20 +190,8 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                  {% render 'card-product',
-                    card_product: product,
-                    media_aspect_ratio: section.settings.image_ratio,
-                    image_shape: section.settings.image_shape,
-                    show_secondary_image: section.settings.show_secondary_image,
-                    show_vendor: section.settings.show_vendor,
-                    show_rating: section.settings.show_rating,
-                    lazy_load: lazy_load,
-                    skip_styles: skip_card_product_styles,
-                    quick_add: section.settings.quick_add,
-                    section_id: section.id
-                  %}
+                  {% render 'card-product', section_id: section.id, product: product, colour: possible_colours_lighter[colour_index], classes: "w-full h-full", show_collection_name: false, show_badges: true %}
                 </li>
-                {%- assign skip_card_product_styles = true -%}
               {%- endfor -%}
             </ul>
 

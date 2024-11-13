@@ -8,22 +8,22 @@
     }
   }
 {%- endstyle -%}
-
+{% assign extracted_colour = collection.metafields.custom.background_color.value | split: "bg-" | last | split: '"' | first  %}
+{% assign text_colour =  "text-" | append: extracted_colour %}
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
+  <div class="flex flex-col-reverse md:flex-row md:items-center p-8 md:p-20 rounded-3xl w-full h-full">
+    <div class="mt-16 md:mt-0 font-body md:w-1/2 md:mr-[10%]">
+      <h1 class="font-display font-black text-7xl uppercase {{ text_colour }}">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
       </h1>
 
       {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
+        <div class="mt-8 text-black text-2xl">{{ collection.description }}</div>
       {%- endif -%}
     </div>
-
     {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
+      <div class="md:w-2/5">
         <img
           srcset="
             {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -39,6 +39,7 @@
           alt="{{ collection.image.alt | escape }}"
           width="{{ collection.image.width }}"
           height="{{ collection.image.height }}"
+          class = "rounded-2xl"
         >
       </div>
     {%- endif -%}
