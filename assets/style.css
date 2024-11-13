@@ -557,13 +557,13 @@ video {
 @font-face {
   font-family: 'Space Grotesk';
 
-  src: url("./assets/spacegrotesk.ttf")
+  src: url("/assets/spacegrotesk.ttf")
 }
 
 @font-face {
   font-family: 'Kufam';
 
-  src: url("./assets/kufam.ttf");
+  src: url("/assets/kufam.ttf");
 }
 
 .container {
@@ -1455,16 +1455,20 @@ video {
   height: 100%;
 }
 
-.h-96 {
-  height: 24rem;
+.h-\[50vh\] {
+  height: 50vh;
 }
 
-.max-h-\[30rem\] {
-  max-height: 30rem;
+.h-\[30vh\] {
+  height: 30vh;
 }
 
-.max-h-\[36rem\] {
-  max-height: 36rem;
+.h-40 {
+  height: 10rem;
+}
+
+.h-\[70rem\] {
+  height: 70rem;
 }
 
 .max-h-96 {
@@ -3111,6 +3115,14 @@ video {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:gap-16 {
+    gap: 4rem;
+  }
+
   .sm\:gap-8 {
     gap: 2rem;
   }
@@ -3260,10 +3272,6 @@ video {
     width: 60%;
   }
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .md\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
@@ -3296,8 +3304,9 @@ video {
     border-radius: 1.5rem;
   }
 
-  .md\:p-20 {
-    padding: 5rem;
+  .md\:object-bottom {
+    -o-object-position: bottom;
+       object-position: bottom;
   }
 
   .md\:px-24 {
