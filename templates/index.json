@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "slideshow_rywF7G": {
       "type": "slideshow",
@@ -91,7 +91,7 @@
         "collection_6qzLic": {
           "type": "collection",
           "settings": {
-            "collection": "land-of-the-rising-sun",
+            "collection": "a-trip-to-japan",
             "header": "Immerse Yourself In Japanese Beauty",
             "bg_colour": "bg-hl-red",
             "badge_colour": "bg-hl-blue",
