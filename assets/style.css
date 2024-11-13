@@ -1219,14 +1219,6 @@ video {
   z-index: 20;
 }
 
-.z-50 {
-  z-index: 50;
-}
-
-.z-\[9999\] {
-  z-index: 9999;
-}
-
 .col-span-2 {
   grid-column: span 2 / span 2;
 }
@@ -1443,10 +1435,6 @@ video {
 
 .h-\[calc\(100\%-6rem\)\] {
   height: calc(100% - 6rem);
-}
-
-.h-\[var\(--header-height\)\] {
-  height: var(--header-height);
 }
 
 .h-fit {
@@ -1679,6 +1667,12 @@ video {
   gap: 2rem;
 }
 
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1753,10 +1747,6 @@ video {
   border-radius: 0.75rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .border-2 {
   border-width: 2px;
 }
@@ -1774,11 +1764,6 @@ video {
 .border-neutral-800 {
   --tw-border-opacity: 1;
   border-color: rgb(38 38 38 / var(--tw-border-opacity));
-}
-
-.\!border-bg {
-  --tw-border-opacity: 1 !important;
-  border-color: rgb(255 255 242 / var(--tw-border-opacity)) !important;
 }
 
 .bg-amber-100 {
@@ -2532,24 +2517,18 @@ video {
   background-color: rgb(251 146 60 / var(--tw-bg-opacity));
 }
 
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-neutral-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
-}
-
-.bg-neutral-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(82 82 82 / var(--tw-bg-opacity));
-}
-
-.\!bg-neutral-800 {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(38 38 38 / var(--tw-bg-opacity)) !important;
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
 }
 
 .fill-bg {
@@ -2704,6 +2683,10 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -2738,10 +2721,6 @@ video {
 
 .font-display {
   font-family: Kufam, system-ui;
-}
-
-.\!font-body {
-  font-family: Space Grotesk, system-ui !important;
 }
 
 .text-2xl {
@@ -2811,14 +2790,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.\!font-bold {
-  font-weight: 700 !important;
-}
-
-.\!font-black {
-  font-weight: 900 !important;
 }
 
 .uppercase {
@@ -3018,9 +2989,9 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.hover\:text-white:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+.hover\:bg-hl-green:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(139 186 65 / var(--tw-bg-opacity));
 }
 
 .hover\:underline:hover {

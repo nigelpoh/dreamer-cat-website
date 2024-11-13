@@ -8,49 +8,48 @@
  * ------------------------------------------------------------
  */
  {
-    "name": "t:sections.footer.name",
-    "type": "footer",
-    "sections": {
-      "footer": {
-        "type": "footer",
-        "blocks": {
-          "link_list_NBCRxm": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Need Help?",
-              "menu": "footer"
-            }
-          },
-          "link_list_4emnk4": {
-            "type": "link_list",
-            "settings": {
-              "heading": "Legal Notice",
-              "menu": "legal-notice"
-            }
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "link_list_NBCRxm": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Need Help?",
+            "menu": "footer"
           }
         },
-        "block_order": [
-          "link_list_NBCRxm",
-          "link_list_4emnk4"
-        ],
-        "settings": {
-          "color_scheme": "scheme-1",
-          "newsletter_enable": false,
-          "newsletter_heading": "Subscribe to our emails",
-          "enable_follow_on_shop": false,
-          "show_social": true,
-          "enable_country_selector": true,
-          "enable_language_selector": true,
-          "payment_enable": true,
-          "show_policy": false,
-          "margin_top": 0,
-          "padding_top": 36,
-          "padding_bottom": 36
+        "link_list_4emnk4": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Legal Notice",
+            "menu": "legal-notice"
+          }
         }
+      },
+      "block_order": [
+        "link_list_NBCRxm",
+        "link_list_4emnk4"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": false,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
-    },
-    "order": [
-      "footer"
-    ]
-  }
-  
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}
