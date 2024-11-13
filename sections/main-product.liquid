@@ -80,9 +80,9 @@
               {{- block.settings.text -}}
             </p> {% endcomment %}
           {%- when 'title' -%}
-            <div {{ block.shopify_attributes }} style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
+            <div class = "flex flex-col w-full text-wrap" {{ block.shopify_attributes }} style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
               {% assign actual_title = product.title | split: "]" | last %}
-              <h1 class = "font-display font-black text-pri-head text-7xl uppercase tracking-[0.08em]">{{ actual_title | escape }}</h1>
+              <h1 class = "font-display font-black text-pri-head text-7xl uppercase tracking-[0.08em] break-words">{{ actual_title | escape }}</h1>
               <h5 class = "font-body font-semibold text-sec-head uppercase text-2xl"> On {{ product.collections[0].title | escape }}</h5>
             </div>
           {%- when 'price' -%}

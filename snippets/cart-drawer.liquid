@@ -19,6 +19,7 @@
 
 {%- liquid
   assign discount_to_urge = blank
+  assign discount_passed = blank
   if settings.cart_drawer_discounts != blank
     assign discounts = settings.cart_drawer_discounts | sort: "value.quantity"
     for disc in discounts
@@ -26,6 +27,7 @@
         assign discount_to_urge = disc
         break
       endif
+      assign discount_passed = disc
     endfor
   endif 
 -%}
@@ -143,7 +145,7 @@
                 </svg>
               </span>
               {% assign quantity_needed = discount_to_urge.quantity | minus: cart.item_count %}
-              <h5 class = "font-body font-bold text-hl-red w-full text-center">Buy {{ quantity_needed }} more and get {{ discount_to_urge.discount }} off!</h5>
+              <h5 class = "font-body font-bold text-hl-red w-full text-center">Buy {{ quantity_needed }} more and get {% if discount_passed != blank %}<s>{{ discount_passed.discount }}</s> {% endif %}{{ discount_to_urge.discount }} off!</h5>
             </div>
           {% endif %}
           <div id="CartDrawer-CartItems" class="drawer__contents js-contents">

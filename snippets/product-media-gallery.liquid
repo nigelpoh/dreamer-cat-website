@@ -34,7 +34,7 @@
     <div id = "Scrollable-{{ section.id }}" class = "scrollable overflow-x-scroll whitespace-nowrap text-center no-scrollbar">
       {%- for media in product.media -%}
         <div class = "inline-block w-full">
-          <div class = "flex max-h-[36rem]">
+          <div class = "max-h-[36rem] w-full">
             {% render 'product-thumbnail',
               media: media,
               media_count: media_count,
