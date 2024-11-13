@@ -59,7 +59,7 @@
               </p>
             {%- when 'text' -%}
               <div
-                class="prose font-body text-2xl py-4 text-{{ section.settings.content_alignment }} max-w-screen-md"
+                class="pb-10 prose font-body text-2xl mx-auto text-{{ section.settings.content_alignment }} max-w-screen-md"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -70,7 +70,9 @@
               </div>
             {%- when 'button' -%}
               <div
-                class="rich-text__buttons{% if block.settings.button_label != blank and block.settings.button_label_2 != blank %} rich-text__buttons--multiple{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="pb-12 rich-text__buttons 
+                {% if block.settings.button_label != blank and block.settings.button_label_2 != blank %}flex space-x-4{% endif %} 
+                {% if settings.animations_reveal_on_scroll %}animate-slide-in scroll-trigger{% endif %}"
                 {{ block.shopify_attributes }}
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
@@ -84,7 +86,7 @@
                     {% else %}
                       href="{{ block.settings.button_link }}"
                     {% endif %}
-                    class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
+                    class="bg-neutral-800 font-bold font-body button text-bg rounded-xl{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}"
                   >
                     {{- block.settings.button_label | escape -}}
                   </a>
