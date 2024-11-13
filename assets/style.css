@@ -1252,6 +1252,11 @@ video {
   margin-bottom: 1rem;
 }
 
+.my-8 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1308,6 +1313,10 @@ video {
   margin-right: 10%;
 }
 
+.mt-12 {
+  margin-top: 3rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1322,14 +1331,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-16 {
-  margin-top: 4rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
 }
 
 .block {
@@ -1768,6 +1769,10 @@ video {
 .bg-bg {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 242 / var(--tw-bg-opacity));
+}
+
+.bg-bg\/50 {
+  background-color: rgb(255 255 242 / 0.5);
 }
 
 .bg-black {
@@ -2510,10 +2515,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-bg\/50 {
-  background-color: rgb(255 255 242 / 0.5);
 }
 
 .fill-bg {
