@@ -8,43 +8,56 @@
     }
   }
 {%- endstyle -%}
-{% assign extracted_colour = collection.metafields.custom.background_color.value | split: "bg-" | last | split: '"' | first  %}
-{% assign text_colour =  "text-" | append: extracted_colour %}
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="flex flex-col-reverse md:flex-row md:items-center p-8 md:p-20 rounded-3xl w-full h-full">
-    <div class="mt-16 md:mt-0 font-body md:w-1/2 md:mr-[10%]">
-      <h1 class="font-display font-black text-7xl uppercase {{ text_colour }}">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+{% if collection.metafields.custom.type.value == "Line" %}
+  {% assign extracted_colour = collection.metafields.custom.background_color.value | split: "bg-" | last | split: '"' | first  %}
+  {% assign text_colour =  "text-" | append: extracted_colour %}
+  <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+    <div class="flex flex-col-reverse md:flex-row md:items-center p-8 md:p-20 rounded-3xl w-full h-full">
+      <div class="mt-16 md:mt-0 font-body md:w-1/2 md:mr-[10%]">
+        <h1 class="font-display font-black text-7xl uppercase {{ text_colour }}">
+          <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+          {{- collection.title | escape -}}
+        </h1>
 
-      {%- if section.settings.show_collection_description -%}
-        <div class="mt-8 text-black text-2xl">{{ collection.description }}</div>
+        {%- if section.settings.show_collection_description -%}
+          <div class="mt-8 text-black text-2xl">{{ collection.description }}</div>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.show_collection_image and collection.image -%}
+        <div class="md:w-2/5">
+          <img
+            srcset="
+              {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ collection.image | image_url }} {{ collection.image.width }}w
+            "
+            src="{{ collection.image | image_url: width: 750 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+            alt="{{ collection.image.alt | escape }}"
+            width="{{ collection.image.width }}"
+            height="{{ collection.image.height }}"
+            class = "rounded-2xl"
+          >
+        </div>
       {%- endif -%}
     </div>
-    {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="md:w-2/5">
-        <img
-          srcset="
-            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-            {{ collection.image | image_url }} {{ collection.image.width }}w
-          "
-          src="{{ collection.image | image_url: width: 750 }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.image.alt | escape }}"
-          width="{{ collection.image.width }}"
-          height="{{ collection.image.height }}"
-          class = "rounded-2xl"
-        >
-      </div>
-    {%- endif -%}
   </div>
-</div>
+{% elsif collection.metafields.custom.type.value == "Generic" %}
+  {% if collection.title != blank %}
+      <h2 class = "font-display text-7xl text-pri-head uppercase font-black mt-8 {% if collection.description != blank %}mb-2{% endif %}">
+          {{ collection.title }}
+      </h2>
+  {% endif %}
+  {% if collection.description != blank %}
+      <h4 class = "font-body text-4xl text-sec-head uppercase font-bold">
+          {{ collection.description }}
+      </h4>
+  {% endif %}
+{% endif %}
 
 {% schema %}
 {
