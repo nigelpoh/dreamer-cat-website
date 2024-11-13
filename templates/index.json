@@ -84,7 +84,8 @@
             "collection": "a-journey-to-yumea",
             "header": "Explore Our Samsung Phones",
             "bg_colour": "bg-hl-green",
-            "badge_colour": "bg-hl-yellow"
+            "badge_colour": "bg-hl-yellow",
+            "position": "object-center"
           }
         },
         "collection_6qzLic": {
@@ -93,7 +94,8 @@
             "collection": "land-of-the-rising-sun",
             "header": "Immerse Yourself In Japanese Beauty",
             "bg_colour": "bg-hl-red",
-            "badge_colour": "bg-hl-blue"
+            "badge_colour": "bg-hl-blue",
+            "position": "object-center"
           }
         },
         "collection_3FCrWh": {
@@ -102,7 +104,8 @@
             "collection": "a-trek-through-africa",
             "header": "Experience the Energy of Desert",
             "bg_colour": "bg-hl-yellow",
-            "badge_colour": "bg-hl-red"
+            "badge_colour": "bg-hl-red",
+            "position": "object-center"
           }
         },
         "collection_8t7Agd": {
@@ -111,7 +114,8 @@
             "collection": "mountains-dreamin",
             "header": "Discover Nature Like No Other",
             "bg_colour": "bg-hl-blue",
-            "badge_colour": "bg-hl-green"
+            "badge_colour": "bg-hl-green",
+            "position": "object-left-top"
           }
         }
       },

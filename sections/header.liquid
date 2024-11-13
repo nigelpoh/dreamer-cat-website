@@ -107,7 +107,7 @@
 -%}
 
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} 
-  class="header-wrapper {% if template.name == 'index' %} fixed top-0 w-full pt-4 mx-auto{% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+  class="header-wrapper {% if template.name == 'index' %} text-body fixed top-0 w-full flex justify-center items-center pt-4{% else %}bg-bg{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -120,7 +120,7 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="{% if request.page_type == 'index' %}h-40 bg-slate-100 bg-opacity-80 rounded-3xl transition duration-300 z-50 relative{% endif %}  header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+  <header class="mx-[2%] reg:mx-[5%] md:mx-[2%] {% if request.page_type == 'index' %}h-40 px-8 bg-slate-100 bg-opacity-80 rounded-3xl transition duration-300 z-50 relative mx-8 w-full{% endif %}  header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} {% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}" {% if request.page_type != 'index' %} style = "padding-left: 0px;padding-right: 0px;" {%endif %}>
     {% if template.name == 'index' %}
       <style>
           #MainContent {
@@ -147,8 +147,10 @@
         render 'header-drawer'
       endif
 
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
+      if section.settings.search_selector == true
+        if section.settings.logo_position == 'top-center' or section.settings.menu == blank
+          render 'header-search', input_id: 'Search-In-Modal-1'
+        endif
       endif
     -%}
 
@@ -156,27 +158,27 @@
       {%- if request.page_type == 'index' -%}
         <h1 class="header__heading">
       {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo motion-reduce',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        {%- if settings.logo != blank -%}
+          <div class="header__heading-logo-wrapper">
+            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+            {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+            {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+            {{ settings.logo | image_url: width: 600 | image_tag:
+              class: 'header__heading-logo motion-reduce',
+              widths: widths,
+              height: logo_height,
+              width: settings.logo_width,
+              alt: logo_alt,
+              sizes: sizes,
+              preload: true
+            }}
+          </div>
+        {%- else -%}
+          <span class="h2">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
       {%- if request.page_type == 'index' -%}
         </h1>
       {%- endif -%}
@@ -246,7 +248,9 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {% if section.settings.search_selector == true %}
+        {% render 'header-search', input_id: 'Search-In-Modal' %}
+      {% endif %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
@@ -587,6 +591,12 @@
       "id": "enable_language_selector",
       "default": false,
       "label": "t:sections.header.settings.enable_language_selector.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "search_selector",
+      "default": false,
+      "label": "Search?"
     },
     {
       "type": "header",

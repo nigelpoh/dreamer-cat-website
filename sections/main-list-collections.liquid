@@ -1,12 +1,12 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="bg-bg gradient isolate">
-  <div class="mx-auto md:px-4 md:py-4 sm:px-12 sm:py-12">
-      <h2 class = " py-4 text-6xl text-hl-blue font-black font-display">
+<div class="mx-auto bg-bg">
+  <div class="mt-16 mb-24">
+      <h2 class = "text-7xl text-pri-head font-black font-display">
         {{ section.settings.title | upcase}}
       </h2>
-      <h3 class="text-4xl font-bold font-body text-hl-red mt-2 mb-10">
+      <h3 class="text-3xl font-bold font-body text-sec-head mb-24">
         {{ section.settings.subheader | upcase}}
       </h3>
   
@@ -30,12 +30,11 @@
   -%}
   {%- paginate collections by paginate_by -%}
     <ul
-
-      class="grid sm:grid-cols-1 md:grid-cols-2 md:gap-16 sm:gap-y-16"
+      class="grid sm:grid-cols-2 lg:grid-cols-3 md:gap-16 sm:gap-8"
     >
       {%- for collection in collections -%}
         <li
-          class="rounded-3xl transition-transform transform hover:scale-105{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="rounded-xl md:rounded-3xl transition-transform transform hover:scale-105{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
             style="--animation-order: {{ forloop.index }};"

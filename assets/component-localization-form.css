@@ -85,7 +85,7 @@
 }
 
 .localization-selector.link {
-  text-decoration: none;
+  /* text-decoration: none; */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -172,7 +172,7 @@
   padding: 1.5rem 1.5rem 0.6rem;
   position: sticky;
   top: -0.02rem;
-  background-color: rgb(var(--color-background));
+  /* background-color: rgb(var(--color-background)); */
   z-index: 6;
 }
 
@@ -351,9 +351,9 @@
   background: transparent;
 }
 
-.header-localization .disclosure .localization-form__select:hover {
+/* .header-localization .disclosure .localization-form__select:hover {
   text-decoration: underline;
-}
+} */
 
 .header-localization .localization-form__select.link:after,
 .header-localization .localization-form__select.link:before {

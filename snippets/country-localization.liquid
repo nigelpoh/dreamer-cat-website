@@ -28,7 +28,7 @@
 <div class="disclosure">
   <button
     type="button"
-    class="disclosure__button localization-form__select localization-selector link link--text caption-large"
+    class="disclosure__button localization-form__select localization-selector link link--text font-body no-underline hover:underline hover:decoration-wavy"
     aria-expanded="false"
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
@@ -40,12 +40,12 @@
     </span>
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>
-  <div class="disclosure__list-wrapper country-selector" hidden>
-    <div class="country-filter{% unless show_country_filter %} country-filter--no-padding{% endunless %}">
+  <div class="disclosure__list-wrapper country-selector font-body" hidden>
+    <div class="country-filter{% unless show_country_filter %} country-filter--no-padding{% endunless %} bg-bg">
       {% if show_country_filter %}
-        <div class="field">
+        <div class="field bg-bg">
           <input
-            class="country-filter__input field__input"
+            class="country-filter__input field__input font-body placeholder:font-body"
             id="country-filter-input"
             type="search"
             name="country_filter"
@@ -84,7 +84,7 @@
     </div>
     <div id="sr-country-search-results" class="visually-hidden" aria-live="polite"></div>
     <div
-      class="disclosure__list country-selector__list{% if show_currencies %} country-selector__list--with-multiple-currencies{% endif %}"
+      class="disclosure__list country-selector__list bg-bg no-scrollbar {% if show_currencies %} country-selector__list--with-multiple-currencies{% endif %}"
       id="{{ localPosition }}-country-results"
     >
       {% if show_popular_countries %}
