@@ -106,7 +106,8 @@
   endfor
 -%}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} 
+  class="header-wrapper {% if template.name == 'index' %} fixed top-0 w-full pt-4 mx-auto{% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -119,7 +120,28 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="h-[var(--header-height)] header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+  <header class="{% if request.page_type == 'index' %}h-40 bg-slate-100 bg-opacity-80 rounded-3xl transition duration-300 z-50 relative{% endif %}  header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+    {% if template.name == 'index' %}
+      <style>
+          #MainContent {
+              margin-top: -81px;
+          }
+          @media (max-width: 749px) {
+              #MainContent {
+                  margin-top: -73px;
+              }
+          }
+          html .section-header.scrolled-past-header .header-wrapper {
+              background: #FFFFF2;
+            }
+          html .section-header.scrolled-past-header .header {
+            height: auto; 
+            background: #FFFFF2;
+            border-radius: 0; 
+            opacity: 1;
+          }
+      </style>
+      {% endif %}
     {%- liquid
       if section.settings.menu != blank
         render 'header-drawer'
@@ -343,6 +365,8 @@
 
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         this.header.classList.add('scrolled-past-header');
+
+        
         if (this.preventHide) return;
         requestAnimationFrame(this.hide.bind(this));
       } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
