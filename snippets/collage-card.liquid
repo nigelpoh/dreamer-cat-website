@@ -6,20 +6,21 @@
   - badge_colour: Tailwind colour string for this card's badge
   - card_collection: Collection to link to for this card
   - number: Number of this card
+  - position: Image position
   Usage:
   {% render 'collage-card', card_collection: block.settings.collection %}
 {% endcomment %}
 
 <div class="flex flex-col justify-between items-center p-8 {{ bg_colour }} rounded-3xl transition h-full">
-  <div class = "flex flex-col w-full">
-    <div class="relative w-full pb-[75%] h-2/3 rounded-3xl overflow-hidden">
+  <div class = "flex flex-col w-full h-full">
+    <div class="relative w-full h-[30vh] rounded-3xl overflow-hidden">
       {%- if card_collection.featured_image -%}
           <img
             src="{{ card_collection.featured_image | image_url: width: 400 }}"
             alt="{{ card_collection.featured_image.alt | escape }}"
             width="{{ card_collection.featured_image.width }}"
             height="{{ card_collection.featured_image.height }}"
-            class="absolute inset-0 h-full object-cover transition-transform transform hover:scale-105"
+            class="absolute inset-0 h-full object-cover transition-transform transform hover:scale-105 {{ position }}"
           >
       {%- else -%}
         {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
