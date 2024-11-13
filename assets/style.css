@@ -1442,6 +1442,18 @@ video {
   height: 100%;
 }
 
+.h-\[50vh\] {
+  height: 50vh;
+}
+
+.h-\[30vh\] {
+  height: 30vh;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
 .max-h-\[30rem\] {
   max-height: 30rem;
 }
@@ -1541,6 +1553,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-\[30vw\] {
+  width: 30vw;
 }
 
 .min-w-8 {
@@ -2582,6 +2598,36 @@ video {
      object-position: top;
 }
 
+.object-left {
+  -o-object-position: left;
+     object-position: left;
+}
+
+.object-left-bottom {
+  -o-object-position: left bottom;
+     object-position: left bottom;
+}
+
+.object-left-top {
+  -o-object-position: left top;
+     object-position: left top;
+}
+
+.object-right {
+  -o-object-position: right;
+     object-position: right;
+}
+
+.object-right-bottom {
+  -o-object-position: right bottom;
+     object-position: right bottom;
+}
+
+.object-right-top {
+  -o-object-position: right top;
+     object-position: right top;
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -3205,6 +3251,11 @@ video {
     align-self: flex-start;
   }
 
+  .md\:object-bottom {
+    -o-object-position: bottom;
+       object-position: bottom;
+  }
+
   .md\:px-24 {
     padding-left: 6rem;
     padding-right: 6rem;
@@ -3256,21 +3307,6 @@ video {
 }
 
 @media (min-width: 990px) {
-  .lg\:-mx-\[5\%\] {
-    margin-left: -5%;
-    margin-right: -5%;
-  }
-
-  .lg\:-mx-\[6\%\] {
-    margin-left: -6%;
-    margin-right: -6%;
-  }
-
-  .lg\:mx-\[5\%\] {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
   .lg\:mr-0 {
     margin-right: 0px;
   }
@@ -3314,21 +3350,6 @@ video {
 }
 
 @media (min-width: 1440px) {
-  .xl\:-mx-\[10\%\] {
-    margin-left: -10%;
-    margin-right: -10%;
-  }
-
-  .xl\:-mx-\[13\%\] {
-    margin-left: -13%;
-    margin-right: -13%;
-  }
-
-  .xl\:mx-\[10\%\] {
-    margin-left: 10%;
-    margin-right: 10%;
-  }
-
   .xl\:h-\[70rem\] {
     height: 70rem;
   }

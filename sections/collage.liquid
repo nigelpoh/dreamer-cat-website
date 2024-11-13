@@ -42,7 +42,7 @@
       {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
       {%- case block.type -%}
         {%- when 'image' -%}
-          <div class="collage-card {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}card-wrapper {{ section.settings.card_styles }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+          <div class="collage-card">
             <div
               class="media media--transparent ratio"
               {% if block.settings.image != blank %}
@@ -111,7 +111,8 @@
             bg_colour: block.settings.bg_colour,
             badge_colour: block.settings.badge_colour,
             title: block.settings.header,
-            number: forloop.index
+            number: forloop.index,
+            position: block.settings.position
           %}
         {%- when 'video' -%}
           <div class="collage-card {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}{{ section.settings.card_styles }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
@@ -484,6 +485,50 @@
             }
           ],
           "default": "bg-hl-blue"
+        },
+        {
+          "type": "select",
+          "id": "position",
+          "label": "Image Position",
+          "options": [
+            {
+              "label": "Left Top",
+              "value": "object-left-top"
+            },
+            {
+              "label": "Centre Top",
+              "value": "object-top"
+            },
+            {
+              "label": "Right Top",
+              "value": "object-right-top"
+            },
+            {
+              "label": "Centre Left",
+              "value": "object-left"
+            },
+            {
+              "label": "Centre",
+              "value": "object-center"
+            },
+            {
+              "label": "Centre Right",
+              "value": "object-right"
+            },
+            {
+              "label": "Bottom Left",
+              "value": "object-left-bottom"
+            },
+            {
+              "label": "Bottom Centre",
+              "value": "object-bottom"
+            },
+            {
+              "label": "Bottom Right",
+              "value": "object-right-bottom"
+            },
+          ],
+          "default": "object-center"
         }
       ]
     },
