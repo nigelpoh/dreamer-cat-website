@@ -1459,6 +1459,13 @@
         "info": "t:settings_schema.cart.settings.cart_drawer.collection.info"
       },
       {
+        "type": "metaobject_list",
+        "metaobject_type": "store_discount",
+        "id": "cart_drawer_discounts",
+        "label": "Discounts",
+        "info": "Discounts to display in cart drawer"
+      },
+      {
         "type": "color_scheme",
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",

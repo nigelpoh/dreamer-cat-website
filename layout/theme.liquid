@@ -312,7 +312,7 @@
 
     {% sections 'header-group' %}
 
-    <main id="MainContent" class="min-h-[40vh] content-for-layout focus-none mx-[2%] reg:mx-[5%] md:mx-[2%] lg:mx-[5%] xl:mx-[10%]" role="main" tabindex="-1">
+    <main id="MainContent" class="{% if request.path == "/cart" %}flex flex-col justify-center {% endif %}min-h-[40vh] content-for-layout focus-none mx-[2%] reg:mx-[5%] md:mx-[2%] lg:mx-[5%] xl:mx-[10%]" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
