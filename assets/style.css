@@ -3332,6 +3332,10 @@ video {
     align-self: flex-start;
   }
 
+  .md\:break-words {
+    overflow-wrap: break-word;
+  }
+
   .md\:rounded-3xl {
     border-radius: 1.5rem;
   }
@@ -3377,6 +3381,13 @@ video {
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
+  }
+}
+
+@media (min-width: 790px) {
+  .min-\[790px\]\:break-normal {
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 

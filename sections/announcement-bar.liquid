@@ -48,7 +48,7 @@
               class="announcement-bar__link link link--text focus-inset animate-arrow"
             >
           {%- endif -%}
-          <p class="font-bold font-body text-bg text-2xl announcement-bar__message h5">
+          <p class="font-medium font-body text-bg text-xl announcement-bar__message">
             <span>{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -109,7 +109,7 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="font-bold font-body text-bg text-2xl announcement-bar__message h5">
+                    <p class="font-medium font-body text-bg text-xl announcement-bar__message h5">
                       <span>{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -266,6 +266,10 @@
         {
           "value": "bg-hl-blue",
           "label": "Blue"
+        },
+        {
+          "value": "bg-black",
+          "label": "Black"
         }
       ],
       "default": "bg-hl-blue"

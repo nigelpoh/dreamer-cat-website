@@ -14,7 +14,7 @@
       {% case block.type %}
         {%- when 'heading' -%}
           {% assign text_colour = "text-" | append:block.settings.colour %}
-          <h1 class = "font-display {{ text_colour }} font-black text-7xl mb-8 break-words sm:break-normal">{{ block.settings.heading }}</h1>
+          <h1 class = "font-display {{ text_colour }} font-black text-7xl mb-8 min-[790px]:break-normal md:break-words break-words sm:break-normal">{{ block.settings.heading }}</h1>
         {%- when 'body' -%}
           {% assign text_colour = "text-" | append:block.settings.colour %}
           <span class = "font-body {{ text_colour }} font-base text-3xl mb-8">{{ block.settings.body }}</span>
