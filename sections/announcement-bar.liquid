@@ -3,6 +3,7 @@
 
 {%- liquid
   assign bg_color = section.settings.bg_colour
+
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
     assign social_icons = false
@@ -19,8 +20,14 @@
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
 <div
-  class="utility-bar gradient {{ bg_color}} {% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
+  class="utility-bar color {{bg_color }} h-15 gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
   {{ block.shopify_attributes }}
 >
   <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
@@ -41,7 +48,7 @@
               class="announcement-bar__link link link--text focus-inset animate-arrow"
             >
           {%- endif -%}
-          <p class="font-body font-bold text-bg animate-infinite-scroll announcement-bar__message h5">
+          <p class="font-bold font-body text-bg text-2xl announcement-bar__message h5">
             <span>{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -62,7 +69,7 @@
         <div class="announcement-bar-slider slider-buttons">
           <button
             type="button"
-            class="slider-button slider-button--prev"
+            class="slider-button slider-button--prev !hidden"
             name="previous"
             aria-label="{{ 'sections.announcements.previous_announcement' | t }}"
             aria-controls="Slider-{{ section.id }}"
@@ -72,7 +79,7 @@
             </span>
           </button>
           <div
-            class="grid grid--1-col slider slider--everywhere"
+            class="flex overflow-x-auto no-scrollbar scroll-snap-x mandatory smooth"
             id="Slider-{{ section.id }}"
             aria-live="polite"
             aria-atomic="true"
@@ -81,7 +88,7 @@
           >
             {%- for block in section.blocks -%}
               <div
-                class="slideshow__slide slider__slide grid__item grid--1-col"
+                class="flex-shrink-0 snap-start py-4 px-4 w-full mx-auto justify-center"
                 id="Slide-{{ section.id }}-{{ forloop.index }}"
                 {{ block.shopify_attributes }}
                 role="group"
@@ -102,7 +109,7 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="announcement-bar__message h5">
+                    <p class="font-bold font-body text-bg text-2xl announcement-bar__message h5">
                       <span>{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -118,7 +125,7 @@
           </div>
           <button
             type="button"
-            class="slider-button slider-button--next"
+            class="slider-button slider-button--next !hidden"
             name="next"
             aria-label="{{ 'sections.announcements.next_announcement' | t }}"
             aria-controls="Slider-{{ section.id }}"
@@ -263,6 +270,7 @@
       ],
       "default": "bg-hl-blue"
     }
+
   ],
   "blocks": [
     {

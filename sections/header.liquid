@@ -120,17 +120,9 @@
       assign localization_forms = true
     endif
   -%}
-  <header class="mx-[2%] reg:mx-[5%] md:mx-[2%] {% if request.page_type == 'index' %}h-40 px-8 bg-slate-100 bg-opacity-80 rounded-3xl transition duration-300 z-50 relative mx-8 w-full{% endif %}  header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} {% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}" {% if request.page_type != 'index' %} style = "padding-left: 0px;padding-right: 0px;" {%endif %}>
+  <header class="mx-[2%] reg:mx-[5%] md:mx-[2%] xl:mt-[3.5%] lg:mt-[5%] md:mt-[8%] {% if request.page_type == 'index' %}h-40 px-8 bg-slate-100 bg-opacity-80 rounded-3xl transition duration-300 z-50 relative mx-8 w-full{% endif %}  header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} {% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}" {% if request.page_type != 'index' %} style = "padding-left: 0px;padding-right: 0px;" {%endif %}>
     {% if template.name == 'index' %}
       <style>
-          #MainContent {
-              margin-top: -81px;
-          }
-          @media (max-width: 749px) {
-              #MainContent {
-                  margin-top: -73px;
-              }
-          }
           html .section-header.scrolled-past-header .header-wrapper {
               background: #FFFFF2;
             }
