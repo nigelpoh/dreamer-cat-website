@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "slideshow_rywF7G": {
       "type": "slideshow",
@@ -15,8 +15,8 @@
         "video_slide_8pd6G7": {
           "type": "video_slide",
           "settings": {
-            "video": "shopify://files/videos/test.mp4",
-            "control_colour": "bg",
+            "video": "shopify://files/videos/yumea_title_sequence.mp4",
+            "control_colour": "black",
             "theme_colour": "hl-red",
             "position": "object-bottom",
             "heading": "A Journey to Yumeá",
@@ -24,28 +24,23 @@
             "link": ""
           }
         },
-        "image_slide_83kc69": {
-          "type": "image_slide",
+        "video_slide_QKmRje": {
+          "type": "video_slide",
           "settings": {
-            "heading": "Image slide",
-            "theme_colour": "hl-red",
+            "video": "shopify://files/videos/japan_title_sequence.mp4",
+            "control_colour": "bg",
+            "theme_colour": "hl-yellow",
+            "position": "object-center",
+            "heading": "Video Slide",
             "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
+            "link": ""
           }
         },
         "image_slide_p3qVtK": {
           "type": "image_slide",
           "settings": {
             "heading": "Image slide",
-            "theme_colour": "hl-red",
+            "theme_colour": "hl-green",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
@@ -61,7 +56,7 @@
       },
       "block_order": [
         "video_slide_8pd6G7",
-        "image_slide_83kc69",
+        "video_slide_QKmRje",
         "image_slide_p3qVtK"
       ],
       "settings": {
@@ -78,13 +73,13 @@
     "collage_YrqUB9": {
       "type": "collage",
       "blocks": {
-        "collection_tAgAaY": {
+        "collection_ndCHfr": {
           "type": "collection",
           "settings": {
-            "collection": "a-journey-to-yumea",
-            "header": "Explore Our Samsung Phones",
-            "bg_colour": "bg-hl-green",
-            "badge_colour": "bg-hl-yellow",
+            "collection": "samsung-collection",
+            "header": "",
+            "bg_colour": "bg-hl-blue",
+            "badge_colour": "bg-hl-blue",
             "position": "object-center"
           }
         },
@@ -115,12 +110,12 @@
             "header": "Discover Nature Like No Other",
             "bg_colour": "bg-hl-blue",
             "badge_colour": "bg-hl-green",
-            "position": "object-left-top"
+            "position": "object-center"
           }
         }
       },
       "block_order": [
-        "collection_tAgAaY",
+        "collection_ndCHfr",
         "collection_6qzLic",
         "collection_3FCrWh",
         "collection_8t7Agd"

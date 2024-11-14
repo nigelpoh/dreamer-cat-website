@@ -92,7 +92,7 @@
         {% assign colours = "bg-hl-lighter-green,bg-hl-lighter-blue,bg-hl-lighter-yellow,bg-hl-lighter-red" | split: "," %}
         <scrollable-row id = "ScrollableProducts-{{ section.id }}" class = "relative">      
             <input id = "SliderController-{{ section.id }}" class = "slider-controller hidden" value = "" />
-            <div id = "Scrollable-{{ section.id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth">
+            <div id = "Scrollable-{{ section.id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth overflow-y-hidden">
                 {% for review in review_prod.metafields.ba_rev.review_data.reviews %}
                     {% assign check_0 = forloop.index0 | modulo: no_reviews_per_page %}
                     {% if check_0 == 0 %}

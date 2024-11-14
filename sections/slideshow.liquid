@@ -59,7 +59,7 @@
   >
     <input id = "SliderController-{{ section.id }}" class = "slider-controller hidden" value = "" />
     <div id = "Scrollable-{{ section.id }}" 
-      class = "scrollable flex flex-col overflow-x-scroll no-scrollbar scroll-smooth h-full flex-wrap"
+      class = "scrollable flex flex-col overflow-x-scroll no-scrollbar scroll-smooth h-full flex-wrap overflow-y-hidden"
     >
       {%- for block in section.blocks -%}
         <div id = "Slide-{{ section.id }}-{{ forloop.index0 }}" class = "w-full h-full relative">

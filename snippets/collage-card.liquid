@@ -13,10 +13,10 @@
 
 <div class="flex flex-col justify-between items-center p-8 {{ bg_colour }} rounded-3xl transition h-full">
   <div class = "flex flex-col w-full h-full">
-    <div class="relative w-full h-[30vh] rounded-3xl overflow-hidden">
+    <div class="relative w-full h-[30vh] lg:h-[45vh] rounded-3xl overflow-hidden">
       {%- if card_collection.metafields.custom.landing_media.value -%}
           <img
-            src="{{ card_collection.metafields.custom.landing_media.value | image_url: width: 400 }}"
+            src="{{ card_collection.metafields.custom.landing_media.value | image_url: width: 1200 }}"
             alt="{{ card_collection.metafields.custom.landing_media.valuealt | escape }}"
             width="{{ card_collection.metafields.custom.landing_media.value.width }}"
             height="{{ card_collection.metafields.custom.landing_media.value.height }}"

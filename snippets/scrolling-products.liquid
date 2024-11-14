@@ -19,7 +19,7 @@
 
 <scrollable-row id = "ScrollableProducts-{{ section_id }}" class = "relative">
     <input id = "SliderController-{{ section_id }}" class = "slider-controller hidden" value = "" />
-    <div id = "Scrollable-{{ section_id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth">
+    <div id = "Scrollable-{{ section_id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth overflow-y-hidden">
         {% for prod in products %}
             {% assign colour_index = forloop.index | modulo: 4 %}
             {% assign class_str = "" %}

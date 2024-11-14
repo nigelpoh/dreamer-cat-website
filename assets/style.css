@@ -1727,6 +1727,10 @@ video {
   overflow-x: hidden;
 }
 
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
 .overflow-x-scroll {
   overflow-x: scroll;
 }
@@ -3373,6 +3377,14 @@ video {
 
   .lg\:mr-\[5\%\] {
     margin-right: 5%;
+  }
+
+  .lg\:h-\[40vh\] {
+    height: 40vh;
+  }
+
+  .lg\:h-\[45vh\] {
+    height: 45vh;
   }
 
   .lg\:w-\[45\%\] {
