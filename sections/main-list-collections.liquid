@@ -11,6 +11,14 @@
       </h3>
   
 {%- liquid
+    assign collections_filtered = "" | split: ""
+    for c in collections
+      if c.metafields.custom.type.value == "Line"
+        assign c_arr = c | sort
+        assign collections_filtered = collections_filtered | concat: c_arr
+      endif
+    endfor
+    assign collections = collections_filtered
     case section.settings.sort
       when 'products_high', 'products_low'
         assign collections = collections | sort: 'all_products_count'
