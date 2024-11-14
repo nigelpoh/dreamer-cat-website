@@ -1379,12 +1379,12 @@ video {
   display: grid;
 }
 
-.\!hidden {
-  display: none !important;
-}
-
 .hidden {
   display: none;
+}
+
+.\!hidden {
+  display: none !important;
 }
 
 .aspect-square {
@@ -1588,6 +1588,20 @@ video {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(450%);
+  }
+
+  to {
+    transform: translateX(-450%);
+  }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 9s linear infinite;
 }
 
 @keyframes ping {
@@ -3124,20 +3138,8 @@ video {
 }
 
 @media (min-width: 320px) {
-  .sm\:mt-\[10\%\] {
-    margin-top: 10%;
-  }
-
-  .sm\:mt-\[12\%\] {
-    margin-top: 12%;
-  }
-
   .sm\:mt-\[15\%\] {
     margin-top: 15%;
-  }
-
-  .sm\:mt-\[20\%\] {
-    margin-top: 20%;
   }
 
   .sm\:grid-cols-1 {
@@ -3172,14 +3174,6 @@ video {
   .reg\:mx-\[5\%\] {
     margin-left: 5%;
     margin-right: 5%;
-  }
-
-  .reg\:mt-\[8\%\] {
-    margin-top: 8%;
-  }
-
-  .reg\:mt-\[10\%\] {
-    margin-top: 10%;
   }
 
   .reg\:mt-\[12\%\] {
@@ -3422,6 +3416,10 @@ video {
 
   .lg\:mt-\[5\%\] {
     margin-top: 5%;
+  }
+
+  .lg\:h-\[40vh\] {
+    height: 40vh;
   }
 
   .lg\:h-\[45vh\] {
