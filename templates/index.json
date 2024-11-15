@@ -77,7 +77,7 @@
           "type": "collection",
           "settings": {
             "collection": "samsung-collection",
-            "header": "",
+            "header": "Explore Our Samsung Phones Now",
             "bg_colour": "bg-hl-blue",
             "badge_colour": "bg-hl-blue",
             "position": "object-center"
