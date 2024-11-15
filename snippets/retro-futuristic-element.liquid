@@ -10,7 +10,7 @@
   %}
 {% endcomment %}
   
-<div class = "flex flex-row w-screen {% if position == "right" %} justify-end -mx-[2%] reg:-mx-[5%] md:-mx-[2%] {% else %} -mx-[3%] reg:-mx-[6%] md:-mx-[3%] {% endif %} ">
+<div class = "flex flex-row w-screen {% if position == "right" %} justify-end translate-x-[2%] reg:translate-x-[5%] md:translate-x-[2%] {% else %} -translate-x-[6%] reg:-translate-x-[10%] md:-translate-x-[6%] {% endif %} ">
     <div class = "h-8 w-fit {% if position == "right" %}-scale-x-100{% endif %}">
         {% assign file_name = 'retro-futuristic-' | append: element | append: ".svg" %}
         {{ file_name | inline_asset_content }}

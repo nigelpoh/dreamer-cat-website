@@ -105,7 +105,7 @@ class Scrollable extends HTMLElement {
                 tagSliders(scrollable, id.slice(1, id.length).join("-"))
                 var sliderButtons = document.querySelector("#SliderButtons-" + indicativeID)
                 if (sliderButtons != null) {
-                    sliderButtons.classList.add("md:block")
+                    sliderButtons.classList.add("md:flex")
                     var sliderBtnL = sliderButtons.getElementsByTagName('button')[0]
                     var sliderBtnR = sliderButtons.getElementsByTagName('button')[1]
                     sliderBtnL.addEventListener("click", () => {
@@ -130,11 +130,16 @@ class Scrollable extends HTMLElement {
                     })
                 }
                 return
+            } else {
+                var sliderButtons = document.querySelector("#SliderButtons-" + indicativeID)
+                if (sliderButtons != null) {
+                    sliderButtons.classList.add("hidden")
+                }
             }
         }
         var sliderButtons = document.querySelector("#SliderButtons-" + indicativeID)
         if (sliderButtons != null) {
-            sliderButtons.classList.remove("md:block")
+            sliderButtons.classList.remove("md:flex")
         }
     }
 }
