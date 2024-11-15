@@ -70,7 +70,8 @@
                   {{- 'icon-close.svg' | inline_asset_content -}}
                 </span>
               </button>
-              <a href="{{ routes.all_products_collection_url }}" class="button transition duration-300 bg-neutral-800 w-4/5 text-center font-body text-bg capitalize text-xl font-bold py-5 px-12 rounded-xl hover:bg-hl-green">
+        
+              <a href="{{ routes.collections_url }}" class="button transition duration-300 bg-neutral-800 w-4/5 text-center font-body text-bg capitalize text-xl font-bold py-5 px-12 rounded-xl hover:bg-hl-green">
                 {{ 'general.continue_shopping' | t }}
               </a>
 
@@ -87,7 +88,7 @@
               {% render 'card-collection', card_collection: settings.cart_drawer_collection, columns: 1 %}
             </div>
           {%- endif -%}
-          <div class = "grid grid-cols-2 gap-4">
+          <div class = "grid grid-cols-2 gap-4 mt-8">
             <div class = "flex flex-col items-center">
               <img src = "../assets/shipping.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4"/>
               <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
@@ -361,7 +362,7 @@
                                     value="{{ item.quantity }}"
                                     {% # theme-check-disable %}
                                     data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
-                                    min="0"
+                                    min="1"
                                     data-min="{{ item.variant.quantity_rule.min }}"
                                     {% if item.variant.quantity_rule.max != null %}
                                       max="{{ item.variant.quantity_rule.max }}"

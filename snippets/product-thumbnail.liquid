@@ -15,6 +15,7 @@
   - media_fit: {String} Method ("contain" or "cover") to fit image into container
   - media_width: {Float} The width percentage that the media column occupies on desktop.
   - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+  - class: {String} Additional classes to be added to the image tag (optional)
 
   Usage:
   {% render 'product-thumbnail',
@@ -41,6 +42,10 @@
   endif
 
   assign overall_class = "product-image object-contain h-0"
+  
+  if class != blank
+    assign overall_class = overall_class | append: ' ' | append: class
+  endif
 
   if media.media_type == 'image'
     assign overall_class = overall_class | append: ' image-magnify-' | append: section.settings.image_zoom

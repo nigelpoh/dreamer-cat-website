@@ -34,6 +34,21 @@
     ]
   },
   {
+    "name": "Delivery and Return",
+    "settings":[
+      {
+        "type":"image_picker",
+        "id": "delivery_image",
+        "label": "Delivery SVG Icon"
+      },
+      {
+        "type":"image_picker",
+        "id": "return_image",
+        "label": "Return SVG Icon"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.colors.name",
     "settings": [
       {

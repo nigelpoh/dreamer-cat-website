@@ -1,14 +1,15 @@
 {% comment %}
   Renders a video.
   Accepts:
-  - section_id: {String} The section's id 
+  - section_id: {String} The section's id
   - video: {Object} Video to render
   - control_colour: {String} Colour of controls (Name of colour in tailwind)
   - position_control: Tailwind classes to set controls position
+  - pause {Boolean} Whether to allow pausing
   - playback_rate: Playback Rate of the video. Default is 1. (optional)
   - class: Classes to add (optional, default false)
   - invert: Whether to invert colours (optional, default false)
-
+ 
   Usage:
   {% render 'video',
     section_id: section_id,
@@ -22,61 +23,68 @@
 {%- liquid
     if playback_rate == blank
         assign playback_rate = 1
-    endif 
-
+    endif
+ 
     if class == blank
         assign class = "h-full w-full"
     else
         assign class = class | append: " h-full w-full"
     endif
-
+ 
     if invert == blank
         assign invert = false
     endif
+ 
 -%}
-
+ 
+{% liquid
+    assign stroke_colour = "stroke-" | append:control_colour
+    assign fill_colour = "fill-" | append:control_colour
+%}
+ 
 <script>
-    document.addEventListener("DOMContentLoaded", function(event) { 
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.querySelector("#video-{{ section_id }} > video").playbackRate = {{ playback_rate }};
+        document.querySelector("#video-{{ section_id }} > video").play();
+        document.querySelector("#pause-{{ section_id }}").addEventListener("click", function(event) {
+            const video_q = document.querySelector("#video-{{ section_id }} > video")
+            if (video_q.paused) {
+                video_q.play();
+                event.target.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "{{ stroke_colour }} w-12 h-12 stroke-1">
+                    <circle class="fill-none" cx="10" cy="10.29" r="6.71" stroke-miterlimit = "10"/>
+                    <line class="fill-none" x1="8.11" y1="8.29" x2="8.11" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+                    <line class="fill-none" x1="11.89" y1="8.29" x2="11.89" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+                    </svg>
+                `
+            } else {
+                video_q.pause();
+                event.target.innerHTML = `
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "w-12 h-12">
+                    <circle class="fill-none {{ stroke_colour }} stroke-1" cx="10" cy="10.29" r="6.71" stroke-miterlimit=10></circle>
+                    <path class = "{{ fill_colour }}" d="M7.87,8.13v4.32c0,.69.78,1.1,1.35.7l3.09-2.16c.49-.34.49-1.06,0-1.4l-3.09-2.16c-.57-.4-1.35,0-1.35.7Z"/>
+                    </svg>
+                `
+            }
+        })
+    });
+    document.addEventListener("shopify:section:load", function(event) {
         document.querySelector("#video-{{ section_id }} > video").playbackRate = {{ playback_rate }};
         document.querySelector("#video-{{ section_id }} > video").play();
     });
-    document.addEventListener("shopify:section:load", function(event) { 
-        document.querySelector("#video-{{ section_id }} > video").playbackRate = {{ playback_rate }};
-        document.querySelector("#video-{{ section_id }} > video").play();
-    });
-    function pause_clicked(section_id, stroke_colour, fill_colour) {
-        if (document.querySelector("#video-" + section_id + " > video").paused) {
-        document.querySelector("#video-" + section_id + " > video").play();
-        document.querySelector("#pause-" + section_id).innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "` + stroke_colour + ` w-12 h-12 stroke-1">
-            <circle class="fill-none" cx="10" cy="10.29" r="6.71" stroke-miterlimit = "10"/>
-            <line class="fill-none" x1="8.11" y1="8.29" x2="8.11" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
-            <line class="fill-none" x1="11.89" y1="8.29" x2="11.89" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
-            </svg>
-        `
-        } else {
-        document.querySelector("#video-" + section_id + " > video").pause();
-        document.querySelector("#pause-" + section_id).innerHTML = `
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "w-12 h-12">
-            <circle class="fill-none ` + stroke_colour + ` stroke-1" cx="10" cy="10.29" r="6.71" stroke-miterlimit=10></circle>
-            <path class = "` + fill_colour + `" d="M7.87,8.13v4.32c0,.69.78,1.1,1.35.7l3.09-2.16c.49-.34.49-1.06,0-1.4l-3.09-2.16c-.57-.4-1.35,0-1.35.7Z"/>
-            </svg>
-        `
-        }
-    }
 </script>
   
 <div id = "video-{{ section_id }}" class = "h-full w-full relative">
     {% if video != blank %}
-        {% assign stroke_colour = "stroke-" | append:control_colour %}
-        {% assign fill_colour = "fill-" | append:control_colour %}
         {{ video | media_tag: image_size: '2048x', autoplay: true, loop: true, controls: false, preload: 'none', class: class }}
-        <button id = "pause-{{ section_id }}" class = "absolute z-20 {{ position_control }} {% if invert == true %}invert{% endif %}" onclick = "pause_clicked('{{ section_id }}','{{ stroke_colour }}', '{{ fill_colour }}');">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "{{ stroke_colour }} w-12 h-12 stroke-1">
-            <circle class="fill-none" cx="10" cy="10.29" r="6.71" stroke-miterlimit = "10"/>
-            <line class="fill-none" x1="8.11" y1="8.29" x2="8.11" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
-            <line class="fill-none" x1="11.89" y1="8.29" x2="11.89" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
-            </svg>
-        </button>
+        {% if pause == true %}
+            <button id = "pause-{{ section_id }}" class = "absolute z-20 {{ position_control }} {% if invert == true %}invert{% endif %}">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 20 20" class = "{{ stroke_colour }} w-12 h-12 stroke-1">
+                <circle class="fill-none" cx="10" cy="10.29" r="6.71" stroke-miterlimit = "10"/>
+                <line class="fill-none" x1="8.11" y1="8.29" x2="8.11" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+                <line class="fill-none" x1="11.89" y1="8.29" x2="11.89" y2="12.29" stroke-linecap = "round" stroke-linejoin = "round"/>
+                </svg>
+            </button>
+        {% endif %}
     {%- endif -%}
 </div>

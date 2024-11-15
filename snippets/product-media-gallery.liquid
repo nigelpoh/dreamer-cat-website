@@ -34,7 +34,7 @@
     <div id = "Scrollable-{{ section.id }}" class = "scrollable overflow-x-scroll whitespace-nowrap text-center no-scrollbar overflow-y-hidden">
       {%- for media in product.media -%}
         <div class = "inline-block w-full">
-          <div class = "max-h-[36rem] w-full">
+          <div class = "flex justify-center items-center h-full w-full">
             {% render 'product-thumbnail',
               media: media,
               media_count: media_count,
@@ -47,7 +47,8 @@
               media_width: media_width,
               media_fit: section.settings.media_fit,
               constrain_to_viewport: section.settings.constrain_to_viewport,
-              lazy_load: forloop.index0 == 0
+              lazy_load: forloop.index0 == 0,
+              class: "max-h-[36rem] w-fit"
             %}
         </div>
       </div>
@@ -77,7 +78,7 @@
     <div class = "w-full grid grid-cols-2 gap-8">
       {%- for media in product.media -%}
         {% if forloop.index0 != 0 %}
-          <div class = "aspect-square max-h-[30rem]">
+          <div class = "aspect-square">
             {% render 'product-thumbnail',
               media: media,
               media_count: media_count,

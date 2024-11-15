@@ -107,7 +107,7 @@
 -%}
 
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} 
-  class="header-wrapper {% if template.name == 'index' %} text-body fixed top-0 w-full flex justify-center items-center pt-4{% else %}bg-bg{% endif %}">
+  class="header-wrapper {% if template.name == 'index' %} text-body fixed top-0 w-full flex justify-center items-center my-auto{% else %}bg-bg{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -131,6 +131,7 @@
             background: #FFFFF2;
             border-radius: 0; 
             opacity: 1;
+            margin-top: 0 !important;
           }
       </style>
       {% endif %}
