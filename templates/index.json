@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "slideshow_rywF7G": {
       "type": "slideshow",
@@ -39,8 +39,9 @@
         "image_slide_p3qVtK": {
           "type": "image_slide",
           "settings": {
-            "heading": "Image slide",
-            "theme_colour": "hl-green",
+            "image": "shopify://shop_images/black_friday_sale.webp",
+            "heading": "Up to 30% Off Storewide",
+            "theme_colour": "hl-yellow",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
