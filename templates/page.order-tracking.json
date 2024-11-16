@@ -46,10 +46,15 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "order_tracking_hfkEwf": {
+      "type": "order-tracking",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "rich_text_nya7GW"
+    "rich_text_nya7GW",
+    "order_tracking_hfkEwf"
   ]
 }
