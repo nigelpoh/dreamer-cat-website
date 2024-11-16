@@ -7,75 +7,74 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "name": "t:sections.header.name",
-    "type": "header",
-    "sections": {
-      "announcement-bar": {
-        "type": "announcement-bar",
-        "blocks": {
-          "announcement_Agfx4C": {
-            "type": "announcement",
-            "settings": {
-              "text": "Welcome to our store",
-              "link": ""
-            }
-          },
-          "announcement_3Gy4PM": {
-            "type": "announcement",
-            "settings": {
-              "text": "your name is nigel poh",
-              "link": ""
-            }
-          },
-          "announcement_aaYhfw": {
-            "type": "announcement",
-            "settings": {
-              "text": "Welcome to our store",
-              "link": ""
-            }
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_Agfx4C": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
           }
         },
-        "block_order": [
-          "announcement_Agfx4C",
-          "announcement_3Gy4PM",
-          "announcement_aaYhfw"
-        ],
-        "settings": {
-          "color_scheme": "scheme-1",
-          "show_line_separator": true,
-          "show_social": false,
-          "auto_rotate": true,
-          "change_slides_speed": 3,
-          "enable_country_selector": false,
-          "enable_language_selector": false,
-          "bg_colour": "bg-hl-red"
+        "announcement_3Gy4PM": {
+          "type": "announcement",
+          "settings": {
+            "text": "your name is nigel poh",
+            "link": ""
+          }
+        },
+        "announcement_aaYhfw": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
         }
       },
-      "header": {
-        "type": "header",
-        "settings": {
-          "logo_position": "middle-left",
-          "menu": "main-menu",
-          "menu_type_desktop": "dropdown",
-          "sticky_header_type": "on-scroll-up",
-          "show_line_separator": true,
-          "color_scheme": "scheme-1",
-          "menu_color_scheme": "scheme-1",
-          "enable_country_selector": true,
-          "enable_language_selector": true,
-          "search_selector": false,
-          "enable_customer_avatar": true,
-          "mobile_logo_position": "center",
-          "margin_bottom": 0,
-          "padding_top": 20,
-          "padding_bottom": 20
-        }
+      "block_order": [
+        "announcement_Agfx4C",
+        "announcement_3Gy4PM",
+        "announcement_aaYhfw"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "bg_colour": "bg-black"
       }
     },
-    "order": [
-      "announcement-bar",
-      "header"
-    ]
-  }
-  
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "search_selector": false,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
