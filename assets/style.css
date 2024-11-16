@@ -554,18 +554,6 @@ video {
   display: none;
 }
 
-@font-face {
-  font-family: 'Space Grotesk';
-
-  src: url("/assets/spacegrotesk.ttf")
-}
-
-@font-face {
-  font-family: 'Kufam';
-
-  src: url("/assets/kufam.ttf");
-}
-
 .container {
   width: 100%;
 }
