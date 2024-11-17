@@ -19,9 +19,7 @@
     },
     "image_banner_XTJVrW": {
       "type": "image-banner",
-      "custom_css": [
-        "section {z-index: 10;}"
-      ],
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/about_us_banner.webp",
         "image_overlay_opacity": 0,
@@ -52,9 +50,7 @@
       "block_order": [
         "image_with_caption_EywpU9"
       ],
-      "custom_css": [
-        "img {margin-top: -25px; z-index: 50;}"
-      ],
+      "custom_css": [],
       "settings": {
         "caption_alignment": "text-center"
       }
