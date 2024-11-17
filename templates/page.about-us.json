@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-page",
@@ -17,38 +17,38 @@
         "padding_bottom": 28
       }
     },
+    "about_us_6zyX4b": {
+      "type": "about-us",
+      "blocks": {
+        "image_with_caption_EywpU9": {
+          "type": "image_with_caption",
+          "settings": {
+            "image": "shopify://shop_images/Dreamer_Cat_Waving_Happily.webp",
+            "caption": "Greetings Weary One! I'm Dreamer Cat.",
+            "caption_size": "text-4xl",
+            "image_size": "w-1/6 h-1/6"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_caption_EywpU9"
+      ],
+      "settings": {
+        "caption_alignment": "text-center"
+      }
+    },
     "rich_text_H4NAtL": {
       "type": "rich-text",
       "blocks": {
-        "heading_J8nAqm": {
-          "type": "heading",
-          "settings": {
-            "heading": "Hi There!",
-            "heading_size": "h0"
-          }
-        },
         "text_4CaaMd": {
           "type": "text",
           "settings": {
             "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
-        },
-        "button_BhRcmE": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
         }
       },
       "block_order": [
-        "heading_J8nAqm",
-        "text_4CaaMd",
-        "button_BhRcmE"
+        "text_4CaaMd"
       ],
       "settings": {
         "desktop_content_position": "center",
@@ -58,10 +58,53 @@
         "padding_top": 40,
         "padding_bottom": 52
       }
+    },
+    "about_us_JwN9Bg": {
+      "type": "about-us",
+      "blocks": {
+        "image_with_caption_PAqWCd": {
+          "type": "image_with_caption",
+          "settings": {
+            "image": "shopify://shop_images/Dream_Bubble.webp",
+            "caption": "",
+            "caption_size": "text-2xl",
+            "image_size": "w-full h-full"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_caption_PAqWCd"
+      ],
+      "settings": {
+        "caption_alignment": "text-center"
+      }
+    },
+    "about_us_TeTEkt": {
+      "type": "about-us",
+      "blocks": {
+        "image_with_caption_B9kgEa": {
+          "type": "image_with_caption",
+          "settings": {
+            "image": "shopify://shop_images/Dreamer_Cat_Sleep_Dreaming.webp",
+            "caption": "",
+            "caption_size": "text-2xl",
+            "image_size": "w-1/6 h-1/6"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_caption_B9kgEa"
+      ],
+      "settings": {
+        "caption_alignment": "text-center"
+      }
     }
   },
   "order": [
     "main",
-    "rich_text_H4NAtL"
+    "about_us_6zyX4b",
+    "rich_text_H4NAtL",
+    "about_us_JwN9Bg",
+    "about_us_TeTEkt"
   ]
 }

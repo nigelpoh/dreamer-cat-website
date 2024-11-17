@@ -3,15 +3,25 @@
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
   assign og_description = page_description | default: shop.description | default: shop.name
+  assign keywords = 'case,protection,sustainable,phone,artistic,durable'
 
   if request.page_type == 'product'
     assign og_type = 'product'
+    for variant in product.variants
+      if product.title contains 'Samsung':
+        assign keywords = keywords | append: ', ' | append: 'Samsung ' | append: variant.title
+      else
+        assign keywords = keywords | append: ', ' | append: variant.title
+      endif
+    endfor
   elsif request.page_type == 'article'
     assign og_type = 'article'
   elsif request.page_type == 'password'
     assign og_url = request.origin
   endif
 %}
+
+
 
 <meta property="og:site_name" content="{{ shop.name }}">
 <meta property="og:url" content="{{ og_url }}">
@@ -29,6 +39,8 @@
 {%- if request.page_type == 'product' -%}
   <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+  <meta name = "keywords" content = "{{ keywords | escape }}">
+
 {%- endif -%}
 
 {%- if settings.social_twitter_link != blank -%}
