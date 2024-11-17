@@ -1,0 +1,114 @@
+<div mx-auto>
+    <h2 class="{{ section.settings.heading_size }} {{ section.settings.header_alignment }} text-pri-head font-black font-display mb-6 mt-6">
+        {{ section.settings.header | upcase}}
+    </h2>
+    <div class="flex flex-wrap justify-center p-[4%] lg:gap-y-[8%]">
+        {% for block in section.blocks %}
+        {% if block.settings.image_spec != blank %}
+        <div class="lg:w-1/3 md:w-1/2 sm:w-1/2">
+            {% render 'product-specification',
+            image: block.settings.image_spec,
+            description: block.settings.spec_description
+            %}
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% schema %}
+{
+    "name": "Product Specification",
+    "tag": "section",
+    "class": "section",
+    "max_blocks": 8,
+    "settings": [
+        {
+            "type": "header",
+            "content": "Product Specification Information"
+        },
+        {
+            "type": "text",
+            "id": "header",
+            "label": "Header",
+            "default": "Product Features"
+        },
+        {
+                "type": "select",
+                "id": "header_alignment",
+                "label": "Header Alignment",
+                "options": [
+                    {
+                        "value": "text-left",
+                        "label": "Left"
+                    },
+                    {
+                        "value": "text-center",
+                        "label": "Center"
+                    },
+                    {
+                        "value": "text-right",
+                        "label": "Right"
+                    }
+                ],
+        },
+        {
+            "type": "select",
+            "id": "heading_size",
+            "label": "Heading Size",
+            "options": [
+                {
+                    "value": "text-7xl",
+                    "label": "2 XL"
+                },
+                {
+                    "value": "text-6xl",
+                    "label": "Extra Large"
+                },
+                {
+                    "value": "text-5xl",
+                    "label": "Large"
+                },
+                {
+                    "value": "text-4xl",
+                    "label": "Medium"
+                },
+                {
+                    "value": "text-3xl",
+                    "label": "Small"
+                }
+            ],
+            "default": "text-5xl"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image_with_text",
+            "name": "Specification",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image_spec",
+                    "label": "Product Specification Image"
+                },
+                {
+                    "type": "text",
+                    "id": "spec_description",
+                    "label": "Product Specification Description"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Product Specifications",
+            "blocks": [
+                {
+                    "type": "image_with_text"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
