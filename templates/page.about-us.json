@@ -55,15 +55,23 @@
     "spotlight_image_text_dBTBMa": {
       "type": "spotlight-image-text",
       "blocks": {
+        "heading_n4Jkfp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Welcome to Satora",
+            "colour": "hl-yellow"
+          }
+        },
         "body_PLTxnG": {
           "type": "body",
           "settings": {
-            "body": "<p>Add a tagline</p>",
-            "colour": "black"
+            "body": "<p>a world where imagination has overthrown the mundane and phone cases have been liberated from the dull confines of reality. I’m Dreamer Cat—your feline guide to a realm where creativity roams free, nature lends its quirks, and every design invites you to step boldly into the extraordinary. From our vibrant home in Singapore, we’re here to transform the ordinary into something delightfully unexpected. </p>",
+            "colour": "hl-black"
           }
         }
       },
       "block_order": [
+        "heading_n4Jkfp",
         "body_PLTxnG"
       ],
       "custom_css": [],
