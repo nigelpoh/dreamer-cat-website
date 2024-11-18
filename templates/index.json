@@ -20,7 +20,7 @@
             "theme_colour": "hl-red",
             "position": "object-bottom",
             "heading": "A Journey to Yumeá",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "Serenity and Optimism - Now Conveniently Pocket-Sized",
             "link": ""
           }
         },
@@ -31,8 +31,8 @@
             "control_colour": "bg",
             "theme_colour": "hl-yellow",
             "position": "object-center",
-            "heading": "Video Slide",
-            "subheading": "Tell your brand's story through images",
+            "heading": "A Trip to Japan",
+            "subheading": "Japan's Beauty Made Portable - Because Who Has Room for a Shrine?",
             "link": ""
           }
         },
@@ -42,7 +42,7 @@
             "image": "shopify://shop_images/black_friday_sale.webp",
             "heading": "Up to 30% Off Storewide",
             "theme_colour": "hl-yellow",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "Making Wallets Smile (Briefly)",
             "button_label": "Button label",
             "link": "",
             "button_style_secondary": false,
@@ -190,7 +190,7 @@
         "button_cDKamR"
       ],
       "settings": {
-        "colour": "black",
+        "bg_colour": "black",
         "video": "shopify://files/videos/moonblink_anim.mp4",
         "rate": 1,
         "desktop_position": "right",
@@ -205,4 +205,5 @@
     "product_list_HghxCA",
     "retrofuturistic_element_AQB9Fq",
     "spotlight_image_text_BRLVhz"
-  ]}
+  ]
+}
