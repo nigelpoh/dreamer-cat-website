@@ -148,24 +148,30 @@
         "padding_bottom": 52
       }
     },
-    "about_us_TeTEkt": {
-      "type": "about-us",
+    "sequential_image_with_text_piFRRN": {
+      "type": "sequential-image-with-text",
       "blocks": {
-        "image_with_caption_B9kgEa": {
-          "type": "image_with_caption",
+        "image_r8PmWg": {
+          "type": "image",
           "settings": {
             "image": "shopify://shop_images/Dreamer_Cat_Sleep_Dreaming.webp",
-            "caption": "Dozing Off... But Always Dreaming",
-            "caption_size": "text-2xl",
-            "image_size": "w-1/12 h-1/12"
+            "image_size": 100
+          }
+        },
+        "text_hyLakH": {
+          "type": "text",
+          "settings": {
+            "text": "Dozing Off... But Always Dreaming",
+            "text_size": "text-2xl"
           }
         }
       },
       "block_order": [
-        "image_with_caption_B9kgEa"
+        "image_r8PmWg",
+        "text_hyLakH"
       ],
       "settings": {
-        "caption_alignment": "text-right"
+        "alignment": "items-end"
       }
     }
   },
@@ -179,6 +185,6 @@
     "spotlight_image_text_wKpBPc",
     "spotlight_image_text_nx7aGp",
     "custom_liquid_HnHq7M",
-    "about_us_TeTEkt"
+    "sequential_image_with_text_piFRRN"
   ]
 }
