@@ -1,18 +1,29 @@
-<div class="flex flex-col w-full {{ section.settings.alignment }}">
+<div 
+    class="flex flex-col w-full {{ section.settings.alignment }}"
+    style = "margin-top:{{ section.settings.padding_top }}px;margin-bottom:{{ section.settings.padding_bottom }}px"
+>
     {% for block in section.blocks %}
         {% case block.type %}
           {% when "image" %}
             {% if block.settings.image != blank %}
-                <div style="height: {{ block.settings.image_size }}">
+                <div 
+                    style="height: {{ block.settings.image_size }}; margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px"
+                >
                     {{ block.settings.image | image_url: width: 500 | image_tag: class: 'h-full w-fit' }}
                 </div>
             {% endif %}
           {% when "heading" %}
-            <p class="{{ block.settings.header_size }} text-black font-black font-display mt-4">
+            <p 
+                class="{{ block.settings.header_size }} text-black font-black font-display"
+                style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px"
+            >
                 {{ block.settings.header }}
             </p>
           {% when "text" %}
-            <p class="{{ block.settings.text_size }} text-black font-black font-display mt-4">
+            <p 
+                class="{{ block.settings.text_size }} text-black font-bold font-body"
+                style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px"
+            >
                 {{ block.settings.text }}
             </p>
         {% endcase %}
@@ -45,6 +56,26 @@
                     "step": 4,
                     "unit": "px",
                     "default": 100
+                },
+                {
+                  "type": "range",
+                  "id": "padding_top",
+                  "min": 0,
+                  "max": 100,
+                  "step": 4,
+                  "unit": "px",
+                  "label": "t:sections.all.padding.padding_top",
+                  "default": 36
+                },
+                {
+                  "type": "range",
+                  "id": "padding_bottom",
+                  "min": 0,
+                  "max": 100,
+                  "step": 4,
+                  "unit": "px",
+                  "label": "t:sections.all.padding.padding_bottom",
+                  "default": 36
                 }
             ]
         },
@@ -77,6 +108,26 @@
                         }
                     ],
                     "default": "text-6xl"
+                },
+                {
+                  "type": "range",
+                  "id": "padding_top",
+                  "min": 0,
+                  "max": 100,
+                  "step": 4,
+                  "unit": "px",
+                  "label": "t:sections.all.padding.padding_top",
+                  "default": 36
+                },
+                {
+                  "type": "range",
+                  "id": "padding_bottom",
+                  "min": 0,
+                  "max": 100,
+                  "step": 4,
+                  "unit": "px",
+                  "label": "t:sections.all.padding.padding_bottom",
+                  "default": 36
                 }
             ]
         },
@@ -117,6 +168,26 @@
                         }
                     ],
                     "default": "text-xl"
+                },
+                {
+                  "type": "range",
+                  "id": "padding_top",
+                  "min": 0,
+                  "max": 100,
+                  "step": 4,
+                  "unit": "px",
+                  "label": "t:sections.all.padding.padding_top",
+                  "default": 36
+                },
+                {
+                  "type": "range",
+                  "id": "padding_bottom",
+                  "min": 0,
+                  "max": 100,
+                  "step": 4,
+                  "unit": "px",
+                  "label": "t:sections.all.padding.padding_bottom",
+                  "default": 36
                 }
             ]
         }
@@ -141,6 +212,26 @@
                 }
         ],
             "default": "items-center"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 36
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 36
         }
     ],
     "presets": [
