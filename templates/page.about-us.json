@@ -41,8 +41,8 @@
           "type": "image_with_caption",
           "settings": {
             "image": "shopify://shop_images/Dreamer_Cat_Waving_Happily.webp",
-            "caption": "Greetings Weary One! I'm Dreamer Cat.",
-            "caption_size": "text-4xl",
+            "caption": "Welcome to Satora!",
+            "caption_size": "text-5xl",
             "image_size": "w-1/6 h-1/6"
           }
         }
@@ -61,7 +61,7 @@
         "text_4CaaMd": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "text": "<p>a world where imagination has overthrown the mundane and phone cases have been liberated from the dull confines of practicality. I’m Dreamer Cat—your feline guide to a realm where creativity roams free, nature lends its quirks, and every design invites you to step boldly into the extraordinary. From our vibrant home in Singapore, we’re here to transform the ordinary into something delightfully unexpected. </p>"
           }
         }
       },
