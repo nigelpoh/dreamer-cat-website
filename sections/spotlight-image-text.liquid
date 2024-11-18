@@ -5,8 +5,10 @@
   endif
 -%}
 
+{% assign background_colour = "bg-" | append: section.settings.colour %}
+
 <div 
-  class="flex {% if section.settings.desktop_position == "right" %}flex-col-reverse md:flex-row{% else %}flex-col md:flex-row-reverse{% endif %} bg-black rounded-3xl overflow-hidden"
+  class="flex {% if section.settings.desktop_position == "right" %}flex-col-reverse md:flex-row{% else %}flex-col md:flex-row-reverse{% endif %} {{ background_colour }} rounded-3xl overflow-hidden"
   style = "margin-top:{{ section.settings.padding_top }}px;margin-bottom:{{ section.settings.padding_bottom }}px"
 >
   <div class = "flex flex-col p-4 reg:p-12 md:py-16 md:px-24 md:w-2/5 justify-center mr-[10%]">
