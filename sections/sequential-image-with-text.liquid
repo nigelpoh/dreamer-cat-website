@@ -7,7 +7,7 @@
           {% when "image" %}
             {% if block.settings.image != blank %}
                 <div 
-                    style="height: {{ block.settings.image_size }}; margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px"
+                    style="height: {{ block.settings.image_size }}px; margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px"
                 >
                     {{ block.settings.image | image_url: width: 500 | image_tag: class: 'h-full w-fit' }}
                 </div>
