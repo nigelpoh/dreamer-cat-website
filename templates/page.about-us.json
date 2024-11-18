@@ -55,38 +55,23 @@
     "spotlight_image_text_dBTBMa": {
       "type": "spotlight-image-text",
       "blocks": {
-        "heading_DwL77k": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image with text",
-            "colour": "bg"
-          }
-        },
         "body_PLTxnG": {
           "type": "body",
           "settings": {
             "body": "<p>Add a tagline</p>",
-            "colour": "bg"
-          }
-        },
-        "button_69hknp": {
-          "type": "button",
-          "settings": {
-            "button_label": "Button label",
-            "button_link": "",
-            "colour": "bg"
+            "colour": "black"
           }
         }
       },
       "block_order": [
-        "heading_DwL77k",
-        "body_PLTxnG",
-        "button_69hknp"
+        "body_PLTxnG"
+      ],
+      "custom_css": [
+        "#spotlight-template--23882608935231__spotlight_image_text_dBTBMa {width: 30%;}"
       ],
       "settings": {
         "image": "shopify://shop_images/Dreamer_Cat_Singapore.webp",
         "bg_colour": "bg",
-        "colour": "black",
         "rate": 1,
         "desktop_position": "right",
         "padding_top": 36,
