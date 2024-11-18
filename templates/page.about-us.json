@@ -34,6 +34,64 @@
         "show_text_below": true
       }
     },
+    "custom_liquid_mGMzQp": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<h3 class = \"uppercase w-full text-center font-body font-bold text-sec-head text-3xl\">Hey There! Welcome to Satora.</h1>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_P9maCX": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<h1 class = \"w-full text-center font-display font-black text-pri-head text-6xl\">I am Dreamer Cat!</h1>",
+        "color_scheme": "",
+        "padding_top": 12,
+        "padding_bottom": 52
+      }
+    },
+    "spotlight_image_text_dBTBMa": {
+      "type": "spotlight-image-text",
+      "blocks": {
+        "heading_DwL77k": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image with text",
+            "colour": "bg"
+          }
+        },
+        "body_PLTxnG": {
+          "type": "body",
+          "settings": {
+            "body": "<p>Add a tagline</p>",
+            "colour": "bg"
+          }
+        },
+        "button_69hknp": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "colour": "bg"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DwL77k",
+        "body_PLTxnG",
+        "button_69hknp"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Dreamer_Cat_Singapore.webp",
+        "colour": "bg",
+        "rate": 1,
+        "desktop_position": "right",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "rich_text_H4NAtL": {
       "type": "rich-text",
       "blocks": {
@@ -56,26 +114,6 @@
         "padding_bottom": 52
       }
     },
-    "about_us_JwN9Bg": {
-      "type": "about-us",
-      "blocks": {
-        "image_with_caption_PAqWCd": {
-          "type": "image_with_caption",
-          "settings": {
-            "image": "shopify://shop_images/Dream_Bubble.webp",
-            "caption": "",
-            "caption_size": "text-2xl",
-            "image_size": "w-full h-full"
-          }
-        }
-      },
-      "block_order": [
-        "image_with_caption_PAqWCd"
-      ],
-      "settings": {
-        "caption_alignment": "text-center"
-      }
-    },
     "about_us_TeTEkt": {
       "type": "about-us",
       "blocks": {
@@ -85,7 +123,7 @@
             "image": "shopify://shop_images/Dreamer_Cat_Sleep_Dreaming.webp",
             "caption": "",
             "caption_size": "text-2xl",
-            "image_size": "w-1/6 h-1/6"
+            "image_size": "w-1/12 h-1/12"
           }
         }
       },
@@ -100,8 +138,10 @@
   "order": [
     "main",
     "image_banner_XTJVrW",
+    "custom_liquid_mGMzQp",
+    "custom_liquid_P9maCX",
+    "spotlight_image_text_dBTBMa",
     "rich_text_H4NAtL",
-    "about_us_JwN9Bg",
     "about_us_TeTEkt"
   ]
 }
