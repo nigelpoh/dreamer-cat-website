@@ -69,7 +69,7 @@
       "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/Dreamer_Cat_Singapore.webp",
-        "bg_colour": "bg",
+        "bg_colour": "[#faf0df]",
         "rate": 1,
         "desktop_position": "right",
         "padding_top": 36,
