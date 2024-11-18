@@ -67,9 +67,9 @@
           <div class = "font-display text-5xl text-black uppercase font-black text-wrap">{{ product.title | split: "]" | last }}</div>
           <div class = "flex flex-row items-center mt-2">
             <div class = "font-body text-2xl text-black uppercase font-bold">{{ product.price | money_with_currency }}</div>
-            {% if product.price != product.compare_at_price %}
+            {% comment %} {% if product.price != product.compare_at_price %}
               <div class = "font-body text-xl text-neutral-400 uppercase font-semibold ml-4"><s>{{ product.compare_at_price | money_with_currency }}</s></div>
-            {% endif %}
+            {% endif %} {% endcomment %}
           </div>
           <div class = "font-body font-medium text-2xl text-black my-4">{{ product.metafields.custom.thought.value }}</div>
         </div>
