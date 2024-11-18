@@ -90,12 +90,12 @@
           {%- endif -%}
           <div class = "grid grid-cols-2 gap-4 mt-8">
             <div class = "flex flex-col items-center">
-              <img src = "../assets/shipping.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4"/>
+              {{ settings.delivery_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
               <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
               <div class = "font-body text-lg font-semibold text-neutral-400 text-center">Worldwide</div>
             </div>
             <div class = "flex flex-col items-center">
-              <img src = "../assets/returns.png" alt = "Shipping" width = 100 height = 100 class = "w-24 mb-4" />
+              {{ settings.return_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
               <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">14 Days Return</div>
               <div class = "font-body text-lg font-semibold text-neutral-400 text-center">From Day of Delivery</div>
             </div>
