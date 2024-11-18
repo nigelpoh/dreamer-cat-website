@@ -81,7 +81,7 @@
         "rate": 1,
         "desktop_position": "right",
         "padding_top": 16,
-        "padding_bottom": 20
+        "padding_bottom": 60
       }
     },
     "custom_liquid_XMFgcN": {
@@ -89,30 +89,8 @@
       "settings": {
         "custom_liquid": "<div class = \"bg-hl-green font-body text-4xl text-bg rounded-3xl text-center\" style = \"padding: 6rem;\">At Satora, we’re on a mission—a bold, whimsical, and delightfully peculiar mission: to capture the beauty of the world around us and infuse it into your daily life. Each design is a small work of art, inspired by tranquil landscapes, enchanted moments, and the occasional “what if” that sparks the imagination. These aren’t just phone cases; they’re little invitations to explore a more vibrant, playful world—reminders that perhaps normal really is overrated.</div>",
         "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "rich_text_H4NAtL": {
-      "type": "rich-text",
-      "blocks": {
-        "text_4CaaMd": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Satora, we’re on a mission—a bold, whimsical, and delightfully peculiar mission: to capture the beauty of the world around us and infuse it into your daily life. Each design is a small work of art, inspired by tranquil landscapes, enchanted moments, and the occasional “what if” that sparks the imagination. These aren’t just phone cases; they’re little invitations to explore a more vibrant, playful world—reminders that perhaps normal really is overrated.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_4CaaMd"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 60
       }
     },
     "spotlight_image_text_wKpBPc": {
@@ -122,7 +100,7 @@
           "type": "body",
           "settings": {
             "body": "<p>You might wonder why we devote so much care to something that spends much of its time tucked away in a pocket with stray coins. The answer lies in the belief that life is composed of small, fleeting moments, and even the simplest objects can carry a touch of inspiration. A phone case, for example, can be more than just a protector—it can serve as a quiet spark of joy, a gentle nudge that indulging in a daydream during a meeting is a perfectly valid pursuit.</p>",
-            "colour": "bg"
+            "colour": "black"
           }
         }
       },
@@ -130,11 +108,44 @@
         "body_YMNw3z"
       ],
       "settings": {
+        "image": "shopify://shop_images/yumea_collection_cover.webp",
+        "bg_colour": "hl-yellow",
+        "rate": 1,
+        "desktop_position": "left",
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "spotlight_image_text_nx7aGp": {
+      "type": "spotlight-image-text",
+      "blocks": {
+        "body_6zcW3n": {
+          "type": "body",
+          "settings": {
+            "body": "<p>That’s why we pour our creativity into every design—to offer a moment of escape amidst the chaos of deadlines, traffic jams, and mysteriously vanishing Wi-Fi signals. Whether it’s the serenity of a tranquil forest, the charm of a whimsical design, or a dash of the unexpected, our phone cases are crafted to spark connection and delight. Each one is designed to feel uniquely yours, a small piece of beauty to carry with you through life’s whirlwind.</p>",
+            "colour": "bg"
+          }
+        }
+      },
+      "block_order": [
+        "body_6zcW3n"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/personalized_about_us.webp",
         "bg_colour": "black",
         "rate": 1,
         "desktop_position": "right",
         "padding_top": 0,
-        "padding_bottom": 36
+        "padding_bottom": 60
+      }
+    },
+    "custom_liquid_HnHq7M": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class = \"bg-hl-blue font-body text-4xl text-bg rounded-3xl text-center\" style = \"padding: 6rem;\">So, why not take the leap? Explore the extraordinary. Step into the world of Satora, where imagination reigns supreme and “normal” is just a word we scoff at over tea. Normal is overrated—let’s make every day a little more magical.</div>",
+        "color_scheme": "",
+        "padding_top": 16,
+        "padding_bottom": 52
       }
     },
     "about_us_TeTEkt": {
@@ -144,7 +155,7 @@
           "type": "image_with_caption",
           "settings": {
             "image": "shopify://shop_images/Dreamer_Cat_Sleep_Dreaming.webp",
-            "caption": "",
+            "caption": "Dozing Off... But Always Dreaming",
             "caption_size": "text-2xl",
             "image_size": "w-1/12 h-1/12"
           }
@@ -165,8 +176,9 @@
     "custom_liquid_P9maCX",
     "spotlight_image_text_dBTBMa",
     "custom_liquid_XMFgcN",
-    "rich_text_H4NAtL",
     "spotlight_image_text_wKpBPc",
+    "spotlight_image_text_nx7aGp",
+    "custom_liquid_HnHq7M",
     "about_us_TeTEkt"
   ]
 }
