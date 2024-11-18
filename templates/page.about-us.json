@@ -84,6 +84,15 @@
         "padding_bottom": 20
       }
     },
+    "custom_liquid_XMFgcN": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class = \"bg-hl-green font-body text-4xl text-bg rounded-3xl text-center\" style = \"padding: 6rem;\">At Satora, we’re on a mission—a bold, whimsical, and delightfully peculiar mission: to capture the beauty of the world around us and infuse it into your daily life. Each design is a small work of art, inspired by tranquil landscapes, enchanted moments, and the occasional “what if” that sparks the imagination. These aren’t just phone cases; they’re little invitations to explore a more vibrant, playful world—reminders that perhaps normal really is overrated.</div>",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "rich_text_H4NAtL": {
       "type": "rich-text",
       "blocks": {
@@ -102,8 +111,30 @@
         "content_alignment": "center",
         "color_scheme": "",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "spotlight_image_text_wKpBPc": {
+      "type": "spotlight-image-text",
+      "blocks": {
+        "body_YMNw3z": {
+          "type": "body",
+          "settings": {
+            "body": "<p>You might wonder why we devote so much care to something that spends much of its time tucked away in a pocket with stray coins. The answer lies in the belief that life is composed of small, fleeting moments, and even the simplest objects can carry a touch of inspiration. A phone case, for example, can be more than just a protector—it can serve as a quiet spark of joy, a gentle nudge that indulging in a daydream during a meeting is a perfectly valid pursuit.</p>",
+            "colour": "bg"
+          }
+        }
+      },
+      "block_order": [
+        "body_YMNw3z"
+      ],
+      "settings": {
+        "bg_colour": "black",
+        "rate": 1,
+        "desktop_position": "right",
+        "padding_top": 0,
+        "padding_bottom": 36
       }
     },
     "about_us_TeTEkt": {
@@ -123,7 +154,7 @@
         "image_with_caption_B9kgEa"
       ],
       "settings": {
-        "caption_alignment": "text-center"
+        "caption_alignment": "text-right"
       }
     }
   },
@@ -133,7 +164,9 @@
     "custom_liquid_mGMzQp",
     "custom_liquid_P9maCX",
     "spotlight_image_text_dBTBMa",
+    "custom_liquid_XMFgcN",
     "rich_text_H4NAtL",
+    "spotlight_image_text_wKpBPc",
     "about_us_TeTEkt"
   ]
 }
