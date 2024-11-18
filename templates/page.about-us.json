@@ -49,7 +49,7 @@
         "custom_liquid": "<h1 class = \"w-full text-center font-display font-black text-pri-head text-6xl\">I am Dreamer Cat!</h1>",
         "color_scheme": "",
         "padding_top": 12,
-        "padding_bottom": 52
+        "padding_bottom": 20
       }
     },
     "spotlight_image_text_dBTBMa": {
@@ -66,7 +66,7 @@
           "type": "body",
           "settings": {
             "body": "<p>a world where imagination has overthrown the mundane and phone cases have been liberated from the dull confines of reality. I’m Dreamer Cat—your feline guide to a realm where creativity roams free, nature lends its quirks, and every design invites you to step boldly into the extraordinary. From our vibrant home in Singapore, we’re here to transform the ordinary into something delightfully unexpected. </p>",
-            "colour": "hl-black"
+            "colour": "black"
           }
         }
       },
@@ -80,8 +80,8 @@
         "bg_colour": "hl-lighter-yellow",
         "rate": 1,
         "desktop_position": "right",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 16,
+        "padding_bottom": 20
       }
     },
     "rich_text_H4NAtL": {
@@ -90,7 +90,7 @@
         "text_4CaaMd": {
           "type": "text",
           "settings": {
-            "text": "<p>a world where imagination has overthrown the mundane and phone cases have been liberated from the dull confines of practicality. I’m Dreamer Cat—your feline guide to a realm where creativity roams free, nature lends its quirks, and every design invites you to step boldly into the extraordinary. From our vibrant home in Singapore, we’re here to transform the ordinary into something delightfully unexpected. </p>"
+            "text": "<p>At Satora, we’re on a mission—a bold, whimsical, and delightfully peculiar mission: to capture the beauty of the world around us and infuse it into your daily life. Each design is a small work of art, inspired by tranquil landscapes, enchanted moments, and the occasional “what if” that sparks the imagination. These aren’t just phone cases; they’re little invitations to explore a more vibrant, playful world—reminders that perhaps normal really is overrated.</p>"
           }
         }
       },
