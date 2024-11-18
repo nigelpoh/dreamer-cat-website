@@ -20,7 +20,7 @@
             "theme_colour": "hl-red",
             "position": "object-bottom",
             "heading": "A Journey to Yumeá",
-            "subheading": "Tell your brand's story through images",
+            "subheading": "Serenity and Optimism in Your Pocket",
             "link": ""
           }
         },
@@ -190,7 +190,7 @@
         "button_cDKamR"
       ],
       "settings": {
-        "colour": "black",
+        "bg_colour": "black",
         "video": "shopify://files/videos/moonblink_anim.mp4",
         "rate": 1,
         "desktop_position": "right",
@@ -205,4 +205,5 @@
     "product_list_HghxCA",
     "retrofuturistic_element_AQB9Fq",
     "spotlight_image_text_BRLVhz"
-  ]}
+  ]
+}
