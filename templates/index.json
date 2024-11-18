@@ -107,7 +107,7 @@
         "collection_8t7Agd": {
           "type": "collection",
           "settings": {
-            "collection": "mountains-dreamin",
+            "collection": "a-hike-to-remember",
             "header": "Discover Nature Like No Other",
             "bg_colour": "bg-hl-blue",
             "badge_colour": "bg-hl-green",
@@ -142,7 +142,7 @@
         "heading_size": "text-7xl",
         "subheading": "From Dreamer Cat's Adventures",
         "subheading_size": "text-3xl",
-        "collection": "mountains-dreamin",
+        "collection": "a-hike-to-remember",
         "ornament": "triple-comet",
         "ornament_position": "left",
         "padding_top": 36,
