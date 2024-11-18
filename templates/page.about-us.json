@@ -144,8 +144,8 @@
       "settings": {
         "custom_liquid": "<div class = \"bg-hl-blue font-body text-4xl text-bg rounded-3xl text-center\" style = \"padding: 6rem;\">So, why not take the leap? Explore the extraordinary. Step into the world of Satora, where imagination reigns supreme and “normal” is just a word we scoff at over tea. Normal is overrated—let’s make every day a little more magical.</div>",
         "color_scheme": "",
-        "padding_top": 16,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 60
       }
     },
     "sequential_image_with_text_piFRRN": {
@@ -157,7 +157,7 @@
             "image": "shopify://shop_images/Dreamer_Cat_Sleep_Dreaming.webp",
             "image_size": 100,
             "padding_top": 0,
-            "padding_bottom": 0
+            "padding_bottom": 12
           }
         },
         "text_hyLakH": {
@@ -169,25 +169,25 @@
             "padding_bottom": 0
           }
         },
-        "heading_NcPQNG": {
-          "type": "heading",
+        "text_iNpQBT": {
+          "type": "text",
           "settings": {
-            "header": "But Always Dreaming",
-            "header_size": "text-5xl",
-            "padding_top": 36,
-            "padding_bottom": 36
+            "text": "But Always Dreaming",
+            "text_size": "text-3xl",
+            "padding_top": 0,
+            "padding_bottom": 0
           }
         }
       },
       "block_order": [
         "image_r8PmWg",
         "text_hyLakH",
-        "heading_NcPQNG"
+        "text_iNpQBT"
       ],
       "settings": {
-        "alignment": "items-end",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "alignment": "items-center",
+        "padding_top": 0,
+        "padding_bottom": 60
       }
     }
   },
