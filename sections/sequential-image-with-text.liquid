@@ -1,0 +1,160 @@
+<div class="flex flex-col w-full {{ section.settings.alignment }}">
+    {% for block in section.blocks %}
+        {% case block.type %}
+          {% when "image" %}
+            {% if block.settings.image != blank %}
+                <div style="height: {{ block.settings.image_size }}">
+                    {{ block.settings.image | image_url: width: 500 | image_tag: class: 'h-full w-fit' }}
+                </div>
+            {% endif %}
+          {% when "heading" %}
+            <p class="{{ block.settings.header_size }} text-black font-black font-display mt-4">
+                {{ block.settings.header }}
+            </p>
+          {% when "text" %}
+            <p class="{{ block.settings.text_size }} text-black font-black font-display mt-4">
+                {{ block.settings.text }}
+            </p>
+        {% endcase %}
+    {% endfor %}
+</div>
+
+
+{% schema %}
+{
+    "name": "Seq. Image With Text",
+    "tag": "section",
+    "class": "section",
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Image",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "range",
+                    "id": "image_size",
+                    "label": "Image Size (Height)",
+                    "min": 12,
+                    "max": 500,
+                    "step": 4,
+                    "unit": "px",
+                    "default": 100
+                }
+            ]
+        },
+        {
+            "type": "heading",
+            "name": "Heading",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "header",
+                    "label": "Header"
+                },
+                {
+                    "type": "select",
+                    "id": "header_size",
+                    "label": "Header Size",
+                    "options": [
+                        {
+                            "label": "small",
+                            "value": "text-5xl"
+                        },
+                        {
+                            "label": "medium",
+                            "value": "text-6xl"
+                        },
+                        {
+                            "label": "large",
+                            "value": "text-7xl"
+                        }
+                    ],
+                    "default": "text-6xl"
+                }
+            ]
+        },
+        {
+            "type": "text",
+            "name": "Text",
+            "limit": 1,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "text",
+                    "label": "Text"
+                },
+                {
+                    "type": "select",
+                    "id": "text_size",
+                    "label": "Text Size",
+                    "options": [
+                        {
+                            "label": "small",
+                            "value": "text-lg"
+                        },
+                        {
+                            "label": "medium",
+                            "value": "text-xl"
+                        },
+                        {
+                            "label": "large",
+                            "value": "text-2xl"
+                        },
+                        {
+                            "label": "extra large",
+                            "value": "text-3xl"
+                        },
+                        {
+                            "label": "2xl",
+                            "value": "text-4xl"
+                        }
+                    ],
+                    "default": "text-xl"
+                }
+            ]
+        }
+    ],
+    "settings":[
+        {
+            "type": "select",
+            "id": "alignment",
+            "label": "Alignment",
+            "options": [
+                {
+                    "value": "items-start",
+                    "label": "Left"
+                },
+                {
+                    "value": "items-center",
+                    "label": "Center"
+                },
+                {
+                    "value": "items-end",
+                    "label": "Right"
+                }
+        ],
+            "default": "items-center"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Seq. Image With Text",
+            "blocks": [
+                {
+                    "type": "image"
+                },
+                {
+                    "type": "text"
+                },
+            ]
+        }
+    ]
+}
+{% endschema %}
