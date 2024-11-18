@@ -23,7 +23,7 @@
       "settings": {
         "image": "shopify://shop_images/about_us_banner.webp",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
+        "image_height": "adapt",
         "desktop_content_position": "middle-center",
         "show_text_box": true,
         "desktop_content_alignment": "center",
@@ -32,27 +32,6 @@
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": true,
         "show_text_below": true
-      }
-    },
-    "about_us_6zyX4b": {
-      "type": "about-us",
-      "blocks": {
-        "image_with_caption_EywpU9": {
-          "type": "image_with_caption",
-          "settings": {
-            "image": "shopify://shop_images/Dreamer_Cat_Waving_Happily.webp",
-            "caption": "Welcome to Satora!",
-            "caption_size": "text-5xl",
-            "image_size": "w-1/6 h-1/6"
-          }
-        }
-      },
-      "block_order": [
-        "image_with_caption_EywpU9"
-      ],
-      "custom_css": [],
-      "settings": {
-        "caption_alignment": "text-center"
       }
     },
     "rich_text_H4NAtL": {
@@ -121,7 +100,6 @@
   "order": [
     "main",
     "image_banner_XTJVrW",
-    "about_us_6zyX4b",
     "rich_text_H4NAtL",
     "about_us_JwN9Bg",
     "about_us_TeTEkt"
