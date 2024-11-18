@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -32,11 +32,11 @@
           "type": "discounts",
           "settings": {
             "discount_buy_1": "1",
-            "discount_get_1": "30% Off",
+            "discount_get_1": "10% Off",
             "discount_buy_2": "2",
-            "discount_get_2": "40% Off",
+            "discount_get_2": "20% Off",
             "discount_buy_3": "3",
-            "discount_get_3": "50% Off",
+            "discount_get_3": "30% Off",
             "apply": "",
             "padding_top": 10,
             "padding_bottom": 0
@@ -200,6 +200,7 @@
       ],
       "settings": {
         "header": "Product Features",
+        "header_alignment": "text-left",
         "heading_size": "text-6xl"
       }
     },
@@ -226,7 +227,7 @@
         "body_jyt8CF"
       ],
       "settings": {
-        "colour": "black",
+        "bg_colour": "black",
         "video": "shopify://files/videos/moonblink_anim.mp4",
         "rate": 0.7,
         "desktop_position": "right",
