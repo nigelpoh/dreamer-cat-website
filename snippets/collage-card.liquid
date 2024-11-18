@@ -10,38 +10,39 @@
   Usage:
   {% render 'collage-card', card_collection: block.settings.collection %}
 {% endcomment %}
-
-<div class=  "flex flex-col justify-between items-center p-8 {{ bg_colour }} rounded-3xl transition h-full">
-  <div class = "flex flex-col w-full h-full">
-    <div class="relative w-full h-[30vh] lg:h-[45vh] rounded-3xl overflow-hidden">
-      {%- if card_collection.metafields.custom.landing_media.value -%}
-          <img
-            src="{{ card_collection.metafields.custom.landing_media.value | image_url: width: 1200 }}"
-            alt="{{ card_collection.metafields.custom.landing_media.valuealt | escape }}"
-            width="{{ card_collection.metafields.custom.landing_media.value.width }}"
-            height="{{ card_collection.metafields.custom.landing_media.value.height }}"
-            class="absolute inset-0 h-full object-cover transition-transform transform hover:scale-105 {{ position }}"
-          >
-      {%- else -%}
-        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-      {%- endif -%}
-      {% if number != blank %}
-        <div class = "absolute z-2 font-body font-bold text-lg text-bg bottom-4 right-6 py-0.5 px-3 rounded-xl {{ badge_colour }}">#{{ number }}</div>
-      {% endif %}
+<a href = "{{ card_collection.url }}" class = "w-full">
+  <div class=  "flex flex-col justify-between items-center p-8 {{ bg_colour }} rounded-3xl transition w-full h-full">
+    <div class = "flex flex-col w-full h-full">
+      <div class="relative w-full h-[30vh] lg:h-[45vh] rounded-3xl overflow-hidden">
+        {%- if card_collection.metafields.custom.landing_media.value -%}
+            <img
+              src="{{ card_collection.metafields.custom.landing_media.value | image_url: width: 1200 }}"
+              alt="{{ card_collection.metafields.custom.landing_media.valuealt | escape }}"
+              width="{{ card_collection.metafields.custom.landing_media.value.width }}"
+              height="{{ card_collection.metafields.custom.landing_media.value.height }}"
+              class="absolute inset-0 h-full object-cover transition-transform transform hover:scale-105 {{ position }}"
+            >
+        {%- else -%}
+          {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        {% if number != blank %}
+          <div class = "absolute z-2 font-body font-bold text-lg text-bg bottom-4 right-6 py-0.5 px-3 rounded-xl {{ badge_colour }}">#{{ number }}</div>
+        {% endif %}
+      </div>
+    
+      <h3 class="mt-4 w-full py-6 text-4xl xl:text-5xl font-black text-bg font-display">
+        {{ title }}
+      </h3>
     </div>
-  
-    <h3 class="mt-4 w-full py-6 text-4xl xl:text-5xl font-black text-bg font-display">
-      {{ title }}
-    </h3>
-  </div>
-  
-  <div class="flex justify-start w-full pb-2">
-      <a href="{{ card_collection.url }}" 
-          class="group mt-6 inline-flex items-center justify-center px-4 py-2 border-2 border-bg {{ colour }} text-white rounded-2xl font-black font-body text-2xl">
-          <span>Shop Now</span>
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "h-4 ml-3 transition duration-300 ease-in-out group-hover:translate-x-2">
-            <polyline class="fill-none stroke-bg stroke-2" stroke-linecap="round" stroke-linejoin="round" points="1.68 10.02 5.9 5.55 1.68 1.08"/>
-          </svg>
-      </a>
-    </div>
-</div> 
+    
+    <div class="flex justify-start w-full pb-2">
+        <a href="{{ card_collection.url }}" 
+            class="group mt-6 inline-flex items-center justify-center px-4 py-2 border-2 border-bg {{ colour }} text-white rounded-2xl font-black font-body text-2xl w-fit">
+            <span class = "text-nowrap">Shop Now</span>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "h-4 ml-3 transition duration-300 ease-in-out group-hover:translate-x-2">
+              <polyline class="fill-none stroke-bg stroke-2" stroke-linecap="round" stroke-linejoin="round" points="1.68 10.02 5.9 5.55 1.68 1.08"/>
+            </svg>
+        </a>
+      </div>
+  </div> 
+</a>

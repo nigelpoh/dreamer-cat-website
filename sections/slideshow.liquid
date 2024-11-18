@@ -52,6 +52,7 @@
 <input id = "all-delays-{{ section.id }}" class = "hidden" value = "{{ delays }}" />
 <input id = "in-focus-{{ section.id }}" class = "hidden" value = 0 />
 
+
 <div class = "h-[70rem] xl:h-[90rem] -mx-[3%] reg:-mx-[6%] md:-mx-[2.1%]">
   <scrollable-row id = "ScrollableSlideshow-{{ section.id }}"
     class="relative"
@@ -62,7 +63,7 @@
       class = "scrollable flex flex-col overflow-x-scroll no-scrollbar scroll-smooth h-full flex-wrap overflow-y-hidden"
     >
       {%- for block in section.blocks -%}
-        <div id = "Slide-{{ section.id }}-{{ forloop.index0 }}" class = "w-full h-full relative">
+        <{%if block.settings.link != blank %}a{% else %}div{% endif %} id = "Slide-{{ section.id }}-{{ forloop.index0 }}" class = "w-full h-full relative" {% if block.settings.link != blank %} href = "{{ block.settings.link }}" {% endif %}>
           {% case block.type %}
           {% when 'image_slide' %}
             {%- if block.settings.image -%}
@@ -108,7 +109,7 @@
                 video: block.settings.video,
                 control_colour: block.settings.control_colour,
                 class: "object-cover z-0",
-                position_control: "bottom-4 right-4"
+                position_control: "bottom-4 right-4",
                 pause: false
               %}
             {% else %}
@@ -131,7 +132,7 @@
               {{ block.settings.subheading }}
             </div>
           </div>
-        </div>
+        </{%if block.settings.link != blank %}a{% else %}div{% endif %}>
         {%- endfor -%}
     </div>
     <div id = "SliderIndicators-{{ section.id }}" class = "relative -translate-y-16 md:-translate-y-20 -translate-x-[45vw] md:-translate-x-20 slider-indicators flex flex-row w-full justify-end mt-8 drop-shadow-2xl"></div>
@@ -326,7 +327,7 @@
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+          "label": "Link"
         },
         {
           "type": "checkbox",
@@ -546,7 +547,7 @@
         {
           "type": "url",
           "id": "link",
-          "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+          "label": "Link"
         },
       ]
     }
