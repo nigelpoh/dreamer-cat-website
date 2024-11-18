@@ -66,9 +66,7 @@
       "block_order": [
         "body_PLTxnG"
       ],
-      "custom_css": [
-        "#spotlight-template--23882608935231__spotlight_image_text_dBTBMa {max-width: 300px;}"
-      ],
+      "custom_css": [],
       "settings": {
         "image": "shopify://shop_images/Dreamer_Cat_Singapore.webp",
         "bg_colour": "bg",
