@@ -190,7 +190,7 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
-                  {% render 'card-product', section_id: section.id, product: product, colour: possible_colours_lighter[colour_index], classes: "w-full h-full", show_collection_name: false, show_badges: true, lazy_load = false %}
+                  {% render 'card-product', section_id: section.id, product: product, colour: possible_colours_lighter[colour_index], classes: "w-full h-full", show_collection_name: false, show_badges: true %}
                 </li>
               {%- endfor -%}
             </ul>
