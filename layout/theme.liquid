@@ -30,6 +30,16 @@
 
     {% render 'meta-tags' %}
 
+    {% style %}
+      #shopify-pc__banner__btn-decline {
+        display: none;
+      }
+      
+      #shopify-pc__banner__btn-accept::after {
+        content: " All";
+      }
+    {% endstyle %}
+
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
