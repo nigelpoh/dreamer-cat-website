@@ -31,8 +31,8 @@
         "discounts_bK9njT": {
           "type": "discounts",
           "settings": {
-            "discount_buy_1": "1",
-            "discount_get_1": "10% Off",
+            "discount_buy_1": "",
+            "discount_get_1": "",
             "discount_buy_2": "2",
             "discount_get_2": "20% Off",
             "discount_buy_3": "3",
