@@ -46,9 +46,11 @@
       <div class = "text-5xl font-semibold text-black">
         {{ price | money_with_currency }}
       </div>
-      {% comment %} <div class = "text-2xl text-neutral-400 ml-4">
-        <s>{{ compare_at_price | money_with_currency }}</s>
-      </div> {% endcomment %}
+      {% if compare_at_price != 0 %}
+        <div class = "text-2xl text-neutral-400 ml-4">
+          <s>{{ compare_at_price | money_with_currency }}</s>
+        </div>
+      {% endif %}
       {%if badge != blank %}
         <div class = "rounded-lg bg-neutral-700 text-bg font-body font-bold text-lg px-3 py-1 ml-4 w-fit">
             {{ badge }}
@@ -60,9 +62,11 @@
         <div class = "text-5xl font-semibold text-black">
           {{ price | money_with_currency }}
         </div>
-        {% comment %} <div class = "text-2xl text-neutral-400 ml-4">
-          <s>{{ compare_at_price | money_with_currency }}</s>
-        </div> {% endcomment %}
+        {% if compare_at_price != 0 %}
+          <div class = "text-2xl text-neutral-400 ml-4">
+            <s>{{ compare_at_price | money_with_currency }}</s>
+          </div>
+        {% endif %}
       </div>
       {%if badge != blank %}
         <div class = "rounded-lg bg-neutral-700 text-bg font-body font-bold text-lg px-3 py-1 w-fit mt-2">
