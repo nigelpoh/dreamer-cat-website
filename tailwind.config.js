@@ -31,7 +31,8 @@ module.exports = {
         'body': ['Space Grotesk', 'system-ui'], 
       },
       colors: {
-        'bg': '#FFFFF2',
+        'bg': '#f8fafc',
+        'bg-2': '#f7f4ed',
         'pri-head': '#1BA5CB',
         'sec-head': '#FF5800',
         'hl-yellow': '#FFB000',

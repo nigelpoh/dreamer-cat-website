@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -34,19 +34,18 @@
             "discount_buy_1": "",
             "discount_get_1": "",
             "discount_buy_2": "2",
-            "discount_get_2": "20% Off",
+            "discount_get_2": "Get 20% Off",
             "discount_buy_3": "3",
-            "discount_get_3": "30% Off",
+            "discount_get_3": "Get 30% Off",
             "apply": "",
             "padding_top": 10,
             "padding_bottom": 0
           }
         },
-        "description_caajTh": {
-          "type": "description",
+        "custom_liquid_ztyAQg": {
+          "type": "custom_liquid",
           "settings": {
-            "padding_top": 20,
-            "padding_bottom": 8
+            "custom_liquid": ""
           }
         },
         "metafield_selector_jUkTAU": {
@@ -96,7 +95,7 @@
         "title",
         "price",
         "discounts_bK9njT",
-        "description_caajTh",
+        "custom_liquid_ztyAQg",
         "metafield_selector_jUkTAU",
         "variant_picker",
         "buy_buttons",
@@ -138,55 +137,41 @@
         "padding_bottom": 28
       }
     },
-    "product_list_3XPf9r": {
-      "type": "product-list",
-      "settings": {
-        "heading": "You May Also Like",
-        "heading_size": "text-6xl",
-        "subheading": "",
-        "subheading_size": "text-2xl",
-        "collection": "{{ product.metafields.custom.collection.value }}",
-        "ornament": "none",
-        "ornament_position": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "product_specification_AwCXzD": {
       "type": "product_specification",
       "blocks": {
         "image_with_text_EmkW4y": {
           "type": "image_with_text",
           "settings": {
-            "image_spec": "shopify://shop_images/drop_protection.webp",
+            "image_spec": "shopify://shop_images/Fall_Safe_39c6bdab-0f6e-4a2a-9384-3a6021071795.webp",
             "spec_description": "8.6 ft. drop protection"
           }
         },
         "image_with_text_wAgUQp": {
           "type": "image_with_text",
           "settings": {
-            "image_spec": "shopify://shop_images/side_sockets.webp",
+            "image_spec": "shopify://shop_images/Charm_Socket_7280113d-8a2c-4a95-ad02-4c70c5f6f06f.webp",
             "spec_description": "Side sockets for accessories attachment"
           }
         },
         "image_with_text_nbNp6R": {
           "type": "image_with_text",
           "settings": {
-            "image_spec": "shopify://shop_images/recyclable.webp",
+            "image_spec": "shopify://shop_images/Artboard_1_24d414a6-2b5f-4f90-b0ae-bb7d2c69927b.webp",
             "spec_description": "Made with Recyclable Materials"
           }
         },
         "image_with_text_KDrJjb": {
           "type": "image_with_text",
           "settings": {
-            "image_spec": "shopify://shop_images/raised_screen.webp",
+            "image_spec": "shopify://shop_images/Raised_Screen_0d17f8b2-b9aa-46b7-b52a-3399844fd7d6.webp",
             "spec_description": "Raised bezel for screen protection"
           }
         },
         "image_with_text_7cJEU6": {
           "type": "image_with_text",
           "settings": {
-            "image_spec": "shopify://shop_images/raised_camera.webp",
+            "image_spec": "shopify://shop_images/New_Phone_Camera_Protect_5b87759c-1c7b-49dc-8ab2-3fdcd1b2df4b.webp",
             "spec_description": "Raised camera ring for lens protection"
           }
         }
@@ -202,6 +187,20 @@
         "header": "Product Features",
         "header_alignment": "text-left",
         "heading_size": "text-6xl"
+      }
+    },
+    "product_list_3XPf9r": {
+      "type": "product-list",
+      "settings": {
+        "heading": "You May Also Like",
+        "heading_size": "text-6xl",
+        "subheading": "",
+        "subheading_size": "text-2xl",
+        "collection": "{{ product.metafields.custom.collection.value }}",
+        "ornament": "none",
+        "ornament_position": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "spotlight_image_text_RJ9c7B": {
@@ -248,8 +247,8 @@
   "order": [
     "main",
     "related-products",
-    "product_list_3XPf9r",
     "product_specification_AwCXzD",
+    "product_list_3XPf9r",
     "spotlight_image_text_RJ9c7B",
     "reviews_MbDrbP"
   ]

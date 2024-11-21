@@ -107,7 +107,7 @@
 -%}
 
 <{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} 
-  class="header-wrapper {% if template.name == 'index' %} text-body fixed top-0 w-full flex justify-center items-center my-auto{% else %}bg-bg{% endif %}">
+  class="header-wrapper {% if template.name == 'index' %} text-body fixed top-0 w-full flex justify-center items-center my-auto {%else %} bg-bg {% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -124,11 +124,11 @@
     {% if template.name == 'index' %}
       <style>
           html .section-header.scrolled-past-header .header-wrapper {
-              background: #FFFFF2;
+              background: #f8fafc;
             }
           html .section-header.scrolled-past-header .header {
             height: auto; 
-            background: #FFFFF2;
+            background: #f8fafc;
             border-radius: 0; 
             opacity: 1;
             margin-top: 0 !important;

@@ -314,8 +314,7 @@
       }
     </script>
   </head>
-
-  <body class="bg-bg">
+  <body class="{% if template.name == 'product' %} bg-gray-50 {% else %} bg-bg {% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>

@@ -1,0 +1,36 @@
+{%- liquid 
+    assign variation_required = product.metafields.custom.variation.value
+    assign products_all = product.collections[0].products | sort: "title"
+    assign products = product | sort
+    assign titles = product.metafields.custom.short_name.value | sort
+    for prod in products_all
+        unless titles contains prod.metafields.custom.short_name.value
+            if prod.metafields.custom.variation.value == variation_required
+                assign prd = prod | sort
+                assign title = prod.metafields.custom.variation.value | sort
+                assign products = products | concat: prd
+                assign titles = titles | concat: title
+            endif
+        endunless
+    endfor
+-%}
+
+
+<div class= 'flex flex-row mt-2'>
+    {% for prod in products %}
+        {% if prod.metafields.custom.thumbnail.value != blank %}
+            {% if prod.id == product.id %}
+                
+                <div class="border-[2px] border-solid border-black rounded-full mr-[10px] flex justify-center items-center overflow-hidden w-20 h-20">
+                    {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover' }}
+                </div>
+            {% else %}
+                <a class="mr-[10px] rounded-full border-solid flex justify-center items-center overflow-hidden w-20 h-20" href={{prod.url}}>
+                    {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover' }}
+                </a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+
