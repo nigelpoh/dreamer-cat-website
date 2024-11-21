@@ -195,14 +195,14 @@
       "settings": {
         "header": "Product Features",
         "header_alignment": "text-left",
-        "heading_size": "text-6xl"
+        "heading_size": "text-5xl"
       }
     },
     "product_list_3XPf9r": {
       "type": "product-list",
       "settings": {
         "heading": "You May Also Like",
-        "heading_size": "text-6xl",
+        "heading_size": "text-5xl",
         "subheading": "",
         "subheading_size": "text-2xl",
         "collection": "{{ product.metafields.custom.collection.value }}",
