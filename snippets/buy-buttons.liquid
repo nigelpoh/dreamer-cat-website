@@ -74,7 +74,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="transition duration-300 product-form__submit bg-neutral-800 w-full text-center font-body text-bg capitalize text-2xl font-bold py-5 rounded-xl shadow-2xl"
+            class="transition duration-300 product-form__submit bg-neutral-800 w-full text-center font-body text-bg capitalize text-2xl font-bold py-5 rounded-xl"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null

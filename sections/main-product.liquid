@@ -530,17 +530,19 @@
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id, label: block.settings.label %}
             </div>
           {%- when 'buy_buttons' -%}
-            <div class= "relative" style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
-              <div class="md:block fixed bottom-0 z-50 md:z-10 ">
-                {%- render 'buy-buttons',
-                  block: block,
-                  product: product,
-                  product_form_id: product_form_id,
-                  section_id: section.id,
-                  show_pickup_availability: true
-                -%}
+            <div class= "flex justify-center items-center relative md:bg-transparent" style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
+              <div class="flex justify-center items-center md:static fixed bottom-0 z-50 md:z-10 w-full shadow-xl md:shadow-none bg-bg py-8">
+                <div class="w-4/5 md:w-full shadow-xl md:shadow-none">
+                  {%- render 'buy-buttons',
+                    block: block,
+                    product: product,
+                    product_form_id: product_form_id,
+                    section_id: section.id,
+                    show_pickup_availability: true
+                  -%}
+                </div>
               </div>
-              </div>
+            </div>
           {%- when 'policy' -%}
             <div class = "grid grid-cols-2 gap-4" style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
               <div class = "flex flex-col items-center">
@@ -610,7 +612,6 @@
                 {% render 'design-swatch', product: product, block: block %}
               </div>
             </div>
-
           {%- when 'complementary' -%}
             <product-recommendations
               class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
