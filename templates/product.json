@@ -205,7 +205,7 @@
         "heading_size": "text-5xl",
         "subheading": "",
         "subheading_size": "text-2xl",
-        "collection": "{{ product.metafields.custom.collection.value }}",
+        "collection": "trending-collection",
         "ornament": "none",
         "ornament_position": "left",
         "padding_top": 36,
