@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -39,6 +39,14 @@
             "discount_get_3": "Get 30% Off",
             "apply": "",
             "padding_top": 10,
+            "padding_bottom": 0
+          }
+        },
+        "design_8UUUgG": {
+          "type": "design",
+          "settings": {
+            "header": "Design",
+            "padding_top": 20,
             "padding_bottom": 0
           }
         },
@@ -95,6 +103,7 @@
         "title",
         "price",
         "discounts_bK9njT",
+        "design_8UUUgG",
         "custom_liquid_ztyAQg",
         "metafield_selector_jUkTAU",
         "variant_picker",
