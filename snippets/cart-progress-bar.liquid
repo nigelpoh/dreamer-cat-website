@@ -1,53 +1,23 @@
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var rate = 1
-    if (typeof Currency !== 'undefined') {
-      rate = Currency.rates["{{cart.currency.iso_code}}"]
-    }
-    console.log(rate)
-});
-
-</script>
-
+<input id = "total-price-cart" value = "{{ cart.total_price | money_without_currency | times: 1.0 }}" class = "hidden"/>
+<input id = "full-amount-cart" value = "{{ settings.cart_progress_threshold_goal | times: 1.0 }}" class = "hidden"/>
+<input id = "pregoal-cart" value = "{{ settings.cart_pre_goal_msg }}" class = "hidden"/>
+<input id = "postgoal-cart" value = "{{ settings.cart_post_goal_message }}" class = "hidden"/>
+<input id = "symbol-cart" value = "{{ cart.currency.symbol }}" class = "hidden"/>
+<input id = "symbol-iso" value = "{{ cart.currency.iso_code }}" class = "hidden"/>
+<input id = "bar_color_full-cart" value = "{{ bar_color_full }}" class = "hidden"/>
+<input id = "cart_progress_bar_color-cart" value = "{{ settings.cart_progress_bar_color }}" class = "hidden"/>
 
 {% if cart != empty and settings.cart_progress_bar_enabled %}
-    {% assign threshold_goal = settings.cart_progress_threshold_goal %}
+    <div class = "text-center text-lg  {{ settings.cart_progress_text_color }} " id = "cart-progress-msg">
+        
+    </div> 
 
-    {% assign pre_goal_msg = settings.cart_pre_goal_msg %}
-    {% assign post_goal_msg = settings.cart_post_goal_message %}
-    {% assign cart_total = cart.total_price | money_without_currency %}
-    {% assign ratio = cart_total | times: 1.0 | divided_by: threshold_goal %}
-    {% assign percentage = ratio | times: 100 %}
-    {% assign bar_color_full = settings.cart_progress_bar_color_full %}
-
-
-    {% if percentage > 100 %}
-        {% assign percentage = 100 %}
-    {% endif %}
-    {% assign remaining_for_goal = threshold_goal | minus: cart_total %}
-    {% if remaining_for_goal < 0 %}
-        {% assign remaining_for_goal = 0 %}
-    {% endif %}
-
-    {% if settings.currency_code_enabled %}
-        {% assign remaining_for_goal_formatted = remaining_for_goal | money_with_currency %}
-      {% else %}
-        {% assign remaining_for_goal_formatted = remaining_for_goal | money %}
-    {% endif %}
-
-    {% assign dynamic_pre_goal_msg = pre_goal_msg | replace: '[remaining_for_goal]', remaining_for_goal_formatted %}
-
-<div class = "text-center text-lg  {{ settings.cart_progress_text_color }} ">
-    <span> {% if remaining_for_goal >0 %} {{ dynamic_pre_goal_msg }} 
-    {% else %} {{ post_goal_msg }} {% endif %} 
-    </span>
-</div> 
-<div class = "w-full bg-gray-800 rounded-2xl mx-auto" id = "cart-progress-bar">
-    <input type="text" class = "hidden" value = {{ cart.total_price }} >
-    <div class = "{% if percentage == 100 %} {{ bar_color_full }} {% else %} {{settings.cart_progress_bar_color}} {% endif %} 
-        block rounded-2xl box-border p-2 transition ease-in-out h-5 "  style = "width: {{percentage}}%">
+    <div class = "w-full bg-gray-800 rounded-2xl mx-auto">
+        <div 
+            class = "block rounded-2xl box-border p-2 transition ease-in-out h-5"
+            id = "inner-progress"
+        >
+        </div>
     </div>
-</div>
 
 {% endif %}
-

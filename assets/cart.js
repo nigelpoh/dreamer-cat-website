@@ -23,6 +23,7 @@ class CartItems extends HTMLElement {
     }, ON_CHANGE_DEBOUNCE_TIMER);
 
     this.addEventListener('change', debouncedOnChange.bind(this));
+    this.updateProgressBar();
   }
 
   cartUpdateUnsubscriber = undefined;
@@ -83,6 +84,29 @@ class CartItems extends HTMLElement {
     }
   }
 
+  updateProgressBar() {
+    var rate = 1
+    if (typeof Currency !== 'undefined') {
+        rate = Currency.rates[document.getElementById("symbol-iso").value]
+    } else {
+        return 
+    }
+    var total_price = parseFloat(document.getElementById("total-price-cart").value)
+    var full_bar =  parseFloat(document.getElementById("full-amount-cart").value) / rate
+    var progress = Math.round((total_price / full_bar) * 100 * 100) / 100
+    var remaining = Math.round((full_bar - total_price) * 100) / 100
+    console.log(progress)
+    if (progress >= 100) {
+        document.querySelector("#cart-progress-msg").innerHTML = `<span>` + document.querySelector("#postgoal-cart").value + `</span>`
+        document.querySelector("#inner-progress").classList.add(document.querySelector("#bar_color_full-cart").value)
+    } else {
+        var msg = document.querySelector("#pregoal-cart").value.replace("[remaining_for_goal]", document.getElementById("symbol-cart").value + remaining.toString())
+        document.querySelector("#cart-progress-msg").innerHTML = `<span>` + msg + `</span>`
+        document.querySelector("#inner-progress").classList.add(document.querySelector("#cart_progress_bar_color-cart").value)
+    }
+    document.querySelector("#inner-progress").style.width = progress.toString() + "%";
+  }
+
   onChange(event) {
     this.validateQuantity(event);
   }
@@ -104,6 +128,8 @@ class CartItems extends HTMLElement {
         })
         .catch((e) => {
           console.error(e);
+        }).finally(() => {
+          this.updateProgressBar();
         });
     } else {
       fetch(`${routes.cart_url}?section_id=main-cart-items`)
@@ -115,6 +141,8 @@ class CartItems extends HTMLElement {
         })
         .catch((e) => {
           console.error(e);
+        }).finally(() => {
+          this.updateProgressBar();
         });
     }
   }
@@ -146,7 +174,6 @@ class CartItems extends HTMLElement {
 
   updateQuantity(line, quantity, name, variantId) {
     this.enableLoading(line);
-
     const body = JSON.stringify({
       line,
       quantity,
@@ -217,6 +244,7 @@ class CartItems extends HTMLElement {
       })
       .finally(() => {
         this.disableLoading(line);
+        this.updateProgressBar();
       });
   }
 
