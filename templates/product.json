@@ -208,7 +208,7 @@
       ],
       "settings": {
         "header": "Product Features",
-        "header_alignment": "text-left",
+        "header_alignment": "text-center",
         "heading_size": "text-5xl"
       }
     },
