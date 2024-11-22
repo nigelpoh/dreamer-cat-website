@@ -2829,10 +2829,6 @@ video {
   padding-top: 4%;
 }
 
-.pt-8 {
-  padding-top: 2rem;
-}
-
 .text-left {
   text-align: left;
 }
@@ -3227,9 +3223,9 @@ video {
     word-break: normal;
   }
 
-  .sm\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
 
@@ -3412,10 +3408,6 @@ video {
     width: 60%;
   }
 
-  .md\:w-full {
-    width: 100%;
-  }
-
   .md\:-translate-x-20 {
     --tw-translate-x: -5rem;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -3482,6 +3474,11 @@ video {
 
   .md\:p-20 {
     padding: 5rem;
+  }
+
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .md\:px-24 {
