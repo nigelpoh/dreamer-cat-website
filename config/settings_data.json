@@ -130,7 +130,6 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "cart_drawer_discounts": [
-      "store-discount-1-for-10-off",
       "store-discount-2-for-15-off",
       "store-discount-3-for-30-off"
     ],
