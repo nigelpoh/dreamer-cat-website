@@ -1485,7 +1485,127 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+    ]
+  },
+  {
+    "name": "Cart Progress Bar",
+    "settings":[
+      {
+        "type": "checkbox",
+        "id": "cart_progress_bar_enabled",
+        "label": "Enable Cart Progress Bar",
+        "default": false
+      },
+      {
+        "type":"text",
+        "id": "cart_pre_goal_msg",
+        "label": "Pre Goal Message",
+        "default": "You're only [remaining_for_goal] away from <strong> FREE SHIPPING </strong>!",
+        "info": "Message displayed before reaching goal. Use [remaining_for_goal] to insert the dynamic remaining amount."
+      },
+      {
+        "type": "text",
+        "id": "cart_post_goal_message",
+        "label": "Post-Goal Message",
+        "default": "🎉 Congrats! You've unlocked <strong>FREE SHIPPING</strong>",
+        "info": "Message displayed after reaching the goal."
+      },
+      {
+        "type": "select",
+        "id": "cart_progress_bar_color",
+        "label": "Progress Bar Color",
+        "options": [
+            {
+              "value": "bg-hl-green",
+              "label": "Green"
+            },
+            {
+              "value": "bg-sec-head",
+              "label": "Orange"
+            },
+            {
+              "value": "bg-hl-red",
+              "label": "Red"
+            },
+            {
+              "value": "bg-hl-blue",
+              "label": "Blue"
+            },
+        ],
+        "default": "bg-hl-red"
+      },
+      {
+        "type": "select",
+        "id": "cart_progress_bg_color",
+        "label": "Progress Bar Background Color",
+        "options": [
+            {
+              "value": "bg-bg-2",
+              "label": "Secondary Background Color",
+            },
+            {
+              "value": "bg-slate-100",
+              "label": "Light Gray",
+            }
+        ],
+        "default": "bg-slate-100"
+      },
+      {
+        "type": "select",
+        "id": "cart_progress_bar_color_full",
+        "label": "Progress Bar Full Color",
+        "options": [
+            {
+              "value": "bg-hl-green",
+              "label": "Green"
+            },
+            {
+              "value": "bg-sec-head",
+              "label": "Orange"
+            },
+            {
+              "value": "bg-hl-red",
+              "label": "Red"
+            },
+            {
+              "value": "bg-hl-blue",
+              "label": "Blue"
+            },
+        ],
+        "default": "bg-hl-green"
+      },
+      {
+        "type": "select",
+        "id": "cart_progress_text_color",
+        "label": "Cart Progress Bar Text Message Color",
+        "options": [
+            {
+              "value": "text-pri-head",
+              "label": "Blue"
+            },
+            {
+              "value": "text-sec-head",
+              "label": "Orange"
+            },
+            {
+              "value": "text-black",
+              "label": "Black"
+            },
+        ],
+        "default": "text-black"
+      },
+      {
+        "type": "range",
+        "id": "cart_progress_threshold_goal",
+        "label": "Cart Progress Threshold Number",
+        "min": 50,
+        "max": 200,
+        "step": 2,
+        "default": 100
       }
+      
+    
     ]
   }
 ]

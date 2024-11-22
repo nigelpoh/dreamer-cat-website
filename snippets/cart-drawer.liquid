@@ -136,6 +136,7 @@
           class="cart__contents cart-drawer__form"
           method="post"
         >
+          {% render 'cart-progress-bar' %}
           {% if discount_to_urge != blank %}
             <div class = "w-full flex flex-row items-center bg-hl-lighter-yellow px-8 py-4 font-body rounded-xl mb-8">
               <span class="relative flex h-16 w-16">
