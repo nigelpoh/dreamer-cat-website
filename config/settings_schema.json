@@ -1495,7 +1495,7 @@
         "type": "checkbox",
         "id": "cart_progress_bar_enabled",
         "label": "Enable Cart Progress Bar",
-        "default": false
+        "default": true
       },
       {
         "type":"text",
