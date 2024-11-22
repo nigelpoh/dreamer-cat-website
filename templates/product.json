@@ -248,6 +248,7 @@
       "settings": {
         "header": "Reviews",
         "product": "review-aggregator-dreamer-cats-phone-covers",
+        "header_alignment": "text-center",
         "padding_top": 36,
         "padding_bottom": 36
       }
