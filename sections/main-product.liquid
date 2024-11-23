@@ -549,13 +549,13 @@
             <div class = "grid grid-cols-2 gap-4" style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
               <div class = "flex flex-col items-center">
                 {{ settings.delivery_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
-                <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
-                <div class = "font-body text-lg font-semibold text-neutral-400 text-center">7 - 12 Business Days</div>
+                <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">{{ settings.delivery_text }}</div>
+                <div class = "font-body text-lg font-semibold text-neutral-400 text-center">{{ settings.delivery_subtext }}</div>
               </div>
               <div class = "flex flex-col items-center">
                 {{ settings.return_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
-                <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">14 Days Return</div>
-                <div class = "font-body text-lg font-semibold text-neutral-400 text-center">From Day of Delivery</div>
+                <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">{{ settings.return_text }}</div>
+                <div class = "font-body text-lg font-semibold text-neutral-400 text-center">{{ settings.return_subtext }}</div>
               </div>
             </div>
           {%- when 'payment_methods' -%}

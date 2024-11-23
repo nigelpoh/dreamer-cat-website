@@ -42,9 +42,33 @@
         "label": "Delivery SVG Icon"
       },
       {
+        "type": "text",
+        "id": "delivery_text",
+        "label": "Delivery Text",
+        "default": "Free Shipping"
+      },
+      {
+        "type": "text",
+        "id": "delivery_subtext",
+        "label": "Delivery Sub Text",
+        "default": "Worldwide"
+      },
+      {
         "type":"image_picker",
         "id": "return_image",
         "label": "Return SVG Icon"
+      },
+      {
+        "type": "text",
+        "id": "return_text",
+        "label": "Return Text",
+        "default": "14 Days Return"
+      },
+      {
+        "type": "text",
+        "id": "return_subtext",
+        "label": "Return Sub Text",
+        "default": "From Day of Delivery"
       }
     ]
   },
