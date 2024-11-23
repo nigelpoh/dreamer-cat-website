@@ -1525,7 +1525,7 @@
         "type":"text",
         "id": "cart_pre_goal_msg",
         "label": "Pre Goal Message",
-        "default": "You're only [remaining_for_goal] away from <strong> FREE SHIPPING </strong>!",
+        "default": "Spend [remaining_for_goal] more to get <strong> FREE SHIPPING </strong>!",
         "info": "Message displayed before reaching goal. Use [remaining_for_goal] to insert the dynamic remaining amount."
       },
       {
