@@ -21,7 +21,7 @@
         {% if prod.metafields.custom.thumbnail.value != blank %}
             {% if prod.id == product.id %}
                 
-                <div class="border-[3px] border-solid border-orange-400 rounded-full mr-[10px] flex justify-center items-center overflow-hidden w-20 h-20">
+                <div class="border-[2px] border-solid border-black rounded-full mr-[10px] flex justify-center items-center overflow-hidden w-20 h-20">
                     {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover' }}
                 </div>
             {% else %}
