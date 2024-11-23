@@ -126,9 +126,7 @@
         </button>
       </div>
       <cart-drawer-items
-        {% if cart == empty %}
-          class=" is-empty"
-        {% endif %}
+        class = "flex flex-col justify-between {% if cart == empty %}is-empty hidden{% endif %}"
       >
         <form
           action="{{ routes.cart_url }}"
@@ -514,6 +512,31 @@
           </div>
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
+        <div class = "flex flex-col">
+          <div class = "grid grid-cols-2 gap-4 mt-12">
+            <div class = "flex flex-col items-center">
+              {{ settings.delivery_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
+              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
+              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">Worldwide</div>
+            </div>
+            <div class = "flex flex-col items-center">
+              {{ settings.return_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
+              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">14 Days Return</div>
+              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">From Day of Delivery</div>
+            </div>
+          </div>
+  
+          <div class = "flex flex-col items-center w-full bg-hl-lighter-blue py-8 px-12 rounded-xl mb-8">
+            <div class = "flex flex-row justify-around w-full mb-4 flex-wrap">
+              {%- for type in shop.enabled_payment_types -%}
+                <div class="list-payment__item">
+                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                </div>
+              {%- endfor -%}
+            </div>
+            <div class = "font-body text-base text-neutral-800 font-medium">Accepted Payments</div>
+          </div>
+        </div>
       </cart-drawer-items>
       <div class="drawer__footer">
         {%- if settings.show_cart_note -%}
@@ -553,33 +576,9 @@
               </ul>
             {%- endif -%}
           </div>
-          <div class="totals font-bold" role="status">
+          <div class="totals font-bold my-8" role="status">
             <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
-          </div>
-
-          <div class = "grid grid-cols-2 gap-4 mt-12">
-            <div class = "flex flex-col items-center">
-              {{ settings.delivery_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
-              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">Free Shipping</div>
-              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">Worldwide</div>
-            </div>
-            <div class = "flex flex-col items-center">
-              {{ settings.return_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
-              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">14 Days Return</div>
-              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">From Day of Delivery</div>
-            </div>
-          </div>
-
-          <div class = "flex flex-col items-center w-full bg-hl-lighter-blue py-8 px-12 rounded-xl mb-8">
-            <div class = "flex flex-row justify-around w-full mb-4 flex-wrap">
-              {%- for type in shop.enabled_payment_types -%}
-                <div class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </div>
-              {%- endfor -%}
-            </div>
-            <div class = "font-body text-base text-neutral-800 font-medium">Accepted Payments</div>
           </div>
 
           {% comment %} <small class="tax-note caption-large rte">

@@ -1417,6 +1417,10 @@ video {
   height: 7rem;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -1464,10 +1468,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-3 {
-  height: 0.75rem;
 }
 
 .max-h-\[36rem\] {
@@ -3221,20 +3221,6 @@ video {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  @keyframes sliding-progress {
-    from {
-      background-position-x: 0;
-    }
-
-    to {
-      background-position-x: 10rem;
-    }
-  }
-
-  .motion-reduce\:animate-sliding-progress {
-    animation: sliding-progress 4s linear infinite;
-  }
-
   .motion-reduce\:animate-none {
     animation: none;
   }
@@ -3389,10 +3375,6 @@ video {
 
   .md\:mb-0 {
     margin-bottom: 0px;
-  }
-
-  .md\:mb-8 {
-    margin-bottom: 2rem;
   }
 
   .md\:mr-\[10\%\] {
