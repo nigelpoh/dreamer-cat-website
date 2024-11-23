@@ -17,7 +17,14 @@
         "announcement_Agfx4C": {
           "type": "announcement",
           "settings": {
-            "text": "🎁 Holiday Sale 🎁 Buy 2 Get 25% | Buy 3 Get 35%",
+            "text": "🎁 Black Friday Sale 🎁 40% Off All Items",
+            "link": ""
+          }
+        },
+        "announcement_L9hxgE": {
+          "type": "announcement",
+          "settings": {
+            "text": "Buy 2 Get Additional 25% | Buy 3 Get Additional 35%",
             "link": ""
           }
         },
@@ -31,6 +38,7 @@
       },
       "block_order": [
         "announcement_Agfx4C",
+        "announcement_L9hxgE",
         "announcement_3Gy4PM"
       ],
       "settings": {
