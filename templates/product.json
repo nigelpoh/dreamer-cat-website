@@ -23,7 +23,7 @@
           "type": "price",
           "settings": {
             "info": "",
-            "badge": "Best Seller",
+            "badge": "Best Deals",
             "padding_top": 20,
             "padding_bottom": 0
           }
@@ -34,9 +34,9 @@
             "discount_buy_1": "",
             "discount_get_1": "",
             "discount_buy_2": "2",
-            "discount_get_2": "Get 25% Off",
+            "discount_get_2": "get 25% off",
             "discount_buy_3": "3",
-            "discount_get_3": "Get 35% Off",
+            "discount_get_3": "get 35% off",
             "apply": "",
             "padding_top": 10,
             "padding_bottom": 0
