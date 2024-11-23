@@ -1508,7 +1508,7 @@
         "type": "text",
         "id": "cart_post_goal_message",
         "label": "Post-Goal Message",
-        "default": "🎉 Congrats! You've unlocked <strong>FREE SHIPPING</strong>",
+        "default": "🎉 <strong>Congrats!</strong> You've unlocked <strong>FREE SHIPPING</strong>",
         "info": "Message displayed after reaching the goal."
       },
       {
@@ -1541,15 +1541,15 @@
         "label": "Progress Bar Background Color",
         "options": [
             {
-              "value": "bg-bg-2",
-              "label": "Secondary Background Color",
+              "value": "bg-gray-200",
+              "label": "Gray-200",
             },
             {
-              "value": "bg-slate-100",
-              "label": "Light Gray",
+              "value": "bg-slate-200",
+              "label": "Slate-200",
             }
         ],
-        "default": "bg-slate-100"
+        "default": "bg-slate-200"
       },
       {
         "type": "select",
@@ -1559,10 +1559,6 @@
             {
               "value": "bg-hl-green",
               "label": "Green"
-            },
-            {
-              "value": "bg-sec-head",
-              "label": "Orange"
             },
             {
               "value": "bg-hl-red",
@@ -1599,10 +1595,10 @@
         "type": "range",
         "id": "cart_progress_threshold_goal",
         "label": "Cart Progress Threshold Number",
-        "min": 50,
-        "max": 200,
+        "min": 40,
+        "max": 100,
         "step": 2,
-        "default": 100
+        "default": 40
       }
       
     

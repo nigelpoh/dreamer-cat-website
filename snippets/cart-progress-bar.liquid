@@ -4,20 +4,20 @@
 <input id = "postgoal-cart" value = "{{ settings.cart_post_goal_message }}" class = "hidden"/>
 <input id = "symbol-cart" value = "{{ cart.currency.symbol }}" class = "hidden"/>
 <input id = "symbol-iso" value = "{{ cart.currency.iso_code }}" class = "hidden"/>
-<input id = "bar_color_full-cart" value = "{{ bar_color_full }}" class = "hidden"/>
+<input id = "bar_color_full-cart" value = "{{ settings.cart_progress_bar_color_full }}" class = "hidden"/>
 <input id = "cart_progress_bar_color-cart" value = "{{ settings.cart_progress_bar_color }}" class = "hidden"/>
 
-{% if cart != empty and settings.cart_progress_bar_enabled %}
-    <div class = "text-center text-lg  {{ settings.cart_progress_text_color }} " id = "cart-progress-msg">
-        
-    </div> 
 
-    <div class = "w-full bg-gray-800 rounded-2xl mx-auto">
+{% if cart != empty and settings.cart_progress_bar_enabled %}
+    <div class="flex flex-col items-center md:mb-8 mb-4 w-full">
+    <div class = "text-center md:text-2xl text-xl font-semi-bold font-body  {{ settings.cart_progress_text_color }} mb-2 " id = "cart-progress-msg">   </div>
+    <div class = "w-full {{settings.cart_progress_bg_color}} rounded-2xl mx-auto">
         <div 
             class = "block rounded-2xl box-border p-2 transition ease-in-out h-5"
             id = "inner-progress"
         >
         </div>
+    </div>
     </div>
 
 {% endif %}

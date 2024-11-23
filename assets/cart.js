@@ -95,7 +95,6 @@ class CartItems extends HTMLElement {
     var full_bar =  parseFloat(document.getElementById("full-amount-cart").value) / rate
     var progress = Math.round((total_price / full_bar) * 100 * 100) / 100
     var remaining = Math.round((full_bar - total_price) * 100) / 100
-    console.log(progress)
     if (progress >= 100) {
         document.querySelector("#cart-progress-msg").innerHTML = `<span>` + document.querySelector("#postgoal-cart").value + `</span>`
         document.querySelector("#inner-progress").classList.add(document.querySelector("#bar_color_full-cart").value)
@@ -104,7 +103,7 @@ class CartItems extends HTMLElement {
         document.querySelector("#cart-progress-msg").innerHTML = `<span>` + msg + `</span>`
         document.querySelector("#inner-progress").classList.add(document.querySelector("#cart_progress_bar_color-cart").value)
     }
-    document.querySelector("#inner-progress").style.width = progress.toString() + "%";
+    document.querySelector("#inner-progress").style.width = `${Math.min(progress, 100)}%`;
   }
 
   onChange(event) {

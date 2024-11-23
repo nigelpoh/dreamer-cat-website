@@ -112,7 +112,7 @@
           </div>
         </div>
       {%- endif -%}
-      <div class="drawer__header mt-8">
+      <div class="drawer__header">
         <h2 class="drawer__heading font-display font-black uppercase text-pri-head text-4xl my-8">{{ 'sections.cart.title' | t }}</h2>
         <button
           class="drawer__close"
@@ -147,7 +147,7 @@
                 </svg>
               </span>
               {% assign quantity_needed = discount_to_urge.quantity | minus: cart.item_count %}
-              <h5 class = "font-body font-bold text-hl-red w-full text-center">Buy {{ quantity_needed }} more and get {% if discount_passed != blank %}<s>{{ discount_passed.discount }}</s> {% endif %}{{ discount_to_urge.discount }} off!</h5>
+              <h5 class = "font-body font-bold text-hl-red w-full text-center text-2xl">Buy {{ quantity_needed }} more and get {% if discount_passed != blank %}<s>{{ discount_passed.discount }}</s> {% endif %}{{ discount_to_urge.discount }} off!</h5>
             </div>
           {% endif %}
           <div id="CartDrawer-CartItems" class="drawer__contents js-contents">

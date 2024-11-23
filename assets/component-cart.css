@@ -26,7 +26,7 @@ cart-items.is-empty .title-wrapper-with-link,
 }
 
 .cart__contents > * + * {
-  margin-top: 2.5rem;
+  margin-top: 0;
 }
 
 .cart__login-title {
