@@ -11,7 +11,7 @@
 {% if cart != empty and settings.cart_progress_bar_enabled %}
     <div class="flex flex-col items-center md:mb-8 mb-4 w-full">
     <div class = "text-center md:text-2xl text-xl font-semi-bold font-body  {{ settings.cart_progress_text_color }} mb-2 " id = "cart-progress-msg">   </div>
-    <div class = "w-full {{settings.cart_progress_bg_color}} rounded-2xl mx-auto">
+    <div class = "w-full {{settings.cart_progress_bar_color_color}} rounded-2xl mx-auto">
         <div 
             class = "block rounded-2xl box-border p-2 transition ease-in-out h-5"
             id = "inner-progress"
