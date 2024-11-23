@@ -99,9 +99,10 @@ class CartItems extends HTMLElement {
         document.querySelector("#cart-progress-msg").innerHTML = `<span>` + document.querySelector("#postgoal-cart").value + `</span>`
         document.querySelector("#inner-progress").classList.add(document.querySelector("#bar_color_full-cart").value)
     } else {
-        var msg = document.querySelector("#pregoal-cart").value.replace("[remaining_for_goal]", document.getElementById("symbol-cart").value + remaining.toString())
-        document.querySelector("#cart-progress-msg").innerHTML = `<span>` + msg + `</span>`
-        document.querySelector("#inner-progress").classList.add(document.querySelector("#cart_progress_bar_color-cart").value)
+      var textColour = "text-" + document.querySelector("#cart_progress_bar_color-cart").value.split("-").slice(1, document.querySelector("#cart_progress_bar_color-cart").value.split("-").length).join("-")
+      var msg = document.querySelector("#pregoal-cart").value.replace("[remaining_for_goal]", "<span class = '"+ textColour +"'>"+ document.getElementById("symbol-cart").value + remaining.toString() + "</span>")
+      document.querySelector("#cart-progress-msg").innerHTML = `<span>` + msg + `</span>`
+      document.querySelector("#inner-progress").classList.add(document.querySelector("#cart_progress_bar_color-cart").value)
     }
     document.querySelector("#inner-progress").style.width = `${Math.min(progress, 100)}%`;
   }

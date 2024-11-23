@@ -1541,15 +1541,15 @@
         "label": "Progress Bar Background Color",
         "options": [
             {
-              "value": "bg-gray-200",
-              "label": "Gray-200",
+              "value": "bg-gray-300",
+              "label": "Gray-300",
             },
             {
-              "value": "bg-slate-200",
-              "label": "Slate-200",
+              "value": "bg-slate-300",
+              "label": "Slate-300",
             }
         ],
-        "default": "bg-slate-200"
+        "default": "bg-slate-300"
       },
       {
         "type": "select",

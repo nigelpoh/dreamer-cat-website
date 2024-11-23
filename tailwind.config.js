@@ -11,6 +11,7 @@ module.exports = {
     "rounded-md", 
     "ml-3", 
     "bg-neutral-400",
+    "bg-slate-300",
     "bg-orange-400",
     {
         pattern: /bg-hl-.+/,
@@ -48,7 +49,8 @@ module.exports = {
       animation: {
         'ping-slower':"ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
         'wiggle': 'wiggle 1s ease-in-out infinite',
-        'infinite-scroll': 'infinite-scroll 9s linear infinite'
+        'infinite-scroll': 'infinite-scroll 9s linear infinite',
+        'sliding-progress': 'sliding-progress 4s linear infinite'
       },
       keyframes: {
         wiggle: {
@@ -58,7 +60,15 @@ module.exports = {
         'infinite-scroll': {
           from: { transform: 'translateX(450%)' },
           to: { transform: 'translateX(-450%)' }
-      }
+        },
+        'sliding-progress': {
+          from: {
+            'background-position-x':'0'
+          },
+          to: {
+            'background-position-x':'10rem'
+          }
+        }
     },
       gridTemplateRows: {
         'cover-all': '1fr min-content',

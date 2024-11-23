@@ -1466,6 +1466,10 @@ video {
   height: 100%;
 }
 
+.h-3 {
+  height: 0.75rem;
+}
+
 .max-h-\[36rem\] {
   max-height: 36rem;
 }
@@ -1635,6 +1639,20 @@ video {
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes sliding-progress {
+  from {
+    background-position-x: 0;
+  }
+
+  to {
+    background-position-x: 10rem;
+  }
+}
+
+.animate-sliding-progress {
+  animation: sliding-progress 4s linear infinite;
 }
 
 .snap-start {
@@ -2606,6 +2624,11 @@ video {
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
+.bg-slate-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -3194,6 +3217,26 @@ video {
 
   .motion-safe\:animate-wiggle {
     animation: wiggle 1s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes sliding-progress {
+    from {
+      background-position-x: 0;
+    }
+
+    to {
+      background-position-x: 10rem;
+    }
+  }
+
+  .motion-reduce\:animate-sliding-progress {
+    animation: sliding-progress 4s linear infinite;
+  }
+
+  .motion-reduce\:animate-none {
+    animation: none;
   }
 }
 
