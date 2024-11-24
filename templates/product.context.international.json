@@ -12,5 +12,16 @@
   "context": {
     "market": "international"
   },
-  "sections": {}
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "price": {
+          "settings": {
+            "badge": "Black Friday Exclusive"
+          }
+        }
+      }
+    }
+  }
 }
