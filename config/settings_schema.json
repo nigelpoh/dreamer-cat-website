@@ -1619,10 +1619,10 @@
         "type": "range",
         "id": "cart_progress_threshold_goal",
         "label": "Cart Progress Threshold Number",
-        "min": 40,
+        "min": 30,
         "max": 100,
-        "step": 2,
-        "default": 40
+        "step": 1,
+        "default": 35
       }
       
     
