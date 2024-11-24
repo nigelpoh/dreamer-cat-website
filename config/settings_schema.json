@@ -1622,7 +1622,7 @@
         "min": 30,
         "max": 100,
         "step": 1,
-        "default": 35
+        "default": 30
       }
       
     
