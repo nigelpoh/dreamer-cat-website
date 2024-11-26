@@ -23,7 +23,8 @@
           "type": "price",
           "settings": {
             "info": "",
-            "badge": "Black Friday Exclusive",
+            "badge": "Black Friday Deal",
+            "discount_badge": "-21%",
             "padding_top": 20,
             "padding_bottom": 0
           }
