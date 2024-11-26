@@ -8,6 +8,7 @@
   - badge: {Text} Renders a badge to inform the user about something
   - price_class: {String} Adds a price class to the price element (optional)
   - show_compare_at_price: {Boolean} Renders the compare at price if the product matches the condition (optional)
+  - discount_badge {Text}: Renders a discount badge to inform the user about the discount percentage (optional)
 
   Usage:
   {% render 'price', product: product %}
@@ -51,8 +52,13 @@
           <s>{{ compare_at_price | money_with_currency }}</s>
         </div>
       {% endif %}
+      {% if discount_badge != blank %}
+        <div class = "text-bg-product-2 font-body font-reg text-4xl ml-4 w-fit">
+            {{ discount_badge }}
+        </div>
+      {% endif %}
       {%if badge != blank %}
-        <div class = "rounded-lg bg-neutral-700 text-bg font-body font-bold text-lg px-3 py-1 ml-4 w-fit">
+        <div class = "rounded-lg bg-bg-product-2 text-bg font-body font-bold text-lg px-3 py-1 ml-4 w-fit">
             {{ badge }}
         </div>
       {% endif %}
@@ -66,12 +72,18 @@
           <div class = "text-2xl text-neutral-400 ml-4">
             <s>{{ compare_at_price | money_with_currency }}</s>
           </div>
+          {% if discount_badge != blank %}
+            <div class = "text-bg-product-2 font-body font-reg text-4xl ml-4 w-fit">
+                {{ discount_badge }}
+            </div>
+          {% endif %}
         {% endif %}
       </div>
       {%if badge != blank %}
-        <div class = "rounded-lg bg-neutral-700 text-bg font-body font-bold text-lg px-3 py-1 w-fit mt-2">
+        <div class = "rounded-lg bg-bg-product-2 text-bg font-body font-bold text-lg px-3 py-1 w-fit mt-2">
             {{ badge }}
         </div>
+        
       {% endif %}
     </div>
   </div>

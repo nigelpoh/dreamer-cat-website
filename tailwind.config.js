@@ -44,7 +44,10 @@ module.exports = {
         'hl-lighter-green': '#E7FFC1',
         'hl-lighter-red': '#FFDABF',
         'hl-lighter-blue': '#DDEEFF',
-        'text': '#000000'
+        'text': '#000000',
+        'bg-product': '#fb6304',
+        'bg-product-2': '#cc1c3c',
+        'bg-product-3': '#6fbd5c'
       },
       animation: {
         'ping-slower':"ping 3s cubic-bezier(0, 0, 0.2, 1) infinite",
