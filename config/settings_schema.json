@@ -69,6 +69,23 @@
         "id": "return_subtext",
         "label": "Return Sub Text",
         "default": "From Day of Delivery"
+      },
+      {
+        "type": "image_picker",
+        "id": "warranty_image",
+        "label": "Warranty SVG Icon",
+      },
+      {
+        "type": "text",
+        "id": "warranty_text",
+        "label": "Warranty Text",
+        "default": "1 Year Warranty"
+      },
+      {
+        "type": "text",
+        "id": "warranty_subtext",
+        "label": "Warranty Sub Text",
+        "default": "On All Products"
       }
     ]
   },
