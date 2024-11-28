@@ -621,6 +621,11 @@
                 {% render 'design-swatch', product: product, block: block %}
               </div>
             </div>
+          {%- when 'show_rating' -%}
+            <div style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px;">
+                {% render 'rating-star', product: block.settings.product, block: block %}
+              </div>
+
           {%- when 'complementary' -%}
             <product-recommendations
               class="complementary-products quick-add-hidden{% if block.settings.make_collapsible_row %} is-accordion{% endif %}{% if block.settings.enable_quick_add %} complementary-products-contains-quick-add{% endif %}"
@@ -992,6 +997,37 @@
           "default": "body",
           "label": "t:sections.main-product.blocks.sku.settings.text_style.label"
         }
+      ]
+    },
+    {
+      "type": "show_rating",
+      "name" : "Display Rating Stars",
+      "settings":[
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 8
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 8
+        },
+        {
+          "type": "product",
+          "label": "Product to Retrieve Reviews From",
+          "id": "product"
+      }
       ]
     },
     {

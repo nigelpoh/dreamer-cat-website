@@ -7,11 +7,19 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
       "blocks": {
+        "show_rating_mV7arf": {
+          "type": "show_rating",
+          "settings": {
+            "padding_top": 8,
+            "padding_bottom": 8,
+            "product": "review-aggregator-dreamer-cats-phone-covers"
+          }
+        },
         "title": {
           "type": "title",
           "settings": {
@@ -102,6 +110,7 @@
         }
       },
       "block_order": [
+        "show_rating_mV7arf",
         "title",
         "price",
         "discounts_bK9njT",
