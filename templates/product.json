@@ -254,6 +254,57 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "collapsible_content_tRFYTi": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_qVt8Qn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Shipping & Delivery",
+            "icon": "none",
+            "row_content": "<p><strong>WORLDWIDE SHIPPING - 100% TRACKED.<br/><br/></strong>We are committed to delivering your order as efficiently as possible, ensuring it reaches you in perfect condition.</p><p><strong>Shipping Time:</strong></p><ul><li>We offer worldwide shipping with an estimated delivery time of 7–14 business days.</li><li>Please note that shipping times may vary depending on your location and local customs processing.</li></ul><p><strong>Tracking Information:</strong></p><ul><li>Once your order has been shipped, you will receive a confirmation email with tracking details so you can monitor its journey.</li></ul><p>We strive to provide a smooth and reliable shipping experience. If you have any questions or concerns about your order, please don’t hesitate to contact us.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yCn8hD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "60 Days Money Back Guarantee",
+            "icon": "none",
+            "row_content": "<p>All our products come with the Dreamer Satora Satisfaction Guarantee. That means you can return or exchange any items that you are not 100% happy with within 60 days of your delivery.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bEUKNz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "12 Month Warranty",
+            "icon": "none",
+            "row_content": "<p>At Dreamer Satora, we don’t just design tech accessories; we deliver peace of mind. Our commitment to quality and performance is unwavering. To back this promise, every product comes with a comprehensive 12-month warranty.</p><p>This warranty covers manufacturing defects and guarantees that if you experience any issues related to the product’s quality, we’ll be here to support you. Your satisfaction and trust are our priorities.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_qVt8Qn",
+        "collapsible_row_yCn8hD",
+        "collapsible_row_bEUKNz"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -262,6 +313,7 @@
     "product_list_3XPf9r",
     "product_specification_AwCXzD",
     "spotlight_image_text_RJ9c7B",
-    "reviews_MbDrbP"
+    "reviews_MbDrbP",
+    "collapsible_content_tRFYTi"
   ]
 }
