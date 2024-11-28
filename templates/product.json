@@ -89,7 +89,7 @@
         "policy_TnTn9f": {
           "type": "policy",
           "settings": {
-            "padding_top": 40,
+            "padding_top": 20,
             "padding_bottom": 0
           }
         },
