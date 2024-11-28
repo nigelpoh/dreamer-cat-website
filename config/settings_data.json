@@ -16,6 +16,7 @@
     "delivery_text": "Free Shipping",
     "return_image": "shopify://shop_images/Returns.webp",
     "return_text": "60 Days Return",
+    "warranty_image": "shopify://shop_images/Warranty.webp",
     "type_header_font": "figtree_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
