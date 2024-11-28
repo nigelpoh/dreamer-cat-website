@@ -291,9 +291,10 @@
         "collapsible_row_yCn8hD",
         "collapsible_row_bEUKNz"
       ],
+      "disabled": true,
       "settings": {
         "caption": "",
-        "heading": "Collapsible content",
+        "heading": "",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
@@ -302,7 +303,7 @@
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
         "desktop_layout": "image_second",
-        "padding_top": 36,
+        "padding_top": 0,
         "padding_bottom": 36
       }
     }
