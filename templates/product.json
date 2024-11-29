@@ -254,16 +254,6 @@
         "padding_bottom": 36
       }
     },
-    "reviews_MbDrbP": {
-      "type": "reviews",
-      "settings": {
-        "header": "Reviews",
-        "product": "review-aggregator-dreamer-cats-phone-covers",
-        "header_alignment": "text-center",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "collapsible_content_tRFYTi": {
       "type": "collapsible-content",
       "blocks": {
@@ -272,7 +262,7 @@
           "settings": {
             "heading": "Shipping & Delivery",
             "icon": "none",
-            "row_content": "<p><strong>WORLDWIDE SHIPPING - 100% TRACKED.<br/><br/></strong>We are committed to delivering your order as efficiently as possible, ensuring it reaches you in perfect condition.</p><p><strong>Shipping Time:</strong></p><ul><li>We offer worldwide shipping with an estimated delivery time of 7–14 business days.</li><li>Please note that shipping times may vary depending on your location and local customs processing.</li></ul><p><strong>Tracking Information:</strong></p><ul><li>Once your order has been shipped, you will receive a confirmation email with tracking details so you can monitor its journey.</li></ul><p>We strive to provide a smooth and reliable shipping experience. If you have any questions or concerns about your order, please don’t hesitate to contact us.</p>",
+            "row_content": "<h4><strong>WORLDWIDE SHIPPING - 100% TRACKED.</strong></h4><p>We are committed to delivering your order as efficiently as possible, ensuring it reaches you in perfect condition.</p><h4><strong>Shipping Time</strong></h4><ul><li>We offer worldwide shipping with an estimated delivery time of 7–14 business days.</li><li>Please note that shipping times may vary depending on your location and local customs processing.</li></ul><h4><strong>Tracking Information</strong></h4><ul><li>Once your order has been shipped, you will receive a confirmation email with tracking details so you can monitor its journey.</li></ul><p>We strive to provide a smooth and reliable shipping experience. If you have any questions or concerns about your order, please don’t hesitate to contact us.</p>",
             "page": ""
           }
         },
@@ -300,7 +290,6 @@
         "collapsible_row_yCn8hD",
         "collapsible_row_bEUKNz"
       ],
-      "disabled": true,
       "settings": {
         "caption": "",
         "heading": "",
@@ -315,6 +304,16 @@
         "padding_top": 0,
         "padding_bottom": 36
       }
+    },
+    "reviews_MbDrbP": {
+      "type": "reviews",
+      "settings": {
+        "header": "Reviews",
+        "product": "review-aggregator-dreamer-cats-phone-covers",
+        "header_alignment": "text-left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -323,7 +322,7 @@
     "product_specification_AwCXzD",
     "product_list_3XPf9r",
     "spotlight_image_text_RJ9c7B",
-    "reviews_MbDrbP",
-    "collapsible_content_tRFYTi"
+    "collapsible_content_tRFYTi",
+    "reviews_MbDrbP"
   ]
 }
