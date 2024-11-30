@@ -88,16 +88,21 @@
               {% render 'card-collection', card_collection: settings.cart_drawer_collection, columns: 1 %}
             </div>
           {%- endif -%}
-          <div class = "grid grid-cols-2 gap-4 mt-8">
+          <div class = "grid grid-cols-3 gap-4 mt-8">
             <div class = "flex flex-col items-center">
               {{ settings.delivery_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
-              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">{{ settings.delivery_text }}</div>
-              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">{{ settings.delivery_subtext }}</div>
+              <div class = "font-body md:text-[1.5rem] text-lg font-semibold text-neutral-800 text-center">{{ settings.delivery_text }}</div>
+              <div class = "font-body md:text-lg text-base font-semibold text-neutral-400 text-center">{{ settings.delivery_subtext }}</div>
             </div>
             <div class = "flex flex-col items-center">
               {{ settings.return_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
-              <div class = "font-body text-[1.7rem] font-semibold text-neutral-800 text-center">{{ settings.return_text }}</div>
-              <div class = "font-body text-lg font-semibold text-neutral-400 text-center">{{ settings.return_subtext }}</div>
+              <div class = "font-body md:text-[1.5rem] text-lg font-semibold text-neutral-800 text-center">{{ settings.return_text }}</div>
+              <div class = "font-body md:text-lg text-base font-semibold text-neutral-400 text-center">{{ settings.return_subtext }}</div>
+            </div>
+            <div class = "flex flex-col items-center">
+              {{ settings.warranty_image | image_url: width: 100 | image_tag: class: 'w-24 mb-4' }}
+              <div class = "font-body md:text-[1.5rem] text-lg font-semibold text-neutral-800 text-center">{{ settings.warranty_text }}</div>
+              <div class = "font-body md:text-lg text-base font-semibold text-neutral-400 text-center">{{ settings.warranty_subtext }}</div>
             </div>
           </div>
           <div class = "flex flex-col items-center w-full bg-hl-lighter-blue py-8 px-12 rounded-xl mb-8">
