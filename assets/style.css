@@ -3021,11 +3021,6 @@ video {
   color: rgb(248 250 252 / var(--tw-text-opacity));
 }
 
-.text-bg-product {
-  --tw-text-opacity: 1;
-  color: rgb(251 99 4 / var(--tw-text-opacity));
-}
-
 .text-bg-product-2 {
   --tw-text-opacity: 1;
   color: rgb(204 28 60 / var(--tw-text-opacity));
