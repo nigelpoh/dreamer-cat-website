@@ -22,7 +22,7 @@
 <input id = "review-page" value = "1" hidden />
 <input id = "review-page-end" value = "{{ review_prod.metafields.ba_rev.review_data.reviews.size | times: 1.0 | divided_by: no_reviews_per_page | ceil }}" hidden />
 <h1 class = "w-full font-display uppercase text-black text-5xl font-black {{ section.settings.header_alignment }}">{{  section.settings.header }}</h1>
-<div class = "flex flex-col md:flex-row py-8">
+<div class = "flex flex-col md:flex-row py-8" id = "ReviewSection">
     <div class = "flex flex-col mb-12 md:mb-0 md:mr-[10%] md:w-[30%] xl:w-[20%]">
         <div class = "flex flex-row items-center mr-8 lg:mr-0 mb-4">
             <div class = "flex flex-col items-end mr-4">
