@@ -3627,6 +3627,10 @@ video {
     line-height: 1;
   }
 
+  .md\:text-\[1\.5rem\] {
+    font-size: 1.5rem;
+  }
+
   .md\:text-\[1\.7rem\] {
     font-size: 1.7rem;
   }
@@ -3634,10 +3638,6 @@ video {
   .md\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-\[1\.5rem\] {
-    font-size: 1.5rem;
   }
 
   .md\:shadow-none {
