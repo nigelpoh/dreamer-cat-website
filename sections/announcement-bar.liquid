@@ -106,15 +106,31 @@
                       var hour = {{ block.settings.hour }}
                       var minute = {{ block.settings.min }}
                       var sec = {{ block.settings.sec }}
-                      var targetDate = new Date(year, month, day, hour, minute, sec);
-                      function updateCountdown() {
+                      var reset_days = {{ block.settings.reset }}
 
+                      function calculateNextTargetDate() {
+                        var now = new Date();
+                        var utcTime = now.getTime() + now.getTimezoneOffset() * 60000; 
+                        var sgtTime = new Date(utcTime + 8 * 3600000);
+                    
+                        var initialTargetDate = new Date(year, month, day, hour, minute, sec);
+                    
+                        while (initialTargetDate <= sgtTime) {
+                          initialTargetDate.setDate(initialTargetDate.getDate() + reset_days);
+                        }
+                    
+                        return initialTargetDate;
+                      }
+                    
+                      function updateCountdown() {
+                        var targetDate = calculateNextTargetDate();
+                    
                         var now = new Date();
                         var utcTime = now.getTime() + now.getTimezoneOffset() * 60000; 
                         var sgtTime = new Date(utcTime + 8 * 3600000);
                         
                         var timeDifference = targetDate - sgtTime;
-
+                    
                         if (timeDifference <= 0) {
                           document.getElementById("days-cd").textContent = "00";
                           document.getElementById("hours-cd").textContent = "00";
@@ -122,20 +138,20 @@
                           document.getElementById("secs-cd").textContent = "00";
                           return;
                         }
-
+                    
                         var days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
                         var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                         var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
                         var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-                        document.getElementById("days-cd").textContent = days;
-                        document.getElementById("hours-cd").textContent = hours;
-                        document.getElementById("mins-cd").textContent = minutes;
-                        document.getElementById("secs-cd").textContent = seconds;
+                    
+                        document.getElementById("days-cd").textContent = days.toString().padStart(2, "0");
+                        document.getElementById("hours-cd").textContent = hours.toString().padStart(2, "0");
+                        document.getElementById("mins-cd").textContent = minutes.toString().padStart(2, "0");
+                        document.getElementById("secs-cd").textContent = seconds.toString().padStart(2, "0");
                       }
-
+                    
                       setInterval(updateCountdown, 1000);
-
+                    
                       updateCountdown();
                     </script>
                     <div class = "flex w-full justify-center items-center">
@@ -365,7 +381,8 @@
         },
         {
           "type": "header",
-          "content": "Time that sale ends"
+          "content": "Time that sale ends",
+          "info": "If date is set in the future, we use the date. If not, we make use of reset to calculate the target (Date + Y * Reset is the target date, where Y is the minimum possible for us to get a future date)."
         },
         {
           "type": "number",
@@ -402,6 +419,12 @@
           "default": 0,
           "id": "sec",
           "label": "Second"
+        },
+        {
+          "type": "number",
+          "default": 1,
+          "id": "reset",
+          "label": "Reset every X days"
         }
       ]
     }
