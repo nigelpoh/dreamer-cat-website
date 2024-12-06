@@ -16,6 +16,7 @@
       "blocks": {
         "text_pFVziW": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "🎁 Christmas Sale 🎁 50% Off All Items",
             "link": ""
@@ -23,6 +24,7 @@
         },
         "text_eNr3gE": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "Buy 2 Get Additional 25% | Buy 3 Get Additional 35%",
             "link": ""
@@ -30,6 +32,7 @@
         },
         "text_gpntGL": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "📦 Free Worldwide Shipping 📦",
             "link": ""
