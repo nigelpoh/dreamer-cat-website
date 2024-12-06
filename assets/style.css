@@ -1357,6 +1357,10 @@ video {
   margin-top: 5%;
 }
 
+.ml-8 {
+  margin-left: 2rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2993,6 +2997,10 @@ video {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-extrabold {
+  font-weight: 800;
 }
 
 .uppercase {
