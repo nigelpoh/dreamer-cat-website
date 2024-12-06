@@ -14,32 +14,46 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement_Agfx4C": {
-          "type": "announcement",
+        "text_pFVziW": {
+          "type": "text",
           "settings": {
             "text": "🎁 Christmas Sale 🎁 50% Off All Items",
             "link": ""
           }
         },
-        "announcement_L9hxgE": {
-          "type": "announcement",
+        "text_eNr3gE": {
+          "type": "text",
           "settings": {
             "text": "Buy 2 Get Additional 25% | Buy 3 Get Additional 35%",
             "link": ""
           }
         },
-        "announcement_3Gy4PM": {
-          "type": "announcement",
+        "text_gpntGL": {
+          "type": "text",
           "settings": {
             "text": "📦 Free Worldwide Shipping 📦",
             "link": ""
           }
+        },
+        "countdown_CNPQdH": {
+          "type": "countdown",
+          "settings": {
+            "text": "Holiday Sale",
+            "link": "",
+            "year": 2025,
+            "month": 1,
+            "day": 1,
+            "hour": 1,
+            "min": 0,
+            "sec": 0
+          }
         }
       },
       "block_order": [
-        "announcement_Agfx4C",
-        "announcement_L9hxgE",
-        "announcement_3Gy4PM"
+        "text_pFVziW",
+        "text_eNr3gE",
+        "text_gpntGL",
+        "countdown_CNPQdH"
       ],
       "settings": {
         "color_scheme": "scheme-1",
