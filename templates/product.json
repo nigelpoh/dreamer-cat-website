@@ -39,6 +39,7 @@
         },
         "discounts_bK9njT": {
           "type": "discounts",
+          "disabled": true,
           "settings": {
             "discount_buy_1": "",
             "discount_get_1": "",
