@@ -133,11 +133,9 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "cart_drawer_discounts": [
-      "store-discount-2-for-15-off",
-      "store-discount-3-for-30-off"
-    ],
+    "cart_drawer_discounts": [],
     "cart_color_scheme": "scheme-1",
+    "cart_progress_threshold_goal": 35,
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
