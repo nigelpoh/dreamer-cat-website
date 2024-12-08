@@ -155,7 +155,7 @@
                       updateCountdown();
                     </script>
                     <div class = "flex flex-col justify-center items-center">
-                      <span class = "font-body font-bold text-bg text-3xl md:text-4xl uppercase">{{ block.settings.text }}</span>
+                      <span class = "font-body font-bold text-bg text-3xl md:text-4xl uppercase mb-4">{{ block.settings.text }}</span>
                       <div class = "flex w-full justify-center items-center">
                         {%- if block.settings.link != blank -%}
                           <a
@@ -163,7 +163,7 @@
                             class="announcement-bar__link link link--text focus-inset animate-arrow"
                           >
                         {%- endif -%}
-                        <div class = "flex flex-col items-end mb-4">
+                        <div class = "flex flex-col items-end">
                           <span class = "font-body font-bold text-bg text-lg text-right">Sale ends in:</span>
                         </div>
                         <div class = "flex flex-col items-center mx-8">
