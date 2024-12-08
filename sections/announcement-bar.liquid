@@ -154,38 +154,41 @@
                     
                       updateCountdown();
                     </script>
-                    <div class = "flex w-full justify-center items-center">
-                      {%- if block.settings.link != blank -%}
-                        <a
-                          href="{{ block.settings.link }}"
-                          class="announcement-bar__link link link--text focus-inset animate-arrow"
-                        >
-                      {%- endif -%}
-                      <div class = "flex flex-col items-end">
-                        <span class = "font-body font-bold text-bg text-sm md:text-base">Sale ends in:</span>
+                    <div class = "flex flex-col">
+                      <span class = "font-body font-bold text-bg text-2xl md:text-4xl uppercase">{{ block.settings.text }}</span>
+                      <div class = "flex w-full justify-center items-center">
+                        {%- if block.settings.link != blank -%}
+                          <a
+                            href="{{ block.settings.link }}"
+                            class="announcement-bar__link link link--text focus-inset animate-arrow"
+                          >
+                        {%- endif -%}
+                        <div class = "flex flex-col items-end">
+                          <span class = "font-body font-bold text-bg text-sm md:text-base">Sale ends in:</span>
+                        </div>
+                        <div class = "flex flex-col items-center mx-8">
+                          <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "days-cd">00</span>
+                          <span class = "font-body font-bold text-bg text-sm md:text-base">DAYS</span>
+                        </div>
+                        <span class = "font-display text-bg text-5xl">:</span>
+                        <div class = "flex flex-col items-center mx-8">
+                          <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "hours-cd">00</span>
+                          <span class = "font-body font-bold text-bg text-sm md:text-base">HOURS</span>
+                        </div>
+                        <span class = "font-display text-bg text-5xl">:</span>
+                        <div class = "flex flex-col items-center mx-8">
+                          <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "mins-cd">00</span>
+                          <span class = "font-body font-bold text-bg text-sm md:text-base">MINUTES</span>
+                        </div>
+                        <span class = "font-display text-bg text-5xl">:</span>
+                        <div class = "flex flex-col items-center ml-8 ">
+                          <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "secs-cd">00</span>
+                          <span class = "font-body font-bold text-bg text-sm md:text-base">SECONDS</span>
+                        </div>
+                        {%- if block.settings.link != blank -%}
+                          </a>
+                        {%- endif -%}
                       </div>
-                      <div class = "flex flex-col items-center mx-8">
-                        <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "days-cd">00</span>
-                        <span class = "font-body font-bold text-bg text-sm md:text-base">DAYS</span>
-                      </div>
-                      <span class = "font-display text-bg text-5xl">:</span>
-                      <div class = "flex flex-col items-center mx-8">
-                        <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "hours-cd">00</span>
-                        <span class = "font-body font-bold text-bg text-sm md:text-base">HOURS</span>
-                      </div>
-                      <span class = "font-display text-bg text-5xl">:</span>
-                      <div class = "flex flex-col items-center mx-8">
-                        <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "mins-cd">00</span>
-                        <span class = "font-body font-bold text-bg text-sm md:text-base">MINUTES</span>
-                      </div>
-                      <span class = "font-display text-bg text-5xl">:</span>
-                      <div class = "flex flex-col items-center ml-8 ">
-                        <span class = "font-body font-bold text-bg text-2xl md:text-4xl" id = "secs-cd">00</span>
-                        <span class = "font-body font-bold text-bg text-sm md:text-base">SECONDS</span>
-                      </div>
-                      {%- if block.settings.link != blank -%}
-                        </a>
-                      {%- endif -%}
                     </div>
                 {% endcase %}
               </div>
