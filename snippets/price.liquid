@@ -44,7 +44,7 @@
 {%- unless target == null and placeholder == null -%}
   <div class="font-body">
     <div class="reg:flex reg:flex-row reg:items-center hidden">
-      <div class = "text-5xl font-semibold text-black">
+      <div class = "text-4xl font-semibold text-black">
         {{ price | money_with_currency }}
       </div>
       {% if compare_at_price != 0 %}
@@ -65,7 +65,7 @@
     </div>
     <div class="flex flex-col reg:hidden">
       <div class="flex flex-row items-center">
-        <div class = "text-5xl font-semibold text-black">
+        <div class = "text-4xl font-semibold text-black">
           {{ price | money_with_currency }}
         </div>
         {% if compare_at_price != 0 %}
@@ -80,7 +80,7 @@
         {% endif %}
       </div>
       {%if badge != blank %}
-        <div class = "rounded-lg bg-bg-product-2 text-bg font-body font-bold text-xl px-3 py-1 w-fit mt-2">
+        <div class = "rounded-lg bg-bg-product-2 text-bg font-body font-bold text-2xl px-3 py-1 w-fit mt-2">
             {{ badge }}
         </div>
         

@@ -64,14 +64,14 @@
           {% if show_collection_name == true %}
             <div class = "font-body text-lg text-black uppercase font-semibold text-wrap">{{ product.metafields.custom.collection.value.title }}</div>
           {% endif %}
-          <div class = "font-display text-5xl text-black uppercase font-black text-wrap">{{ product.title | split: "]" | last }}</div>
+          <div class = "font-display text-4xl text-black uppercase font-black text-wrap break-words">{{ product.title | split: "]" | last }}</div>
           <div class = "flex flex-row items-center mt-2">
             <div class = "font-body text-2xl text-black uppercase font-bold">{{ product.price | money_with_currency }}</div>
             {% if product.price != product.compare_at_price and product.compare_at_price != 0 %}
               <div class = "font-body text-xl text-neutral-400 uppercase font-semibold ml-4"><s>{{ product.compare_at_price | money_with_currency }}</s></div>
             {% endif %} 
           </div>
-          <div class = "font-body font-medium text-2xl text-black my-4">{% if template.name != 'product' %}{{ product.metafields.custom.thought.value }} {% endif%} </div>
+          <div class = "font-body font-medium text-2xl text-black my-4">{% if template.name != 'product'%}{{ product.metafields.custom.thought.value }} {% endif%} </div>
         </div>
       </div>
       <div class = "flex justify-start">
