@@ -201,6 +201,13 @@
             "image_spec": "shopify://shop_images/New_Phone_Camera_Protect_5b87759c-1c7b-49dc-8ab2-3fdcd1b2df4b.webp",
             "spec_description": "Raised camera ring for lens protection"
           }
+        },
+        "image_with_text_XAnkE4": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/Asset_2.webp",
+            "spec_description": "Induction Wireless Charging Compatible"
+          }
         }
       },
       "block_order": [
@@ -208,7 +215,8 @@
         "image_with_text_wAgUQp",
         "image_with_text_nbNp6R",
         "image_with_text_KDrJjb",
-        "image_with_text_7cJEU6"
+        "image_with_text_7cJEU6",
+        "image_with_text_XAnkE4"
       ],
       "settings": {
         "header": "Product Features",
