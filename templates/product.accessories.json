@@ -220,6 +220,7 @@
         "image_with_text_7cJEU6",
         "image_with_text_XAnkE4"
       ],
+      "disabled": true,
       "settings": {
         "header": "Product Features",
         "header_alignment": "text-center",
