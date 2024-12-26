@@ -7,69 +7,68 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "disabled": true,
-        "settings": {
-          "padding_top": 28,
-          "padding_bottom": 28
-        }
-      },
-      "rich_text_JT7jRc": {
-        "type": "rich-text",
-        "blocks": {
-          "heading_qHqKAw": {
-            "type": "heading",
-            "settings": {
-              "heading": "Return and Exchanges",
-              "heading_size": "h0"
-            }
-          },
-          "text_7ttj7k": {
-            "type": "text",
-            "settings": {
-              "text": "<p>Our goal at Satora Dreamer Cat is to ensure that our customers' experience shopping with us is great. Please contact our customer service for further assistance should you not be completely satisfied with your purchase online. Please make a return request <strong>within 14 days</strong> from the recorded date of delivery. Products returned outside of the stated period will not be accepted and returned to the original shipping address. </p><h3>How to Return Your Product</h3><p>Before returning your product, please ensure that the following:</p><ol><li>Place the product(s) back in the original shipping packaging to prepare for return. If the original packaging is unavailable or damaged, use a sturdy and protective replacement package that ensures the product is secure for shipping. Make sure the replacement packaging provides adequate protection to prevent damage during transit.</li><li>All products must be returned to us in perfect condition. Make sure all products are exactly as you received them.</li><li>Ensure that the packaging is securely fastened before shipping.</li></ol><p>Satora Fat Cat reserves the right to reject any returned products if the aforementioned requirements are not met or if the return request is only submitted after the 14 day time period after the receipt of the product.</p><p>Click the following button to initiate an exchange/return. Remember to include the following in the email:</p><ol><li>Order Number</li><li>Whether you want a return or exchange</li><li>The reason for return/exchanges</li></ol>"
-            }
-          },
-          "button_U7ri76": {
-            "type": "button",
-            "settings": {
-              "button_label": "Start Return/Exchange",
-              "button_link": "mailto:hello@satora.store",
-              "button_style_secondary": false,
-              "button_label_2": "",
-              "button_link_2": "",
-              "button_style_secondary_2": false
-            }
-          },
-          "text_74bayF": {
-            "type": "text",
-            "settings": {
-              "text": "<p>After your return/exchange has been processed, you are required to send the product (in the condition as described as below) using any carrier of your choosing. The return destination will be provided in a reply email from our support team after the return/exchange has been processed. <strong>Do note that you are required to bear the costs of the return shipping</strong>. </p><p>We will begin processing your refund/exchange after we have received and inspected the returned product(s). If we do not receive your returned shipment, we cannot proceed with the refund/exchange.</p><h3>Processing the Refund/Exchange</h3><p>Once we have received and inspected the returned product(s), we will send you an email to let you know if the request has been approved. If you are approved, then your refund/exchange will be processed. </p><p>If you applied for a refund, we will return the full amount of the purchase to the credit card that was originally used during purchase. </p><p>If you applied for an exchange, we will ship out the product of the same model in the size requested by you in your exchange request. Once the product has been shipped out, we will send you a separate email informing you of the new tracking number for your shipment.</p><h3>Why have I not received my refund even though it has already been approved?</h3><p>Refunds usually take 3 to 5 business days to be credited back into your account as they need to be processed by various financial institutions. If your refund has yet to arrived after 5 business days, please get in touch with us. </p><h3>Damaged or Wrong Items</h3><p>Our apologies for the inconvenience. Please get in touch with us <a href=\"/pages/contact\" title=\"Contact Us\">here</a> within 7 days of receipt of the item and our support team will arrange a return for you if the product is deemed defective or if the wrong product was sent.</p>"
-            }
-          }
-        },
-        "block_order": [
-          "heading_qHqKAw",
-          "text_7ttj7k",
-          "button_U7ri76",
-          "text_74bayF"
-        ],
-        "settings": {
-          "desktop_content_position": "center",
-          "content_alignment": "left",
-          "color_scheme": "",
-          "full_width": true,
-          "padding_top": 40,
-          "padding_bottom": 52
-        }
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
       }
     },
-    "order": [
-      "main",
-      "rich_text_JT7jRc"
-    ]
-  }
-  
+    "rich_text_JT7jRc": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_qHqKAw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Return and Exchanges",
+            "heading_size": "h0"
+          }
+        },
+        "text_7ttj7k": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our goal at Satora Dreamer Cat is to ensure that our customers' experience shopping with us is great. Please contact our customer service for further assistance should you not be completely satisfied with your purchase online. Please make a return request <strong>within 60 days</strong> from the recorded date of delivery. Products returned outside of the stated period will not be accepted and returned to the original shipping address. </p><h3>How to Return Your Product</h3><p>Before returning your product, please ensure that the following:</p><ol><li>Place the product(s) back in the original shipping packaging to prepare for return. If the original packaging is unavailable or damaged, use a sturdy and protective replacement package that ensures the product is secure for shipping. Make sure the replacement packaging provides adequate protection to prevent damage during transit.</li><li>All products must be returned to us in perfect condition. Make sure all products are exactly as you received them.</li><li>Ensure that the packaging is securely fastened before shipping.</li></ol><p>Satora Fat Cat reserves the right to reject any returned products if the aforementioned requirements are not met or if the return request is only submitted after the 60 day time period after the receipt of the product.</p><p>Click the following button to initiate an exchange/return. Remember to include the following in the email:</p><ol><li>Order Number</li><li>Whether you want a return or exchange</li><li>The reason for return/exchanges</li></ol>"
+          }
+        },
+        "button_U7ri76": {
+          "type": "button",
+          "settings": {
+            "button_label": "Start Return/Exchange",
+            "button_link": "mailto:hello@satora.store",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        },
+        "text_74bayF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After your return/exchange has been processed, you are required to send the product (in the condition as described as below) using any carrier of your choosing. The return destination will be provided in a reply email from our support team after the return/exchange has been processed. <strong>Do note that you are required to bear the costs of the return shipping</strong>. </p><p>We will begin processing your refund/exchange after we have received and inspected the returned product(s). If we do not receive your returned shipment, we cannot proceed with the refund/exchange.</p><h3>Processing the Refund/Exchange</h3><p>Once we have received and inspected the returned product(s), we will send you an email to let you know if the request has been approved. If you are approved, then your refund/exchange will be processed. </p><p>If you applied for a refund, we will return the full amount of the purchase to the credit card that was originally used during purchase. </p><p>If you applied for an exchange, we will ship out the product of the same model in the size requested by you in your exchange request. Once the product has been shipped out, we will send you a separate email informing you of the new tracking number for your shipment.</p><h3>Why have I not received my refund even though it has already been approved?</h3><p>Refunds usually take 3 to 5 business days to be credited back into your account as they need to be processed by various financial institutions. If your refund has yet to arrived after 5 business days, please get in touch with us. </p><h3>Damaged or Wrong Items</h3><p>Our apologies for the inconvenience. Please get in touch with us <a href=\"/pages/contact\" title=\"Contact Us\">here</a> within 7 days of receipt of the item and our support team will arrange a return for you if the product is deemed defective or if the wrong product was sent.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qHqKAw",
+        "text_7ttj7k",
+        "button_U7ri76",
+        "text_74bayF"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "left",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_JT7jRc"
+  ]
+}
