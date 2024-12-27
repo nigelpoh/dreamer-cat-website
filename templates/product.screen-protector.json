@@ -54,6 +54,7 @@
         },
         "design_8UUUgG": {
           "type": "design",
+          "disabled": true,
           "settings": {
             "header": "Design",
             "padding_top": 20,
@@ -62,6 +63,7 @@
         },
         "metafield_selector_jUkTAU": {
           "type": "metafield_selector",
+          "disabled": true,
           "settings": {
             "metafield": "variation",
             "label": "Brand",
@@ -232,6 +234,7 @@
         "image_with_text_7cJEU6",
         "image_with_text_XAnkE4"
       ],
+      "disabled": true,
       "settings": {
         "header": "Product Features",
         "header_alignment": "text-center",
