@@ -1,0 +1,344 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "show_rating_mV7arf": {
+          "type": "show_rating",
+          "settings": {
+            "padding_top": 8,
+            "padding_bottom": 8,
+            "product": "review-aggregator-dreamer-cats-phone-covers"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "padding_top": 0,
+            "padding_bottom": 0
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "info": "",
+            "badge": "Christmas Deal",
+            "discount_badge": "Save 50%",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "discounts_bK9njT": {
+          "type": "discounts",
+          "disabled": true,
+          "settings": {
+            "discount_buy_1": "",
+            "discount_get_1": "",
+            "discount_buy_2": "2",
+            "discount_get_2": "extra 25% OFF",
+            "discount_buy_3": "3+",
+            "discount_get_3": "extra 35% OFF",
+            "apply": "",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "design_8UUUgG": {
+          "type": "design",
+          "settings": {
+            "header": "Design",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "metafield_selector_jUkTAU": {
+          "type": "metafield_selector",
+          "settings": {
+            "metafield": "variation",
+            "label": "Brand",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "label": "Model",
+            "picker_type": "dropdown",
+            "swatch_shape": "circle",
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "padding_top": 25,
+            "padding_bottom": 0
+          }
+        },
+        "policy_TnTn9f": {
+          "type": "policy",
+          "settings": {
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        },
+        "payment_methods_Jate3M": {
+          "type": "payment_methods",
+          "settings": {
+            "padding_top": 20,
+            "padding_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "show_rating_mV7arf",
+        "title",
+        "price",
+        "discounts_bK9njT",
+        "design_8UUUgG",
+        "metafield_selector_jUkTAU",
+        "variant_picker",
+        "buy_buttons",
+        "policy_TnTn9f",
+        "payment_methods_Jate3M"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 0,
+        "padding_bottom": 60
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 28
+      }
+    },
+    "product_list_T6L7Jm": {
+      "type": "product-list",
+      "settings": {
+        "heading": "Bundle & Save",
+        "heading_size": "text-5xl",
+        "subheading": "",
+        "subheading_size": "text-2xl",
+        "collection": "our-accessories",
+        "ornament": "none",
+        "ornament_position": "left",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "product_list_3XPf9r": {
+      "type": "product-list",
+      "settings": {
+        "heading": "You May Also Like",
+        "heading_size": "text-5xl",
+        "subheading": "",
+        "subheading_size": "text-2xl",
+        "collection": "a-trip-to-japan",
+        "ornament": "none",
+        "ornament_position": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "product_specification_AwCXzD": {
+      "type": "product_specification",
+      "blocks": {
+        "image_with_text_EmkW4y": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/Fall_Safe_39c6bdab-0f6e-4a2a-9384-3a6021071795.webp",
+            "spec_description": "6.6 ft. drop protection"
+          }
+        },
+        "image_with_text_wAgUQp": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/Charm_Socket_7280113d-8a2c-4a95-ad02-4c70c5f6f06f.webp",
+            "spec_description": "Side sockets for charms"
+          }
+        },
+        "image_with_text_nbNp6R": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/Artboard_1_24d414a6-2b5f-4f90-b0ae-bb7d2c69927b.webp",
+            "spec_description": "Made with recyclable materials"
+          }
+        },
+        "image_with_text_KDrJjb": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/Raised_Screen_0d17f8b2-b9aa-46b7-b52a-3399844fd7d6.webp",
+            "spec_description": "Raised bezel for screen protection"
+          }
+        },
+        "image_with_text_7cJEU6": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/New_Phone_Camera_Protect_5b87759c-1c7b-49dc-8ab2-3fdcd1b2df4b.webp",
+            "spec_description": "Raised camera ring for lens protection"
+          }
+        },
+        "image_with_text_XAnkE4": {
+          "type": "image_with_text",
+          "settings": {
+            "image_spec": "shopify://shop_images/Asset_2.webp",
+            "spec_description": "Induction Wireless Charging Compatible"
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_EmkW4y",
+        "image_with_text_wAgUQp",
+        "image_with_text_nbNp6R",
+        "image_with_text_KDrJjb",
+        "image_with_text_7cJEU6",
+        "image_with_text_XAnkE4"
+      ],
+      "settings": {
+        "header": "Product Features",
+        "header_alignment": "text-center",
+        "heading_size": "text-5xl"
+      }
+    },
+    "spotlight_image_text_RJ9c7B": {
+      "type": "spotlight-image-text",
+      "blocks": {
+        "heading_DFF6Dm": {
+          "type": "heading",
+          "settings": {
+            "heading": "MEET THE MOONBLINK.",
+            "colour": "bg"
+          }
+        },
+        "body_jyt8CF": {
+          "type": "body",
+          "settings": {
+            "body": "<p>Durable and reliable, this waterproof case protects like moonlight over the night. Made from recyclable materials, it keeps your phone safe while caring for the planet.</p>",
+            "colour": "bg"
+          }
+        }
+      },
+      "block_order": [
+        "heading_DFF6Dm",
+        "body_jyt8CF"
+      ],
+      "settings": {
+        "bg_colour": "black",
+        "video": "shopify://files/videos/moonblink_anim.mp4",
+        "rate": 0.7,
+        "desktop_position": "right",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "collapsible_content_tRFYTi": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_qVt8Qn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Shipping & Delivery",
+            "icon": "none",
+            "row_content": "<h4><strong>WORLDWIDE SHIPPING - 100% TRACKED.</strong></h4><p>We are committed to delivering your order as efficiently as possible, ensuring it reaches you in perfect condition.</p><h4><strong>Shipping Time</strong></h4><ul><li>We offer worldwide shipping with an estimated delivery time of 7–14 business days.</li><li>Please note that shipping times may vary depending on your location and local customs processing.</li></ul><h4><strong>Tracking Information</strong></h4><ul><li>Once your order has been shipped, you will receive a confirmation email with tracking details so you can monitor its journey.</li></ul><p>We strive to provide a smooth and reliable shipping experience. If you have any questions or concerns about your order, please don’t hesitate to contact us.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yCn8hD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "60 Days Money Back Guarantee",
+            "icon": "none",
+            "row_content": "<p>All our products come with the Dreamer Satora Satisfaction Guarantee. That means you can return or exchange any items that you are not 100% happy with within 60 days of your delivery.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bEUKNz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "12 Month Warranty",
+            "icon": "none",
+            "row_content": "<p>At Dreamer Satora, we don’t just design tech accessories; we deliver peace of mind. Our commitment to quality and performance is unwavering. To back this promise, every product comes with a comprehensive 12-month warranty.</p><p>This warranty covers manufacturing defects and guarantees that if you experience any issues related to the product’s quality, we’ll be here to support you. Your satisfaction and trust are our priorities.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_qVt8Qn",
+        "collapsible_row_yCn8hD",
+        "collapsible_row_bEUKNz"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "reviews_MbDrbP": {
+      "type": "reviews",
+      "settings": {
+        "header": "Reviews",
+        "product": "review-aggregator-dreamer-cats-phone-covers",
+        "header_alignment": "text-left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "product_list_T6L7Jm",
+    "product_list_3XPf9r",
+    "product_specification_AwCXzD",
+    "spotlight_image_text_RJ9c7B",
+    "collapsible_content_tRFYTi",
+    "reviews_MbDrbP"
+  ]
+}
