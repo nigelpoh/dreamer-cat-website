@@ -73,6 +73,7 @@
         },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "label": "Color",
             "picker_type": "dropdown",
