@@ -153,6 +153,37 @@
         "padding_bottom": 28
       }
     },
+    "collapsible_content_yNQt38": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_BwYyg8": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How To Use",
+            "icon": "none",
+            "row_content": "<ol><li>Peel off protective film.</li><li>Paste the adhesive side of the magsafe on the inside of phone case.</li></ol>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_BwYyg8"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
     "product_list_3XPf9r": {
       "type": "product-list",
       "settings": {
@@ -324,6 +355,7 @@
   "order": [
     "main",
     "related-products",
+    "collapsible_content_yNQt38",
     "product_list_3XPf9r",
     "product_specification_AwCXzD",
     "spotlight_image_text_RJ9c7B",
