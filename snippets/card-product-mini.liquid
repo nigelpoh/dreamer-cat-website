@@ -36,9 +36,9 @@
  <a href = "{{ product.url }}">
   <div class = "flex flex-col items-center w-[30rem] py-12 px-12 rounded-2xl {{ colour_tag }} {{ classes }}">
     <div class = "flex flex-col h-full justify-between w-full">
-      <div class = "flex flex-col items-center w-full">
+      <div class = "flex row items-center w-full">
         <div class = "relative w-80 h-80">
-          <div class = "absolute w-40 h-52 left-20">
+          <div class = "w-40 h-52 left-20">
             {% if product.metafields.custom.snapshot.value.image %}
               {{ product.metafields.custom.snapshot.value.image | image_url: width: 400 | image_tag: class: 'object-cover object-center w-40 h-52 rounded-[2.5em]'  }}
             {% else %}
