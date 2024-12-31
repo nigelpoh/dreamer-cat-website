@@ -45,13 +45,6 @@
               {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
           </div>
-          <div class = "absolute w-80 h-80">
-            {% if product.metafields.custom.img_shadow.value.image %}
-              {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag  }}
-            {% else %}
-              {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
-            {% endif %}
-          </div>
         </div>
         <div class = "flex flex-col w-full">
           {% if show_badges == true %}
