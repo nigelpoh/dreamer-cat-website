@@ -39,14 +39,13 @@
         },
         "discounts_bK9njT": {
           "type": "discounts",
-          "disabled": true,
           "settings": {
             "discount_buy_1": "",
             "discount_get_1": "",
-            "discount_buy_2": "2",
-            "discount_get_2": "extra 25% OFF",
-            "discount_buy_3": "3+",
-            "discount_get_3": "extra 35% OFF",
+            "discount_buy_2": "2 or more",
+            "discount_get_2": "extra 20% OFF",
+            "discount_buy_3": "",
+            "discount_get_3": "",
             "apply": "",
             "padding_top": 20,
             "padding_bottom": 0
