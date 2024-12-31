@@ -37,7 +37,7 @@
   <div class = "flex flex-col items-center w-[30rem] py-12 px-12 rounded-2xl {{ colour_tag }} {{ classes }}">
     <div class = "flex flex-col h-full justify-between w-full">
       <div class = "flex row items-center w-full">
-        {{ product.metafields.custom.snapshot.value.image | image_url: width: 400 | image_tag: class: 'object-cover object-center w-40 h-52 rounded-[2.5em]'  }}
+        {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag  }}
         <div class = "flex flex-col w-full">
           {% if show_badges == true %}
             <div class = "flex flex-row mb-4 flex-wrap gap-2">
