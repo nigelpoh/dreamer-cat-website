@@ -34,7 +34,7 @@
 {% assign colour_tag = "bg-" | append: colour %}
 {% comment %} Removed max-w-[30rem] {% endcomment %}
  <a href = "{{ product.url }}">
-  <div class = "flex flex-col items-center rounded-2xl {{ colour_tag }} {{ classes }}">
+  <div class = "flex items-center rounded-2xl {{ colour_tag }} {{ classes }}">
     <div class = "flex flex-col justify-between w-full">
       <div class = "flex flex-row items-center w-full">
         {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag: style: "width:10rem"  }}
