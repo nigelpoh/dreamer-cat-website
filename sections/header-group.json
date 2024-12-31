@@ -41,12 +41,12 @@
         "countdown_CNPQdH": {
           "type": "countdown",
           "settings": {
-            "text": "Holiday Sale",
+            "text": "New Year Sale",
             "link": "",
-            "year": 2024,
-            "month": 12,
+            "year": 2025,
+            "month": 1,
             "day": 7,
-            "hour": 1,
+            "hour": 0,
             "min": 0,
             "sec": 0,
             "reset": 1
