@@ -35,17 +35,12 @@
 {% comment %} Removed max-w-[30rem] {% endcomment %}
  <a href = "{{ product.url }}">
   <div class = "flex flex-col items-center w-[30rem] py-12 px-12 rounded-2xl {{ colour_tag }} {{ classes }}">
-    <div class = "flex flex-col h-full justify-between w-full">
-      <div class = "flex row items-center w-full">
-        {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag  }}
-        <div class = "flex flex-col w-full">
-          {% if show_badges == true %}
-            <div class = "flex flex-row mb-4 flex-wrap gap-2">
-              {% for badge in product.metafields.custom.badges.value %}
-                <div class = "bg-black text-bg font-body font-bold text-xl w-fit rounded-xl py-1 px-4">{{ badge }}</div>
-              {% endfor %}
-            </div>
-          {% endif %}
+    <div class = "flex flex-col justify-between w-full">
+      <div class = "flex flex-row items-center w-full">
+        <div class = "w-1/5">
+          {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag  }}
+        </div>
+        <div class = "flex flex-col w-4/5">
           <div class = "font-body text-2xl text-black uppercase font-black text-wrap break-words">{{ product.title | split: "]" | last }}</div>
           <div class = "flex flex-row items-center mt-2">
             <div class = "font-body text-2xl text-black uppercase font-bold">{{ product.price | money_with_currency }}</div>
