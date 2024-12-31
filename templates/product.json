@@ -31,7 +31,7 @@
           "type": "price",
           "settings": {
             "info": "",
-            "badge": "Christmas Deal",
+            "badge": "",
             "discount_badge": "Save 40%",
             "padding_top": 20,
             "padding_bottom": 0
