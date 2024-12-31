@@ -40,7 +40,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/Christmas_Sale.webp",
-            "heading": "50% Off Storewide",
+            "heading": "Up To 50% Off Storewide",
             "theme_colour": "hl-yellow",
             "subheading": "Making Wallets Smile (Briefly)",
             "button_label": "Button label",
