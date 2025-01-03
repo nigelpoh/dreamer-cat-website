@@ -165,6 +165,7 @@
     },
     "product_list_9YFBHA": {
       "type": "product-list",
+      "disabled": true,
       "settings": {
         "heading": "Power Up Your Cover",
         "heading_size": "text-5xl",
