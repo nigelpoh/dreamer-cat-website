@@ -74,7 +74,7 @@
             id="ProductSubmitButton-{{ section_id }}"
             type="submit"
             name="add"
-            class="transition duration-300 product-form__submit bg-bg-product w-full text-center font-body text-bg capitalize text-2xl font-bold py-5 rounded-xl"
+            class="transition duration-300 product-form__submit bg-bg-product w-full text-center font-body text-bg capitalize text-3xl font-reg py-5 rounded-3xl"
             {% if product.selected_or_first_available_variant.available == false
               or quantity_rule_soldout
               or product.selected_or_first_available_variant == null
@@ -91,7 +91,7 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
-            <div class = "cart_loading font-body font-bold text-xl hidden">Adding...</div>
+            <div class = "cart_loading font-body font-bold text-2xl hidden">Adding...</div>
           </button>
           {%- if show_dynamic_checkout -%}
             {{ form | payment_button }}
