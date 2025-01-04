@@ -151,6 +151,7 @@
     },
     "product_list_T6L7Jm": {
       "type": "product-list",
+      "disabled": true,
       "settings": {
         "heading": "Bundle & Save",
         "heading_size": "text-5xl",
