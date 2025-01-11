@@ -38,6 +38,7 @@
     <div class = "flex flex-col h-full justify-between w-full">
       <div class = "flex flex-col items-center w-full">
         <div class = "relative w-80 h-80">
+          {% comment %}
           <div class = "absolute w-40 h-52 left-20">
             {% if product.metafields.custom.snapshot.value.image %}
               {{ product.metafields.custom.snapshot.value.image | image_url: width: 400 | image_tag: class: 'object-cover object-center w-40 h-52 rounded-[2.5em]'  }}
@@ -45,7 +46,7 @@
               {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
           </div>
-          {% comment %}
+          {% endcomment %}
           <div class = "absolute w-80 h-80">
             {% if product.metafields.custom.img_shadow.value.image %}
               {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag  }}
@@ -53,7 +54,6 @@
               {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
           </div>
-          {% endcomment %}
         </div>
         <div class = "flex flex-col w-full">
           {% if show_badges == true %}
