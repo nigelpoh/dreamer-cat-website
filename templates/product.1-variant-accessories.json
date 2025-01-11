@@ -228,37 +228,6 @@
         "heading_size": "text-5xl"
       }
     },
-    "spotlight_image_text_RJ9c7B": {
-      "type": "spotlight-image-text",
-      "blocks": {
-        "heading_DFF6Dm": {
-          "type": "heading",
-          "settings": {
-            "heading": "MEET THE MOONBLINK.",
-            "colour": "bg"
-          }
-        },
-        "body_jyt8CF": {
-          "type": "body",
-          "settings": {
-            "body": "<p>Durable and reliable, this waterproof case protects like moonlight over the night. Made from recyclable materials, it keeps your phone safe while caring for the planet.</p>",
-            "colour": "bg"
-          }
-        }
-      },
-      "block_order": [
-        "heading_DFF6Dm",
-        "body_jyt8CF"
-      ],
-      "settings": {
-        "bg_colour": "black",
-        "video": "shopify://files/videos/moonblink_anim.mp4",
-        "rate": 0.7,
-        "desktop_position": "right",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "collapsible_content_tRFYTi": {
       "type": "collapsible-content",
       "blocks": {
@@ -326,7 +295,6 @@
     "related-products",
     "product_list_3XPf9r",
     "product_specification_AwCXzD",
-    "spotlight_image_text_RJ9c7B",
     "collapsible_content_tRFYTi",
     "reviews_MbDrbP"
   ]
