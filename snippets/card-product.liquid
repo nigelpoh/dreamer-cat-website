@@ -62,7 +62,7 @@
           </div>
         </div>
       {% endcomment %}
-      <div class = "flex bg-slate-100 rounded-2xl min-h-[18em] min-w-[18em]">
+      <div class = "flex bg-slate-100 rounded-2xl">
         {% if product.metafields.custom.img_shadow.value.image %}
           {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag: class: "object-cover"  }}
         {% else %}

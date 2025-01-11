@@ -1494,6 +1494,14 @@ video {
   min-height: 40vh;
 }
 
+.min-h-\[24em\] {
+  min-height: 24em;
+}
+
+.min-h-\[20em\] {
+  min-height: 20em;
+}
+
 .w-1 {
   width: 0.25rem;
 }
@@ -1585,6 +1593,14 @@ video {
 
 .min-w-\[18em\] {
   min-width: 18em;
+}
+
+.min-w-\[24em\] {
+  min-width: 24em;
+}
+
+.min-w-\[20em\] {
+  min-width: 20em;
 }
 
 .max-w-\[30rem\] {

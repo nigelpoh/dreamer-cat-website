@@ -40,6 +40,7 @@
             {% if forloop.index != 0 %}
                 {% assign class_str = "mr-8" %}
             {% endif %}
+            {% assign class_str = class_str | append: " min-h-[20em] min-w-[20em]" %}
             {% if colourful %}
                 {% render 'card-product', section_id: section_id, product: prod, colour: possible_colours[colour_index], classes: class_str, show_collection_name: show_collection_name, show_badges: show_badges, show_shop_now: show_shop_now %}
             {% else %}
