@@ -89,7 +89,7 @@
         </form>
     </div>
     <div class = "flex flex-col w-full md:w-[60%] xl:w-[70%]">
-        {% assign colours = "bg-hl-lighter-green,bg-hl-lighter-blue,bg-hl-lighter-yellow,bg-hl-lighter-red" | split: "," %}
+        {% comment %}{% assign colours = "bg-hl-lighter-green,bg-hl-lighter-blue,bg-hl-lighter-yellow,bg-hl-lighter-red" | split: "," %}{% endcomment %}
         <scrollable-row id = "ScrollableProducts-{{ section.id }}" class = "relative">      
             <input id = "SliderController-{{ section.id }}" class = "slider-controller hidden" value = "" />
             <div id = "Scrollable-{{ section.id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth overflow-y-hidden">
@@ -98,8 +98,8 @@
                     {% if check_0 == 0 %}
                         <div class = "flex flex-col {% if forloop.index0 != 0 %}ml-12{% endif %}">
                     {% endif %}
-                    {% assign colour_index = forloop.index0 | modulo: 4 %}
-                    <div class = "{{ colours[colour_index] }} py-10 px-12 rounded-2xl {% if check_0 != 0 %}mt-8{% endif %} w-[30rem] reg:w-[40rem] md:w-[45rem] xl:w-[50rem]" id = "review-{{ forloop.index }}">
+                    {% comment %} {% assign colour_index = forloop.index0 | modulo: 4 %} {% endcomment %}
+                    <div class = "py-10 px-12 rounded-2xl bg-slate-100 {% if check_0 != 0 %}mt-8{% endif %} w-[30rem] reg:w-[40rem] md:w-[45rem] xl:w-[50rem]" id = "review-{{ forloop.index }}">
                     <h2 class = "font-body font-bold text-neutral-800 text-3xl">{{ review.title }}</h2>
                     <div class = "flex flex-row mt-2">
                         {% assign stars = review.stars | round %}
@@ -115,7 +115,7 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <p>{{ review.body }}</p>
+                    <p class = "font-body text-xl my-4">{{ review.body }}</p>
         
                     <h4 class = "font-body text-lg font-bold w-full text-right text-neutral-800">{{ review.author }}</h4>
                     <p class = "font-body text-base font-medium w-full text-right text-neutral-400">{{ review.rated_at | date: "%d %b %Y" }}</p>
@@ -212,8 +212,7 @@
   ],
   "presets": [
       {
-          "name": "Reviews",
-          "category": "custom"
+          "name": "Reviews"
       }
   ],
   "enabled_on": {
@@ -221,14 +220,3 @@
   }
 }
 {% endschema %}
-
-
-
-
-
-
-
-
-
-
-

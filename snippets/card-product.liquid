@@ -10,6 +10,7 @@
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
   - show_collection_name: {Boolean} Whether to show the product's collection name (optional, default: true)
   - show_badges: {Boolean} Whether to show the product's badges (optional, default: false)
+  - show_shop_now: {Boolean} Whether to show shop now button (optional, default: false)
 
   Usage:
   {% render 'card-product', section_id: section_id, product: product %}
@@ -30,15 +31,21 @@
   if show_badges != false and show_badges != true
     assign show_badges = false
   endif
+  if show_shop_now != true 
+    assign show_shop_now = false
+  endif
+  assign text_colour = "text-black"
+  if colour == "hl-red" or colour == "hl-blue"
+    assign text_colour = "text-slate-100"
+  endif
 -%}
 {% assign colour_tag = "bg-" | append: colour %}
 {% comment %} Removed max-w-[30rem] {% endcomment %}
- <a href = "{{ product.url }}">
-  <div class = "flex flex-col items-center w-[30rem] py-12 px-12 rounded-2xl {{ colour_tag }} {{ classes }}">
-    <div class = "flex flex-col h-full justify-between w-full">
-      <div class = "flex flex-col items-center w-full">
+<a class = "flex flex-col p-6 rounded-2xl {{ colour_tag }} {{ classes }}" href = "{{ product.url }}">
+  <div class = "flex flex-col h-full justify-between w-full">
+    <div class = "flex flex-col items-center w-full">
+      {% comment %}
         <div class = "relative w-80 h-80">
-          {% comment %}
           <div class = "absolute w-40 h-52 left-20">
             {% if product.metafields.custom.snapshot.value.image %}
               {{ product.metafields.custom.snapshot.value.image | image_url: width: 400 | image_tag: class: 'object-cover object-center w-40 h-52 rounded-[2.5em]'  }}
@@ -46,7 +53,6 @@
               {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
             {% endif %}
           </div>
-          {% endcomment %}
           <div class = "absolute w-80 h-80">
             {% if product.metafields.custom.img_shadow.value.image %}
               {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag  }}
@@ -55,35 +61,43 @@
             {% endif %}
           </div>
         </div>
-        <div class = "flex flex-col w-full">
-          {% if show_badges == true %}
-            <div class = "flex flex-row mb-4 flex-wrap gap-2">
-              {% for badge in product.metafields.custom.badges.value %}
-                <div class = "bg-black text-bg font-body font-bold text-xl w-fit rounded-xl py-1 px-4">{{ badge }}</div>
-              {% endfor %}
-            </div>
-          {% endif %}
-          {% if show_collection_name == true %}
-            <div class = "font-body text-lg text-black uppercase font-semibold text-wrap">{{ product.metafields.custom.collection.value.title }}</div>
-          {% endif %}
-          <div class = "font-display text-4xl text-black uppercase font-black text-wrap break-words">{{ product.title | split: "]" | last }}</div>
-          <div class = "flex flex-row items-center mt-2">
-            <div class = "font-body text-2xl text-black uppercase font-bold">{{ product.price | money_with_currency }}</div>
-            {% if product.price != product.compare_at_price and product.compare_at_price != 0 %}
-              <div class = "font-body text-xl text-neutral-400 uppercase font-semibold ml-4"><s>{{ product.compare_at_price | money_with_currency }}</s></div>
-            {% endif %} 
+      {% endcomment %}
+      <div class = "flex bg-slate-100 rounded-2xl min-h-[18em] min-w-[18em]">
+        {% if product.metafields.custom.img_shadow.value.image %}
+          {{ product.metafields.custom.img_shadow.value.image | image_url: width: 400 | image_tag: class: "object-cover"  }}
+        {% else %}
+          {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+      <div class = "flex flex-col w-full mt-6">
+        {% if show_badges == true %}
+          <div class = "flex flex-row mb-4 flex-wrap gap-2">
+            {% for badge in product.metafields.custom.badges.value %}
+              <div class = "bg-black text-bg font-body font-bold text-xl w-fit rounded-xl py-1 px-4">{{ badge }}</div>
+            {% endfor %}
           </div>
-          <div class = "font-body font-medium text-2xl text-black my-4"> </div>
+        {% endif %}
+        {% if show_collection_name == true %}
+          <div class = "font-body text-md {{ text_colour }} opacity-80 uppercase font-semibold text-wrap">{{ product.metafields.custom.collection.value.title }}</div>
+        {% endif %}
+        <div class = "font-display text-3xl {{ text_colour }} font-black text-wrap break-words">{{ product.title | split: "]" | last }}</div>
+        <div class = "flex flex-row items-center mt-2">
+          <div class = "font-body text-2xl {{ text_colour }} uppercase font-bold">{{ product.price | money_with_currency }}</div>
+          {% if product.price != product.compare_at_price and product.compare_at_price != 0 %}
+            <div class = "font-body text-xl {{ text_colour }} opacity-50 uppercase font-semibold ml-4"><s>{{ product.compare_at_price | money_with_currency }}</s></div>
+          {% endif %} 
         </div>
       </div>
-      <div class = "flex justify-start">
-        <a class = "group flex flex-row justify-center items-center border-black border-2 font-body font-bold text-lg px-4 py-1 rounded-xl" href = "{{ product.url }}">
-          <span class = "mr-2 text-nowrap">Shop Now</span>
-          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "w-4 h-4 group-hover:translate-x-2 transition duration-300 ease-in-out">
-            <polyline class="fill-none stroke-black stroke-2" stroke-linecap="round" stroke-linejoin="round" points="1.68 10.02 5.9 5.55 1.68 1.08"/>
-          </svg>
-        </a>
-      </div>
     </div>
+  {% if show_shop_now %}
+    <div class = "flex mt-8">
+      <a class = "group flex flex-row justify-center items-center border-black border-2 font-body font-bold text-lg px-4 py-1 rounded-xl" href = "{{ product.url }}">
+        <span class = "mr-2 text-nowrap">Shop Now</span>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 7.42 11.59" class = "w-4 h-4 group-hover:translate-x-2 transition duration-300 ease-in-out">
+          <polyline class="fill-none stroke-black stroke-2" stroke-linecap="round" stroke-linejoin="round" points="1.68 10.02 5.9 5.55 1.68 1.08"/>
+        </svg>
+      </a>
+    </div>
+  {% endif %}
   </div>
 </a>

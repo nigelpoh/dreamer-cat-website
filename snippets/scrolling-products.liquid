@@ -3,6 +3,10 @@
   Accepts:
   - section_id: {String} The section's id 
   - products: {List of Product (product[])} the list of products to render
+  - colourful: {Boolean} Whether we should use colour for this snippet
+  - show_collection_name: {Boolean} Whether to show the product's collection name (optional, default: true)
+  - show_badges: {Boolean} Whether to show the product's badges (optional, default: false)
+  - show_shop_now: {Boolean} Whether to show shop now button (optional, default: false)
 
   Usage:
   {% render 'scrolling-products',
@@ -11,22 +15,36 @@
 {% endcomment %}
 
 {%- liquid
-    assign possible_colours_lighter = 'hl-lighter-red,hl-lighter-green,hl-lighter-yellow,hl-lighter-blue'
-    assign possible_colours_lighter = possible_colours_lighter | split: ','
+    if show_collection_name != false and show_collection_name != true
+      assign show_collection_name = true
+    endif
+    if show_badges != false and show_badges != true
+      assign show_badges = false
+    endif
+    if show_shop_now != true 
+      assign show_shop_now = false
+    endif
+-%}
+
+{%- liquid
     assign possible_colours = 'hl-red,hl-green,hl-yellow,hl-blue'
     assign possible_colours = possible_colours| split: ','
 -%}
 
 <scrollable-row id = "ScrollableProducts-{{ section_id }}" class = "relative">
     <input id = "SliderController-{{ section_id }}" class = "slider-controller hidden" value = "" />
-    <div id = "Scrollable-{{ section_id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth overflow-y-hidden">
+    <div id = "Scrollable-{{ section_id }}" class = "scrollable flex flex-row overflow-x-scroll no-scrollbar scroll-smooth overflow-y-hidden items-stretch">
         {% for prod in products %}
             {% assign colour_index = forloop.index | modulo: 4 %}
             {% assign class_str = "" %}
             {% if forloop.index != 0 %}
                 {% assign class_str = "mr-8" %}
             {% endif %}
-            {% render 'card-product', section_id: section_id, product: prod, colour: possible_colours_lighter[colour_index], classes: class_str %}
+            {% if colourful %}
+                {% render 'card-product', section_id: section_id, product: prod, colour: possible_colours[colour_index], classes: class_str, show_collection_name: show_collection_name, show_badges: show_badges, show_shop_now: show_shop_now %}
+            {% else %}
+                {% render 'card-product', section_id: section_id, product: prod, colour: 'slate-300', classes: class_str, show_collection_name: show_collection_name, show_badges: show_badges, show_shop_now: show_shop_now %}
+            {% endif %}
         {% endfor %}
     </div>
     <div id = "SliderIndicators-{{ section_id }}" class = "slider-indicators flex flex-row w-full justify-center mt-8"></div>
