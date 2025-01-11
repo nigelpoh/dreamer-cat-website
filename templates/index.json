@@ -35,30 +35,11 @@
             "subheading": "Japan's Beauty Made Portable - Because Who Has Room for a Shrine?",
             "link": "shopify://collections/a-trip-to-japan"
           }
-        },
-        "image_slide_p3qVtK": {
-          "type": "image_slide",
-          "settings": {
-            "image": "shopify://shop_images/Christmas_Sale.webp",
-            "heading": "Up To 50% Off Storewide",
-            "theme_colour": "hl-yellow",
-            "subheading": "Making Wallets Smile (Briefly)",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
-            "text_alignment_mobile": "center"
-          }
         }
       },
       "block_order": [
         "video_slide_8pd6G7",
-        "video_slide_QKmRje",
-        "image_slide_p3qVtK"
+        "video_slide_QKmRje"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -143,6 +124,10 @@
         "subheading": "From Dreamer Cat's Adventures",
         "subheading_size": "text-3xl",
         "collection": "trending-collection",
+        "use_colour": false,
+        "show_collection_name": false,
+        "show_badges": false,
+        "show_shop_now": false,
         "ornament": "triple-comet",
         "ornament_position": "left",
         "padding_top": 36,
