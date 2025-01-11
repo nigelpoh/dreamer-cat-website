@@ -277,7 +277,7 @@
       ],
       "settings": {
         "bg_colour": "black",
-        "video": "shopify://files/videos/moonblink_anim.mp4",
+        "video": "shopify://files/videos/moonblink_anim_no_filter.mp4",
         "rate": 0.7,
         "desktop_position": "right",
         "padding_top": 36,
