@@ -11,6 +11,7 @@ module.exports = {
     "rounded-md", 
     "ml-3", 
     "bg-neutral-400",
+    "bg-slate-200",
     "bg-slate-300",
     "bg-orange-400",
     {
