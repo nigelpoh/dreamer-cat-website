@@ -29,7 +29,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'display': ['Kufam', 'system-ui'],
+        'display': ['Lexend', 'system-ui'],
         'body': ['Space Grotesk', 'system-ui'], 
       },
       colors: {

@@ -1486,20 +1486,12 @@ video {
   min-height: 2rem;
 }
 
-.min-h-\[18em\] {
-  min-height: 18em;
+.min-h-\[20em\] {
+  min-height: 20em;
 }
 
 .min-h-\[40vh\] {
   min-height: 40vh;
-}
-
-.min-h-\[24em\] {
-  min-height: 24em;
-}
-
-.min-h-\[20em\] {
-  min-height: 20em;
 }
 
 .w-1 {
@@ -1589,14 +1581,6 @@ video {
 
 .min-w-8 {
   min-width: 2rem;
-}
-
-.min-w-\[18em\] {
-  min-width: 18em;
-}
-
-.min-w-\[24em\] {
-  min-width: 24em;
 }
 
 .min-w-\[20em\] {
@@ -2956,7 +2940,7 @@ video {
 }
 
 .font-display {
-  font-family: Kufam, system-ui;
+  font-family: Lexend, system-ui;
 }
 
 .text-2xl {

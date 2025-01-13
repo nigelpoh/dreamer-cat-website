@@ -82,8 +82,8 @@
           {%- when 'title' -%}
             <div class = "flex flex-col w-full text-wrap" {{ block.shopify_attributes }} style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
               {% assign actual_title = product.title | split: "]" | last %}
-              <h1 class = "font-display font-black text-black text-5xl uppercase tracking-[0.08em] break-words">{{ actual_title | escape }}</h1>
-              <h5 class = "font-body font-semibold text-sec-head uppercase text-2xl"> On {{ product.collections[0].title | escape }}</h5>
+              <h1 class = "font-display font-black text-black text-6xl break-words">{{ actual_title | escape }}</h1>
+              {% comment %} <h5 class = "font-body font-semibold text-sec-head uppercase text-2xl"> On {{ product.collections[0].title | escape }}</h5> {% endcomment %}
             </div>
           {%- when 'price' -%}
             <div id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }} style = "margin-top:{{ block.settings.padding_top }}px;margin-bottom:{{ block.settings.padding_bottom }}px">
