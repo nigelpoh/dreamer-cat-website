@@ -42,8 +42,8 @@
           "settings": {
             "discount_buy_1": "",
             "discount_get_1": "",
-            "discount_buy_2": "2+",
-            "discount_get_2": "extra 20% off",
+            "discount_buy_2": "2",
+            "discount_get_2": "Get 1 FREE",
             "discount_buy_3": "",
             "discount_get_3": "",
             "apply": "",
