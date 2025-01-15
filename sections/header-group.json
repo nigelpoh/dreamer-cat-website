@@ -26,13 +26,12 @@
           "type": "text",
           "disabled": true,
           "settings": {
-            "text": "Buy 2 Get Additional 25% | Buy 3 Get Additional 35%",
+            "text": "Buy 2 Get 1 Free | January Sale 40% Off All Phone Cases",
             "link": ""
           }
         },
         "text_gpntGL": {
           "type": "text",
-          "disabled": true,
           "settings": {
             "text": "📦 Free Worldwide Shipping 📦",
             "link": ""
@@ -40,6 +39,7 @@
         },
         "countdown_CNPQdH": {
           "type": "countdown",
+          "disabled": true,
           "settings": {
             "text": "New Year Sale",
             "link": "",
