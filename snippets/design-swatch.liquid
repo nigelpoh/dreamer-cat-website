@@ -15,17 +15,18 @@
     endfor
 -%}
 
-<div style="margin-top: 0.5rem; display: flex; flex-direction: row;">
+
+<div class= 'flex flex-row mt-2'>
     {% for prod in products %}
-      {{ prod.title }}
         {% if prod.metafields.custom.thumbnail.value != blank %}
             {% if prod.id == product.id %}
-                <div style="display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                    {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover rounded-full w-20 h-20' }}
+                
+                <div class="border-[3px] border-solid border-hl-red rounded-full mr-[10px] flex justify-center items-center overflow-hidden w-20 h-20">
+                    {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover' }}
                 </div>
             {% else %}
-                <a style="display: flex; align-items: center; justify-content: center; overflow: hidden; border-style: solid;" href={{prod.url}}>
-                    {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover w-20 h-20 rounded-full' }}
+                <a class="mr-[10px] rounded-full border-solid flex justify-center items-center overflow-hidden w-20 h-20" href={{prod.url}}>
+                    {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover' }}
                 </a>
             {% endif %}
         {% endif %}
