@@ -18,6 +18,7 @@
 
 <div class= 'flex flex-row mt-2'>
     {% for prod in products %}
+      {{ prod.title }}
         {% if prod.metafields.custom.thumbnail.value != blank %}
             {% if prod.id == product.id %}
                 <div class="border-2 p-1.5 border-solid border-black rounded-full mr-[10px] flex justify-center items-center overflow-hidden ">
