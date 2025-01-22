@@ -20,7 +20,6 @@
     {% for prod in products %}
         {% if prod.metafields.custom.thumbnail.value != blank %}
             {% if prod.id == product.id %}
-                
                 <div class="border-2 p-1.5 border-solid border-black rounded-full mr-[10px] flex justify-center items-center overflow-hidden ">
                     {{ prod.metafields.custom.thumbnail.value | image_url: width: 200, height: 200| image_tag: class: 'shrink-0 object-cover rounded-full w-20 h-20' }}
                 </div>
